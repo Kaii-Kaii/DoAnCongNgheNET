@@ -70,6 +70,7 @@
             this.btn_Exit.TabIndex = 15;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // lb_Load2
             // 

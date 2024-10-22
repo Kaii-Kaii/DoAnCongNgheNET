@@ -16,7 +16,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_AdminApp());
+            Application.Run(new frm_Login());
         }
     }
 }
