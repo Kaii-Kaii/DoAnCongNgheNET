@@ -125,7 +125,7 @@
             // 
             // pn_bg3
             // 
-            this.pn_bg3.Controls.Add(this.themNhanVien1);
+            this.pn_bg3.Controls.Add(themNhanVien1);
             this.pn_bg3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_bg3.Location = new System.Drawing.Point(220, 43);
             this.pn_bg3.Name = "pn_bg3";
