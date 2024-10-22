@@ -21,5 +21,12 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         {
             Application.Exit();
         }
+
+        private void frm_Login_Load(object sender, EventArgs e)
+        {
+
+        }
+        // hello nhen
+        // ụaaaa
     }
 }
