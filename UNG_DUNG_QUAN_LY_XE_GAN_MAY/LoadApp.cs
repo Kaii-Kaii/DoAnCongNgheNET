@@ -23,7 +23,16 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             if (pn_Load1.Width >= 636)
             {
                 time_load.Stop();
+                frm_Login frm = new frm_Login();
+                frm.Show();
+                this.Hide();
+
             }
+        }
+
+        private void frm_LoadApp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

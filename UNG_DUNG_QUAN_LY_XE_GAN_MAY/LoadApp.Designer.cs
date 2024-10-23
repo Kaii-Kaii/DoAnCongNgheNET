@@ -94,6 +94,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_LoadApp";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frm_LoadApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picb_bgr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
