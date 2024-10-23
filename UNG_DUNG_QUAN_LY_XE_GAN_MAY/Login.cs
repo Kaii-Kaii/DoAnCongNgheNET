@@ -34,6 +34,17 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes) Application.Exit();
         }
+
+        private void txt_Pass_TextChanged(object sender, EventArgs e)
+        {
+            txt_Pass.PasswordChar = '*';
+        }
+
+        private void chb_Show_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_Show.Checked) txt_Pass.PasswordChar = '\0';
+            else txt_Pass.PasswordChar = '*';
+        }
         // hello nhen
         // ụaaaa
     }

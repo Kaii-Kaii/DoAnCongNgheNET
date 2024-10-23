@@ -152,6 +152,7 @@
             this.txt_Pass.Name = "txt_Pass";
             this.txt_Pass.Size = new System.Drawing.Size(258, 30);
             this.txt_Pass.TabIndex = 12;
+            this.txt_Pass.TextChanged += new System.EventHandler(this.txt_Pass_TextChanged);
             // 
             // chb_Show
             // 
@@ -162,6 +163,7 @@
             this.chb_Show.TabIndex = 13;
             this.chb_Show.Text = "ShowPass";
             this.chb_Show.UseVisualStyleBackColor = true;
+            this.chb_Show.CheckedChanged += new System.EventHandler(this.chb_Show_CheckedChanged);
             // 
             // btn_Login
             // 
