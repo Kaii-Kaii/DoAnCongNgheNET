@@ -15,11 +15,49 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         public frm_AdminApp()
         {
             InitializeComponent();
+            // load user control ThemNhanVien vao pn_bg3_Paint
+            ThemNhanVien themNhanVien = new ThemNhanVien();
+            pn_bg3.Controls.Add(themNhanVien);
+            themNhanVien.Dock = DockStyle.Fill;
+            themNhanVien.BringToFront();
+
+
         }
 
         private void picb_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_ThongKe_Click(object sender, EventArgs e)
+        {
+            ThongKe thongKe = new ThongKe();
+            pn_bg3.Controls.Clear();
+            pn_bg3.Controls.Add(thongKe);
+            thongKe.Dock = DockStyle.Fill;
+            thongKe.BringToFront();
+        }
+
+        private void themNhanVien1_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void pn_bg3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pn_bg2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            ThemNhanVien themNhanVien = new ThemNhanVien();
+            pn_bg3.Controls.Add(themNhanVien);
+            themNhanVien.Dock = DockStyle.Fill;
+            themNhanVien.BringToFront();
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pn_bg2 = new System.Windows.Forms.Panel();
+            this.picb_exit = new System.Windows.Forms.PictureBox();
             this.lb_br2 = new System.Windows.Forms.Label();
             this.pn_bg1 = new System.Windows.Forms.Panel();
             this.btn_DeXuat = new System.Windows.Forms.Button();
@@ -36,12 +37,9 @@
             this.lb_br3 = new System.Windows.Forms.Label();
             this.btn_Them = new System.Windows.Forms.Button();
             this.pn_bg3 = new System.Windows.Forms.Panel();
-            this.picb_exit = new System.Windows.Forms.PictureBox();
-            this.themNhanVien1 = new UNG_DUNG_QUAN_LY_XE_GAN_MAY.ThemNhanVien();
             this.pn_bg2.SuspendLayout();
-            this.pn_bg1.SuspendLayout();
-            this.pn_bg3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picb_exit)).BeginInit();
+            this.pn_bg1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pn_bg2
@@ -54,6 +52,19 @@
             this.pn_bg2.Name = "pn_bg2";
             this.pn_bg2.Size = new System.Drawing.Size(1200, 43);
             this.pn_bg2.TabIndex = 2;
+            this.pn_bg2.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_bg2_Paint);
+            // 
+            // picb_exit
+            // 
+            this.picb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picb_exit.Image = global::UNG_DUNG_QUAN_LY_XE_GAN_MAY.Properties.Resources.Cancel;
+            this.picb_exit.Location = new System.Drawing.Point(1163, 7);
+            this.picb_exit.Name = "picb_exit";
+            this.picb_exit.Size = new System.Drawing.Size(34, 27);
+            this.picb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picb_exit.TabIndex = 16;
+            this.picb_exit.TabStop = false;
+            this.picb_exit.Click += new System.EventHandler(this.picb_exit_Click);
             // 
             // lb_br2
             // 
@@ -100,6 +111,7 @@
             this.btn_ThongKe.TabIndex = 7;
             this.btn_ThongKe.Text = "Thống kê";
             this.btn_ThongKe.UseVisualStyleBackColor = false;
+            this.btn_ThongKe.Click += new System.EventHandler(this.btn_ThongKe_Click);
             // 
             // lb_br3
             // 
@@ -122,34 +134,16 @@
             this.btn_Them.TabIndex = 0;
             this.btn_Them.Text = "Thêm nhân viên";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // pn_bg3
             // 
-            this.pn_bg3.Controls.Add(themNhanVien1);
             this.pn_bg3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_bg3.Location = new System.Drawing.Point(220, 43);
             this.pn_bg3.Name = "pn_bg3";
             this.pn_bg3.Size = new System.Drawing.Size(980, 617);
             this.pn_bg3.TabIndex = 4;
-            // 
-            // picb_exit
-            // 
-            this.picb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picb_exit.Image = global::UNG_DUNG_QUAN_LY_XE_GAN_MAY.Properties.Resources.Cancel;
-            this.picb_exit.Location = new System.Drawing.Point(1163, 7);
-            this.picb_exit.Name = "picb_exit";
-            this.picb_exit.Size = new System.Drawing.Size(34, 27);
-            this.picb_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picb_exit.TabIndex = 16;
-            this.picb_exit.TabStop = false;
-            this.picb_exit.Click += new System.EventHandler(this.picb_exit_Click);
-            // 
-            // themNhanVien1
-            // 
-            this.themNhanVien1.Location = new System.Drawing.Point(0, -3);
-            this.themNhanVien1.Name = "themNhanVien1";
-            this.themNhanVien1.Size = new System.Drawing.Size(1256, 800);
-            this.themNhanVien1.TabIndex = 0;
+            this.pn_bg3.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_bg3_Paint);
             // 
             // frm_AdminApp
             // 
@@ -166,10 +160,9 @@
             this.Text = "AdminApp";
             this.pn_bg2.ResumeLayout(false);
             this.pn_bg2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picb_exit)).EndInit();
             this.pn_bg1.ResumeLayout(false);
             this.pn_bg1.PerformLayout();
-            this.pn_bg3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picb_exit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,6 +178,5 @@
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.PictureBox picb_exit;
         private System.Windows.Forms.Panel pn_bg3;
-        private ThemNhanVien themNhanVien1;
     }
 }
