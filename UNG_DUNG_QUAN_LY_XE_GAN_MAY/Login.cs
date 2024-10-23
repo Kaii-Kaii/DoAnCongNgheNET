@@ -29,8 +29,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            // dừng chương trình
-            // hộp thoại xác nhận
             DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes) Application.Exit();
         }
