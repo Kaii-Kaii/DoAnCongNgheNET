@@ -23,6 +23,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             if (pn_Load1.Width >= 636)
             {
                 time_load.Stop();
+                Form form = new Form();
             }
         }
     }
