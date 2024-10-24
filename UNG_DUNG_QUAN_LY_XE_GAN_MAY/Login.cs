@@ -35,7 +35,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void txt_Pass_TextChanged(object sender, EventArgs e)
         {
-            txt_Pass.PasswordChar = '*';
+            txt_Pass.PasswordChar = '●';
         }
 
         private void chb_Show_CheckedChanged(object sender, EventArgs e)
