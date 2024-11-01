@@ -52,12 +52,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            //CREATE TABLE TAIKHOAN_NV (
-            //MA_NV CHAR(6) PRIMARY KEY,  --Mã nhân viên(khóa ngoại từ bảng NHANVIEN)
-            //PASS NVARCHAR(50) NOT NULL,  --Mật khẩu
-            //FOREIGN KEY(MA_NV) REFERENCES NHANVIEN(MA_NV)  --Khóa ngoại tham chiếu đến bảng NHANVIEN
-            //);
-            // kiểm tra dữ liệu nhập vào
             if (txt_TDN.Text == "" || txt_Pass.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

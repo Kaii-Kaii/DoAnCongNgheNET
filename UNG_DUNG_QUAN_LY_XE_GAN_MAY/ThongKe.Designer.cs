@@ -100,7 +100,7 @@
             // 
             this.lb_Doanhso.AutoSize = true;
             this.lb_Doanhso.ForeColor = System.Drawing.Color.Black;
-            this.lb_Doanhso.Location = new System.Drawing.Point(166, 27);
+            this.lb_Doanhso.Location = new System.Drawing.Point(166, 78);
             this.lb_Doanhso.Name = "lb_Doanhso";
             this.lb_Doanhso.Size = new System.Drawing.Size(44, 16);
             this.lb_Doanhso.TabIndex = 1;
@@ -112,7 +112,7 @@
             this.lb_hdDS.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_hdDS.ForeColor = System.Drawing.Color.Black;
             this.lb_hdDS.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lb_hdDS.Location = new System.Drawing.Point(23, 61);
+            this.lb_hdDS.Location = new System.Drawing.Point(23, 27);
             this.lb_hdDS.Name = "lb_hdDS";
             this.lb_hdDS.Size = new System.Drawing.Size(123, 33);
             this.lb_hdDS.TabIndex = 0;
@@ -135,11 +135,12 @@
             // 
             this.lb_Tienchi.AutoSize = true;
             this.lb_Tienchi.ForeColor = System.Drawing.Color.Black;
-            this.lb_Tienchi.Location = new System.Drawing.Point(166, 27);
+            this.lb_Tienchi.Location = new System.Drawing.Point(166, 78);
             this.lb_Tienchi.Name = "lb_Tienchi";
             this.lb_Tienchi.Size = new System.Drawing.Size(44, 16);
             this.lb_Tienchi.TabIndex = 1;
             this.lb_Tienchi.Text = "label8";
+            this.lb_Tienchi.Click += new System.EventHandler(this.lb_Tienchi_Click);
             // 
             // lb_hdTC
             // 
@@ -147,7 +148,7 @@
             this.lb_hdTC.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold);
             this.lb_hdTC.ForeColor = System.Drawing.Color.Black;
             this.lb_hdTC.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lb_hdTC.Location = new System.Drawing.Point(23, 61);
+            this.lb_hdTC.Location = new System.Drawing.Point(23, 27);
             this.lb_hdTC.Name = "lb_hdTC";
             this.lb_hdTC.Size = new System.Drawing.Size(109, 33);
             this.lb_hdTC.TabIndex = 0;
@@ -180,11 +181,12 @@
             // 
             this.lb_slNCC.AutoSize = true;
             this.lb_slNCC.ForeColor = System.Drawing.Color.Black;
-            this.lb_slNCC.Location = new System.Drawing.Point(166, 27);
+            this.lb_slNCC.Location = new System.Drawing.Point(166, 73);
             this.lb_slNCC.Name = "lb_slNCC";
             this.lb_slNCC.Size = new System.Drawing.Size(44, 16);
             this.lb_slNCC.TabIndex = 1;
             this.lb_slNCC.Text = "label6";
+            this.lb_slNCC.Click += new System.EventHandler(this.lb_slNCC_Click);
             // 
             // lb_hdNCC
             // 
@@ -192,7 +194,7 @@
             this.lb_hdNCC.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_hdNCC.ForeColor = System.Drawing.Color.Black;
             this.lb_hdNCC.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lb_hdNCC.Location = new System.Drawing.Point(23, 61);
+            this.lb_hdNCC.Location = new System.Drawing.Point(21, 18);
             this.lb_hdNCC.Name = "lb_hdNCC";
             this.lb_hdNCC.Size = new System.Drawing.Size(170, 33);
             this.lb_hdNCC.TabIndex = 0;
@@ -203,7 +205,7 @@
             // 
             this.lb_slTon.AutoSize = true;
             this.lb_slTon.ForeColor = System.Drawing.Color.Black;
-            this.lb_slTon.Location = new System.Drawing.Point(166, 27);
+            this.lb_slTon.Location = new System.Drawing.Point(166, 73);
             this.lb_slTon.Name = "lb_slTon";
             this.lb_slTon.Size = new System.Drawing.Size(44, 16);
             this.lb_slTon.TabIndex = 1;
@@ -227,7 +229,7 @@
             this.lb_hdHTK.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold);
             this.lb_hdHTK.ForeColor = System.Drawing.Color.Black;
             this.lb_hdHTK.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lb_hdHTK.Location = new System.Drawing.Point(23, 61);
+            this.lb_hdHTK.Location = new System.Drawing.Point(23, 18);
             this.lb_hdHTK.Name = "lb_hdHTK";
             this.lb_hdHTK.Size = new System.Drawing.Size(165, 33);
             this.lb_hdHTK.TabIndex = 0;
@@ -250,7 +252,7 @@
             // 
             this.lb_slXuat.AutoSize = true;
             this.lb_slXuat.ForeColor = System.Drawing.Color.Black;
-            this.lb_slXuat.Location = new System.Drawing.Point(166, 27);
+            this.lb_slXuat.Location = new System.Drawing.Point(164, 73);
             this.lb_slXuat.Name = "lb_slXuat";
             this.lb_slXuat.Size = new System.Drawing.Size(44, 16);
             this.lb_slXuat.TabIndex = 1;
@@ -262,7 +264,7 @@
             this.lb_hdHDX.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold);
             this.lb_hdHDX.ForeColor = System.Drawing.Color.Black;
             this.lb_hdHDX.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lb_hdHDX.Location = new System.Drawing.Point(23, 61);
+            this.lb_hdHDX.Location = new System.Drawing.Point(20, 27);
             this.lb_hdHDX.Name = "lb_hdHDX";
             this.lb_hdHDX.Size = new System.Drawing.Size(164, 33);
             this.lb_hdHDX.TabIndex = 0;
@@ -296,7 +298,7 @@
             // 
             this.lb_slKH.AutoSize = true;
             this.lb_slKH.ForeColor = System.Drawing.Color.Black;
-            this.lb_slKH.Location = new System.Drawing.Point(166, 27);
+            this.lb_slKH.Location = new System.Drawing.Point(166, 73);
             this.lb_slKH.Name = "lb_slKH";
             this.lb_slKH.Size = new System.Drawing.Size(44, 16);
             this.lb_slKH.TabIndex = 1;
@@ -308,7 +310,7 @@
             this.lb_hdKH.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold);
             this.lb_hdKH.ForeColor = System.Drawing.Color.Black;
             this.lb_hdKH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lb_hdKH.Location = new System.Drawing.Point(23, 61);
+            this.lb_hdKH.Location = new System.Drawing.Point(13, 18);
             this.lb_hdKH.Name = "lb_hdKH";
             this.lb_hdKH.Size = new System.Drawing.Size(147, 33);
             this.lb_hdKH.TabIndex = 0;
@@ -330,10 +332,11 @@
             // lb_slNV
             // 
             this.lb_slNV.AutoSize = true;
+            this.lb_slNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_slNV.ForeColor = System.Drawing.Color.Black;
-            this.lb_slNV.Location = new System.Drawing.Point(166, 27);
+            this.lb_slNV.Location = new System.Drawing.Point(127, 73);
             this.lb_slNV.Name = "lb_slNV";
-            this.lb_slNV.Size = new System.Drawing.Size(44, 16);
+            this.lb_slNV.Size = new System.Drawing.Size(98, 32);
             this.lb_slNV.TabIndex = 1;
             this.lb_slNV.Text = "label1";
             // 
@@ -343,7 +346,7 @@
             this.lb_hdNV.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_hdNV.ForeColor = System.Drawing.Color.Black;
             this.lb_hdNV.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.lb_hdNV.Location = new System.Drawing.Point(23, 61);
+            this.lb_hdNV.Location = new System.Drawing.Point(21, 18);
             this.lb_hdNV.Name = "lb_hdNV";
             this.lb_hdNV.Size = new System.Drawing.Size(125, 33);
             this.lb_hdNV.TabIndex = 0;
@@ -393,6 +396,7 @@
             this.Controls.Add(this.grb_Nguoi);
             this.Name = "ThongKe";
             this.Size = new System.Drawing.Size(980, 617);
+            this.Load += new System.EventHandler(this.ThongKe_Load);
             this.grb_DS.ResumeLayout(false);
             this.grb_DS.PerformLayout();
             this.grb_TC.ResumeLayout(false);
