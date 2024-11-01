@@ -105,6 +105,7 @@
             this.lb_Doanhso.Size = new System.Drawing.Size(44, 16);
             this.lb_Doanhso.TabIndex = 1;
             this.lb_Doanhso.Text = "label9";
+            this.lb_Doanhso.Click += new System.EventHandler(this.lb_Doanhso_Click);
             // 
             // lb_hdDS
             // 
@@ -334,7 +335,7 @@
             this.lb_slNV.AutoSize = true;
             this.lb_slNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_slNV.ForeColor = System.Drawing.Color.Black;
-            this.lb_slNV.Location = new System.Drawing.Point(127, 73);
+            this.lb_slNV.Location = new System.Drawing.Point(112, 60);
             this.lb_slNV.Name = "lb_slNV";
             this.lb_slNV.Size = new System.Drawing.Size(98, 32);
             this.lb_slNV.TabIndex = 1;

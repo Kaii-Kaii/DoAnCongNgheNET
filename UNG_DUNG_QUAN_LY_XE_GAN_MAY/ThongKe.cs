@@ -51,5 +51,10 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         {
 
         }
+
+        private void lb_Doanhso_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
