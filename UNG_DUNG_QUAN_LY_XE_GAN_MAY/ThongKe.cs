@@ -23,10 +23,9 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
-            //        CREATE TABLE NHANVIEN(
+            //CREATE TABLE NHANVIEN(
             //MA_NV CHAR(6) PRIMARY KEY, --Mã nhân viên(độ dài tối đa 6 ký tự)
             //TENNV NVARCHAR(100) NOT NULL, --Tên nhân viên
-
             //GIOITINH NVARCHAR(3) NOT NULL, --Giới tính nhân viên
             //CHUCVU NVARCHAR(50), --Chức vụ
             //SDT_NV CHAR(10), --Số điện thoại nhân viên
@@ -35,10 +34,16 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             //);
             // lấy tổng số nhân viên
             SqlCommand cmd = new SqlCommand("SELECT COUNT(MA_NV) FROM NHANVIEN", conn);
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(SDT_KH) FROM KHACHHANG", conn);
+            SqlCommand cmd2 = new SqlCommand("SELECT COUNT(MA_NCC) FROM NHACUNGCAP", conn);
             conn.Open();
             int tongNV = (int)cmd.ExecuteScalar();
+            int tongKH = (int)cmd1.ExecuteScalar();
+            int tongNCC = (int)cmd2.ExecuteScalar();
             conn.Close();
             lb_slNV.Text = tongNV.ToString();
+            lb_slKH.Text = tongKH.ToString();
+            lb_slNCC.Text = tongNCC.ToString();
 
         }
 
@@ -53,6 +58,16 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         }
 
         private void lb_Doanhso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_slKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grb_Nguoi_Enter(object sender, EventArgs e)
         {
 
         }

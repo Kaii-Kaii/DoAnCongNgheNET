@@ -99,10 +99,11 @@
             // lb_Doanhso
             // 
             this.lb_Doanhso.AutoSize = true;
+            this.lb_Doanhso.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Doanhso.ForeColor = System.Drawing.Color.Black;
-            this.lb_Doanhso.Location = new System.Drawing.Point(166, 78);
+            this.lb_Doanhso.Location = new System.Drawing.Point(112, 65);
             this.lb_Doanhso.Name = "lb_Doanhso";
-            this.lb_Doanhso.Size = new System.Drawing.Size(44, 16);
+            this.lb_Doanhso.Size = new System.Drawing.Size(98, 32);
             this.lb_Doanhso.TabIndex = 1;
             this.lb_Doanhso.Text = "label9";
             this.lb_Doanhso.Click += new System.EventHandler(this.lb_Doanhso_Click);
@@ -135,10 +136,11 @@
             // lb_Tienchi
             // 
             this.lb_Tienchi.AutoSize = true;
+            this.lb_Tienchi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Tienchi.ForeColor = System.Drawing.Color.Black;
-            this.lb_Tienchi.Location = new System.Drawing.Point(166, 78);
+            this.lb_Tienchi.Location = new System.Drawing.Point(112, 65);
             this.lb_Tienchi.Name = "lb_Tienchi";
-            this.lb_Tienchi.Size = new System.Drawing.Size(44, 16);
+            this.lb_Tienchi.Size = new System.Drawing.Size(98, 32);
             this.lb_Tienchi.TabIndex = 1;
             this.lb_Tienchi.Text = "label8";
             this.lb_Tienchi.Click += new System.EventHandler(this.lb_Tienchi_Click);
@@ -181,10 +183,11 @@
             // lb_slNCC
             // 
             this.lb_slNCC.AutoSize = true;
+            this.lb_slNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_slNCC.ForeColor = System.Drawing.Color.Black;
-            this.lb_slNCC.Location = new System.Drawing.Point(166, 73);
+            this.lb_slNCC.Location = new System.Drawing.Point(112, 73);
             this.lb_slNCC.Name = "lb_slNCC";
-            this.lb_slNCC.Size = new System.Drawing.Size(44, 16);
+            this.lb_slNCC.Size = new System.Drawing.Size(98, 32);
             this.lb_slNCC.TabIndex = 1;
             this.lb_slNCC.Text = "label6";
             this.lb_slNCC.Click += new System.EventHandler(this.lb_slNCC_Click);
@@ -205,10 +208,11 @@
             // lb_slTon
             // 
             this.lb_slTon.AutoSize = true;
+            this.lb_slTon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_slTon.ForeColor = System.Drawing.Color.Black;
-            this.lb_slTon.Location = new System.Drawing.Point(166, 73);
+            this.lb_slTon.Location = new System.Drawing.Point(112, 73);
             this.lb_slTon.Name = "lb_slTon";
-            this.lb_slTon.Size = new System.Drawing.Size(44, 16);
+            this.lb_slTon.Size = new System.Drawing.Size(98, 32);
             this.lb_slTon.TabIndex = 1;
             this.lb_slTon.Text = "label5";
             // 
@@ -252,10 +256,11 @@
             // lb_slXuat
             // 
             this.lb_slXuat.AutoSize = true;
+            this.lb_slXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_slXuat.ForeColor = System.Drawing.Color.Black;
-            this.lb_slXuat.Location = new System.Drawing.Point(164, 73);
+            this.lb_slXuat.Location = new System.Drawing.Point(127, 73);
             this.lb_slXuat.Name = "lb_slXuat";
-            this.lb_slXuat.Size = new System.Drawing.Size(44, 16);
+            this.lb_slXuat.Size = new System.Drawing.Size(98, 32);
             this.lb_slXuat.TabIndex = 1;
             this.lb_slXuat.Text = "label4";
             // 
@@ -298,12 +303,14 @@
             // lb_slKH
             // 
             this.lb_slKH.AutoSize = true;
+            this.lb_slKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_slKH.ForeColor = System.Drawing.Color.Black;
-            this.lb_slKH.Location = new System.Drawing.Point(166, 73);
+            this.lb_slKH.Location = new System.Drawing.Point(112, 60);
             this.lb_slKH.Name = "lb_slKH";
-            this.lb_slKH.Size = new System.Drawing.Size(44, 16);
+            this.lb_slKH.Size = new System.Drawing.Size(98, 32);
             this.lb_slKH.TabIndex = 1;
             this.lb_slKH.Text = "label2";
+            this.lb_slKH.Click += new System.EventHandler(this.lb_slKH_Click);
             // 
             // lb_hdKH
             // 
@@ -383,6 +390,7 @@
             this.grb_Nguoi.Size = new System.Drawing.Size(920, 166);
             this.grb_Nguoi.TabIndex = 15;
             this.grb_Nguoi.TabStop = false;
+            this.grb_Nguoi.Enter += new System.EventHandler(this.grb_Nguoi_Enter);
             // 
             // ThongKe
             // 
