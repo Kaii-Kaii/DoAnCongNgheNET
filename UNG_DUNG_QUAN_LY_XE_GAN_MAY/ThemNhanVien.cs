@@ -45,7 +45,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 e.Handled = true;
             }
         }
-
         private bool checkSoDienThoai(string sdt)
         {
             if (sdt.Length != 10)

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Security.Cryptography.Xml;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
@@ -23,27 +24,20 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void ThongKe_Load(object sender, EventArgs e)
         {
-            //CREATE TABLE NHANVIEN(
-            //MA_NV CHAR(6) PRIMARY KEY, --Mã nhân viên(độ dài tối đa 6 ký tự)
-            //TENNV NVARCHAR(100) NOT NULL, --Tên nhân viên
-            //GIOITINH NVARCHAR(3) NOT NULL, --Giới tính nhân viên
-            //CHUCVU NVARCHAR(50), --Chức vụ
-            //SDT_NV CHAR(10), --Số điện thoại nhân viên
-            //NGAYSINH DATE, --Ngày sinh
-            //DIACHI_NV NVARCHAR(255)-- Địa chỉ nhân viên
-            //);
-            // lấy tổng số nhân viên
             SqlCommand cmd = new SqlCommand("SELECT COUNT(MA_NV) FROM NHANVIEN", conn);
             SqlCommand cmd1 = new SqlCommand("SELECT COUNT(SDT_KH) FROM KHACHHANG", conn);
             SqlCommand cmd2 = new SqlCommand("SELECT COUNT(MA_NCC) FROM NHACUNGCAP", conn);
+            SqlCommand cmd3 = new SqlCommand("SELECT SUM(TONGBILL_XUAT) FROM HD_XUAT_BAOHANH", conn);
             conn.Open();
             int tongNV = (int)cmd.ExecuteScalar();
             int tongKH = (int)cmd1.ExecuteScalar();
             int tongNCC = (int)cmd2.ExecuteScalar();
+            decimal tongTienChi = (decimal)cmd3.ExecuteScalar();
             conn.Close();
             lb_slNV.Text = tongNV.ToString();
             lb_slKH.Text = tongKH.ToString();
             lb_slNCC.Text = tongNCC.ToString();
+            lb_Tienchi.Text = tongTienChi.ToString();
 
         }
 
