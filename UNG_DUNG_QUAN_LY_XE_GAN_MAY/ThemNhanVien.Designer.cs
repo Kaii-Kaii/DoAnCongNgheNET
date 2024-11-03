@@ -196,6 +196,7 @@
             this.txt_MaNV.Name = "txt_MaNV";
             this.txt_MaNV.Size = new System.Drawing.Size(297, 22);
             this.txt_MaNV.TabIndex = 6;
+            this.txt_MaNV.Enter += new System.EventHandler(this.txt_MaNV_Enter);
             // 
             // lb_Diachi
             // 

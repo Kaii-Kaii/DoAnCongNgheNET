@@ -36,8 +36,41 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             cb_GioiTinh.SelectedIndex = 0;
         }
 
+        private bool checkSoDienThoai(string sdt)
+        {
+            if (sdt.Length != 10)
+            {
+                return false;
+            }
+            for (int i = 0; i < sdt.Length; i++)
+            {
+                if (sdt[i] < '0' || sdt[i] > '9')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool checkNgaySinh(string ngaySinh)
+        {
+            // lơn hơn 18 tuổi
+            DateTime now = DateTime.Now;
+            DateTime date = DateTime.Parse(ngaySinh);
+            if (now.Year - date.Year < 18)
+            {
+                return false;
+            }
+            return true;
+        }
+
         private void btn_Them_Click(object sender, EventArgs e)
         {
+            if (txt_MaNV.Text == "" || txt_TenNV.Text == "" || txt_SDT.Text == "" || txt_DiaChi.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
             NhanVien nhanVien = new NhanVien();
             nhanVien.MaNV = txt_MaNV.Text;
             nhanVien.TenNV = txt_TenNV.Text;
@@ -46,9 +79,14 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             nhanVien.SDT_NV = txt_SDT.Text;
             nhanVien.NgaySinh = dt_NgaySinh.Value.ToString("yyyy-MM-dd");
             nhanVien.DiaChi = txt_DiaChi.Text;
-            if(nhanVien.MaNV == "" || nhanVien.TenNV == "" || nhanVien.SDT_NV == "" || nhanVien.DiaChi == "")
+            if (!checkSoDienThoai(nhanVien.SDT_NV))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                MessageBox.Show("Số điện thoại không hợp lệ");
+                return;
+            }
+            if (!checkNgaySinh(nhanVien.NgaySinh))
+            {
+                MessageBox.Show("Nhân viên phải lớn hơn 18 tuổi");
                 return;
             }
             conn.Open();
@@ -81,15 +119,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             SqlCommand cmd = new SqlCommand("SELECT * FROM NHANVIEN", conn);
             SqlDataReader dr = cmd.ExecuteReader();
             trv_NV.Nodes.Clear();
-            //CREATE TABLE NHANVIEN(
-            //MA_NV CHAR(6) PRIMARY KEY, --Mã nhân viên(độ dài tối đa 6 ký tự)
-            //TENNV NVARCHAR(100) NOT NULL, --Tên nhân viên
-
-            //GIOITINH NVARCHAR(3) NOT NULL, --Giới tính nhân viên
-            //CHUCVU NVARCHAR(50), --Chức vụ
-            //SDT_NV CHAR(10), --Số điện thoại nhân viên
-            //NGAYSINH DATE, --Ngày sinh
-            //DIACHI_NV NVARCHAR(255)-- Địa chỉ nhân viên
             while (dr.Read())
             {
                 TreeNode node = new TreeNode(dr["MA_NV"].ToString());
@@ -102,6 +131,11 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 trv_NV.Nodes.Add(node);
             }
             conn.Close();
+
+        }
+
+        private void txt_MaNV_Enter(object sender, EventArgs e)
+        {
 
         }
     }
