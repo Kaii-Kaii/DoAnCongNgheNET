@@ -73,7 +73,7 @@
             this.btn_Timkiem.BackColor = System.Drawing.Color.DodgerBlue;
             this.btn_Timkiem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Timkiem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Timkiem.Location = new System.Drawing.Point(831, 18);
+            this.btn_Timkiem.Location = new System.Drawing.Point(908, 14);
             this.btn_Timkiem.Name = "btn_Timkiem";
             this.btn_Timkiem.Size = new System.Drawing.Size(119, 35);
             this.btn_Timkiem.TabIndex = 21;
@@ -83,7 +83,7 @@
             // cbo_Thang
             // 
             this.cbo_Thang.FormattingEnabled = true;
-            this.cbo_Thang.Location = new System.Drawing.Point(494, 25);
+            this.cbo_Thang.Location = new System.Drawing.Point(595, 21);
             this.cbo_Thang.Name = "cbo_Thang";
             this.cbo_Thang.Size = new System.Drawing.Size(121, 24);
             this.cbo_Thang.TabIndex = 19;
@@ -91,7 +91,7 @@
             // cbo_Nam
             // 
             this.cbo_Nam.FormattingEnabled = true;
-            this.cbo_Nam.Location = new System.Drawing.Point(664, 25);
+            this.cbo_Nam.Location = new System.Drawing.Point(746, 21);
             this.cbo_Nam.Name = "cbo_Nam";
             this.cbo_Nam.Size = new System.Drawing.Size(121, 24);
             this.cbo_Nam.TabIndex = 18;
@@ -160,7 +160,7 @@
             this.grb_TC.Controls.Add(this.lb_Tienchi);
             this.grb_TC.Controls.Add(this.lb_hdTC);
             this.grb_TC.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.grb_TC.Location = new System.Drawing.Point(354, 21);
+            this.grb_TC.Location = new System.Drawing.Point(404, 21);
             this.grb_TC.Name = "grb_TC";
             this.grb_TC.Size = new System.Drawing.Size(231, 112);
             this.grb_TC.TabIndex = 2;
@@ -170,9 +170,9 @@
             // 
             this.grb_Tien.Controls.Add(this.grb_TC);
             this.grb_Tien.Controls.Add(this.grb_DS);
-            this.grb_Tien.Location = new System.Drawing.Point(30, 442);
+            this.grb_Tien.Location = new System.Drawing.Point(30, 498);
             this.grb_Tien.Name = "grb_Tien";
-            this.grb_Tien.Size = new System.Drawing.Size(920, 156);
+            this.grb_Tien.Size = new System.Drawing.Size(997, 156);
             this.grb_Tien.TabIndex = 16;
             this.grb_Tien.TabStop = false;
             // 
@@ -240,7 +240,7 @@
             this.grb_HTK.Controls.Add(this.lb_slTon);
             this.grb_HTK.Controls.Add(this.lb_hdHTK);
             this.grb_HTK.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.grb_HTK.Location = new System.Drawing.Point(354, 28);
+            this.grb_HTK.Location = new System.Drawing.Point(404, 28);
             this.grb_HTK.Name = "grb_HTK";
             this.grb_HTK.Size = new System.Drawing.Size(231, 112);
             this.grb_HTK.TabIndex = 2;
@@ -275,7 +275,7 @@
             this.grb_HDX.Controls.Add(this.lb_slXuat);
             this.grb_HDX.Controls.Add(this.lb_hdHDX);
             this.grb_HDX.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.grb_HDX.Location = new System.Drawing.Point(650, 28);
+            this.grb_HDX.Location = new System.Drawing.Point(733, 28);
             this.grb_HDX.Name = "grb_HDX";
             this.grb_HDX.Size = new System.Drawing.Size(231, 112);
             this.grb_HDX.TabIndex = 2;
@@ -286,9 +286,9 @@
             this.grb_Xe.Controls.Add(this.grb_HDX);
             this.grb_Xe.Controls.Add(this.grb_HTK);
             this.grb_Xe.Controls.Add(this.grb_NCC);
-            this.grb_Xe.Location = new System.Drawing.Point(30, 246);
+            this.grb_Xe.Location = new System.Drawing.Point(30, 274);
             this.grb_Xe.Name = "grb_Xe";
-            this.grb_Xe.Size = new System.Drawing.Size(920, 169);
+            this.grb_Xe.Size = new System.Drawing.Size(997, 169);
             this.grb_Xe.TabIndex = 17;
             this.grb_Xe.TabStop = false;
             // 
@@ -321,7 +321,7 @@
             this.grb_KH.Controls.Add(this.lb_slKH);
             this.grb_KH.Controls.Add(this.lb_hdKH);
             this.grb_KH.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.grb_KH.Location = new System.Drawing.Point(354, 33);
+            this.grb_KH.Location = new System.Drawing.Point(404, 33);
             this.grb_KH.Name = "grb_KH";
             this.grb_KH.Size = new System.Drawing.Size(231, 112);
             this.grb_KH.TabIndex = 2;
@@ -365,7 +365,7 @@
             // cbo_Ngay
             // 
             this.cbo_Ngay.FormattingEnabled = true;
-            this.cbo_Ngay.Location = new System.Drawing.Point(310, 25);
+            this.cbo_Ngay.Location = new System.Drawing.Point(413, 25);
             this.cbo_Ngay.Name = "cbo_Ngay";
             this.cbo_Ngay.Size = new System.Drawing.Size(121, 24);
             this.cbo_Ngay.TabIndex = 20;
@@ -376,7 +376,7 @@
             this.grb_Nguoi.Controls.Add(this.grb_NV);
             this.grb_Nguoi.Location = new System.Drawing.Point(30, 55);
             this.grb_Nguoi.Name = "grb_Nguoi";
-            this.grb_Nguoi.Size = new System.Drawing.Size(920, 166);
+            this.grb_Nguoi.Size = new System.Drawing.Size(997, 166);
             this.grb_Nguoi.TabIndex = 15;
             this.grb_Nguoi.TabStop = false;
             // 
@@ -392,7 +392,7 @@
             this.Controls.Add(this.cbo_Ngay);
             this.Controls.Add(this.grb_Nguoi);
             this.Name = "ThongKe";
-            this.Size = new System.Drawing.Size(980, 617);
+            this.Size = new System.Drawing.Size(1068, 710);
             this.grb_DS.ResumeLayout(false);
             this.grb_DS.PerformLayout();
             this.grb_TC.ResumeLayout(false);

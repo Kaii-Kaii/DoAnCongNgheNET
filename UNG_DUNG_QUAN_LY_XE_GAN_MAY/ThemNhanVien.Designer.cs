@@ -50,23 +50,28 @@
             this.lb_TenNV = new System.Windows.Forms.Label();
             this.lb_MaNV = new System.Windows.Forms.Label();
             this.grb_Nhanvien = new System.Windows.Forms.GroupBox();
+            this.lb_TTK = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lb_MK = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.grb_ShowNV.SuspendLayout();
             this.grb_Nhanvien.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox2
             // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(179, 346);
+            this.comboBox2.Location = new System.Drawing.Point(209, 346);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(137, 24);
+            this.comboBox2.Size = new System.Drawing.Size(163, 26);
             this.comboBox2.TabIndex = 18;
             // 
             // lb_GioiTinh
             // 
             this.lb_GioiTinh.AutoSize = true;
             this.lb_GioiTinh.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold);
-            this.lb_GioiTinh.Location = new System.Drawing.Point(178, 312);
+            this.lb_GioiTinh.Location = new System.Drawing.Point(205, 312);
             this.lb_GioiTinh.Name = "lb_GioiTinh";
             this.lb_GioiTinh.Size = new System.Drawing.Size(91, 20);
             this.lb_GioiTinh.TabIndex = 17;
@@ -77,7 +82,7 @@
             this.btn_Chitiet.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_Chitiet.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Chitiet.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Chitiet.Location = new System.Drawing.Point(197, 526);
+            this.btn_Chitiet.Location = new System.Drawing.Point(241, 607);
             this.btn_Chitiet.Name = "btn_Chitiet";
             this.btn_Chitiet.Size = new System.Drawing.Size(119, 35);
             this.btn_Chitiet.TabIndex = 16;
@@ -89,7 +94,7 @@
             this.btn_Sua.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_Sua.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Sua.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Sua.Location = new System.Drawing.Point(19, 526);
+            this.btn_Sua.Location = new System.Drawing.Point(19, 607);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(119, 35);
             this.btn_Sua.TabIndex = 15;
@@ -101,7 +106,7 @@
             this.btn_Xoa.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_Xoa.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Xoa.Location = new System.Drawing.Point(197, 459);
+            this.btn_Xoa.Location = new System.Drawing.Point(241, 551);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(119, 35);
             this.btn_Xoa.TabIndex = 14;
@@ -113,7 +118,7 @@
             this.btn_Them.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_Them.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Them.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Them.Location = new System.Drawing.Point(20, 459);
+            this.btn_Them.Location = new System.Drawing.Point(19, 551);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(119, 35);
             this.btn_Them.TabIndex = 13;
@@ -133,47 +138,51 @@
             // 
             // cob_ChucVu
             // 
+            this.cob_ChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cob_ChucVu.FormattingEnabled = true;
             this.cob_ChucVu.Location = new System.Drawing.Point(20, 197);
             this.cob_ChucVu.Name = "cob_ChucVu";
-            this.cob_ChucVu.Size = new System.Drawing.Size(296, 24);
+            this.cob_ChucVu.Size = new System.Drawing.Size(352, 26);
             this.cob_ChucVu.TabIndex = 11;
             // 
             // txt_DiaChi
             // 
+            this.txt_DiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_DiaChi.Location = new System.Drawing.Point(19, 417);
             this.txt_DiaChi.Name = "txt_DiaChi";
-            this.txt_DiaChi.Size = new System.Drawing.Size(297, 22);
+            this.txt_DiaChi.Size = new System.Drawing.Size(353, 24);
             this.txt_DiaChi.TabIndex = 10;
             // 
             // txt_SDT
             // 
-            this.txt_SDT.Location = new System.Drawing.Point(20, 271);
+            this.txt_SDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_SDT.Location = new System.Drawing.Point(20, 260);
             this.txt_SDT.Name = "txt_SDT";
-            this.txt_SDT.Size = new System.Drawing.Size(296, 22);
+            this.txt_SDT.Size = new System.Drawing.Size(352, 24);
             this.txt_SDT.TabIndex = 8;
             // 
             // txt_TenNV
             // 
+            this.txt_TenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenNV.Location = new System.Drawing.Point(19, 125);
             this.txt_TenNV.Name = "txt_TenNV";
-            this.txt_TenNV.Size = new System.Drawing.Size(297, 22);
+            this.txt_TenNV.Size = new System.Drawing.Size(353, 24);
             this.txt_TenNV.TabIndex = 7;
             // 
             // trv_NV
             // 
             this.trv_NV.Location = new System.Drawing.Point(31, 52);
             this.trv_NV.Name = "trv_NV";
-            this.trv_NV.Size = new System.Drawing.Size(504, 509);
+            this.trv_NV.Size = new System.Drawing.Size(504, 590);
             this.trv_NV.TabIndex = 2;
             // 
             // lb_NV
             // 
             this.lb_NV.AutoSize = true;
-            this.lb_NV.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NV.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NV.Location = new System.Drawing.Point(27, 18);
             this.lb_NV.Name = "lb_NV";
-            this.lb_NV.Size = new System.Drawing.Size(89, 19);
+            this.lb_NV.Size = new System.Drawing.Size(106, 24);
             this.lb_NV.TabIndex = 1;
             this.lb_NV.Text = "Nhân Viên";
             // 
@@ -181,17 +190,18 @@
             // 
             this.grb_ShowNV.Controls.Add(this.trv_NV);
             this.grb_ShowNV.Controls.Add(this.lb_NV);
-            this.grb_ShowNV.Location = new System.Drawing.Point(394, 18);
+            this.grb_ShowNV.Location = new System.Drawing.Point(442, 18);
             this.grb_ShowNV.Name = "grb_ShowNV";
-            this.grb_ShowNV.Size = new System.Drawing.Size(565, 581);
+            this.grb_ShowNV.Size = new System.Drawing.Size(569, 662);
             this.grb_ShowNV.TabIndex = 3;
             this.grb_ShowNV.TabStop = false;
             // 
             // txt_MaNV
             // 
+            this.txt_MaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaNV.Location = new System.Drawing.Point(19, 52);
             this.txt_MaNV.Name = "txt_MaNV";
-            this.txt_MaNV.Size = new System.Drawing.Size(297, 22);
+            this.txt_MaNV.Size = new System.Drawing.Size(353, 24);
             this.txt_MaNV.TabIndex = 6;
             // 
             // lb_Diachi
@@ -256,6 +266,10 @@
             // 
             // grb_Nhanvien
             // 
+            this.grb_Nhanvien.Controls.Add(this.textBox2);
+            this.grb_Nhanvien.Controls.Add(this.lb_MK);
+            this.grb_Nhanvien.Controls.Add(this.textBox1);
+            this.grb_Nhanvien.Controls.Add(this.lb_TTK);
             this.grb_Nhanvien.Controls.Add(this.comboBox2);
             this.grb_Nhanvien.Controls.Add(this.lb_GioiTinh);
             this.grb_Nhanvien.Controls.Add(this.btn_Chitiet);
@@ -274,11 +288,48 @@
             this.grb_Nhanvien.Controls.Add(this.lb_Chucvu);
             this.grb_Nhanvien.Controls.Add(this.lb_TenNV);
             this.grb_Nhanvien.Controls.Add(this.lb_MaNV);
-            this.grb_Nhanvien.Location = new System.Drawing.Point(21, 18);
+            this.grb_Nhanvien.Location = new System.Drawing.Point(18, 18);
             this.grb_Nhanvien.Name = "grb_Nhanvien";
-            this.grb_Nhanvien.Size = new System.Drawing.Size(342, 581);
+            this.grb_Nhanvien.Size = new System.Drawing.Size(396, 662);
             this.grb_Nhanvien.TabIndex = 2;
             this.grb_Nhanvien.TabStop = false;
+            // 
+            // lb_TTK
+            // 
+            this.lb_TTK.AutoSize = true;
+            this.lb_TTK.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TTK.Location = new System.Drawing.Point(15, 458);
+            this.lb_TTK.Name = "lb_TTK";
+            this.lb_TTK.Size = new System.Drawing.Size(140, 22);
+            this.lb_TTK.TabIndex = 19;
+            this.lb_TTK.Text = "Tên Tài Khoản";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(181, 458);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(191, 24);
+            this.textBox1.TabIndex = 20;
+            // 
+            // lb_MK
+            // 
+            this.lb_MK.AutoSize = true;
+            this.lb_MK.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Bold);
+            this.lb_MK.Location = new System.Drawing.Point(16, 500);
+            this.lb_MK.Name = "lb_MK";
+            this.lb_MK.Size = new System.Drawing.Size(97, 22);
+            this.lb_MK.TabIndex = 21;
+            this.lb_MK.Text = "Mật Khẩu";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(181, 500);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(191, 24);
+            this.textBox2.TabIndex = 22;
             // 
             // ThemNhanVien
             // 
@@ -287,7 +338,7 @@
             this.Controls.Add(this.grb_ShowNV);
             this.Controls.Add(this.grb_Nhanvien);
             this.Name = "ThemNhanVien";
-            this.Size = new System.Drawing.Size(980, 617);
+            this.Size = new System.Drawing.Size(1068, 710);
             this.grb_ShowNV.ResumeLayout(false);
             this.grb_ShowNV.PerformLayout();
             this.grb_Nhanvien.ResumeLayout(false);
@@ -320,5 +371,9 @@
         private System.Windows.Forms.Label lb_TenNV;
         private System.Windows.Forms.Label lb_MaNV;
         private System.Windows.Forms.GroupBox grb_Nhanvien;
+        private System.Windows.Forms.Label lb_TTK;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lb_MK;
     }
 }

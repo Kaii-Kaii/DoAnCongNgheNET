@@ -57,5 +57,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             themNhanVien.Dock = DockStyle.Fill;
             themNhanVien.BringToFront();
         }
+
+        private void btn_NCC_Click(object sender, EventArgs e)
+        {
+            NhaCungCap nhaCungCap = new NhaCungCap();
+            pn_bg3.Controls.Add(nhaCungCap);
+            nhaCungCap.Dock = DockStyle.Fill;
+            nhaCungCap.BringToFront();
+        }
     }
 }
