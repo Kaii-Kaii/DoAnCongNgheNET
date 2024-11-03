@@ -109,7 +109,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             conn.Close();
             MessageBox.Show("Thêm nhân viên thành công");
             txt_MaNV.Text = txt_DiaChi.Text = txt_SDT.Text = txt_TenNV.Text = "";
-            cb_GioiTinh.SelectedIndex = cb_GioiTinh.SelectedIndex = 0;
+            cb_GioiTinh.SelectedIndex = cob_ChucVu.SelectedIndex = 0;
             conn.Open();
             SqlCommand cmd2 = new SqlCommand("INSERT INTO TAIKHOAN_NV VALUES('" + nhanVien.MaNV + "', '" + nhanVien.MaNV + "')", conn);
             cmd2.ExecuteNonQuery();
