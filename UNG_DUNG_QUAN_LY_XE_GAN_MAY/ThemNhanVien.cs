@@ -34,22 +34,16 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             cb_GioiTinh.Items.Add("Nữ");
             cb_GioiTinh.Items.Add("Khác");
             cb_GioiTinh.SelectedIndex = 0;
+            txt_SDT.MaxLength = 10;
+            txt_SDT.KeyPress += new KeyPressEventHandler(txt_SDT_KeyPress);
         }
 
-        private bool checkSoDienThoai(string sdt)
+        private void txt_SDT_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (sdt.Length != 10)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                return false;
+                e.Handled = true;
             }
-            for (int i = 0; i < sdt.Length; i++)
-            {
-                if (sdt[i] < '0' || sdt[i] > '9')
-                {
-                    return false;
-                }
-            }
-            return true;
         }
 
         private bool checkNgaySinh(string ngaySinh)
@@ -79,11 +73,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             nhanVien.SDT_NV = txt_SDT.Text;
             nhanVien.NgaySinh = dt_NgaySinh.Value.ToString("yyyy-MM-dd");
             nhanVien.DiaChi = txt_DiaChi.Text;
-            if (!checkSoDienThoai(nhanVien.SDT_NV))
-            {
-                MessageBox.Show("Số điện thoại không hợp lệ");
-                return;
-            }
             if (!checkNgaySinh(nhanVien.NgaySinh))
             {
                 MessageBox.Show("Nhân viên phải lớn hơn 18 tuổi");
