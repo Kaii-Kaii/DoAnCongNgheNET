@@ -46,6 +46,22 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
         }
 
+        private bool checkSoDienThoai(string sdt)
+        {
+            if (sdt.Length != 10)
+            {
+                return false;
+            }
+            for (int i = 0; i < sdt.Length; i++)
+            {
+                if (sdt[i] < '0' || sdt[i] > '9')
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private bool checkNgaySinh(string ngaySinh)
         {
             // lơn hơn 18 tuổi
