@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cb_GioiTinh = new System.Windows.Forms.ComboBox();
             this.lb_GioiTinh = new System.Windows.Forms.Label();
             this.btn_Chitiet = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
@@ -58,14 +58,14 @@
             this.grb_Nhanvien.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox2
+            // cb_GioiTinh
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(209, 346);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(163, 26);
-            this.comboBox2.TabIndex = 18;
+            this.cb_GioiTinh.FormattingEnabled = true;
+            this.cb_GioiTinh.Location = new System.Drawing.Point(179, 346);
+            this.cb_GioiTinh.Name = "cb_GioiTinh";
+            this.cb_GioiTinh.Size = new System.Drawing.Size(137, 24);
+            this.cb_GioiTinh.TabIndex = 18;
+            this.cb_GioiTinh.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // lb_GioiTinh
             // 
@@ -88,6 +88,7 @@
             this.btn_Chitiet.TabIndex = 16;
             this.btn_Chitiet.Text = "Chi Tiết";
             this.btn_Chitiet.UseVisualStyleBackColor = false;
+            this.btn_Chitiet.Click += new System.EventHandler(this.btn_Chitiet_Click);
             // 
             // btn_Sua
             // 
@@ -124,6 +125,7 @@
             this.btn_Them.TabIndex = 13;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // dt_NgaySinh
             // 
@@ -203,6 +205,7 @@
             this.txt_MaNV.Name = "txt_MaNV";
             this.txt_MaNV.Size = new System.Drawing.Size(353, 24);
             this.txt_MaNV.TabIndex = 6;
+            this.txt_MaNV.Enter += new System.EventHandler(this.txt_MaNV_Enter);
             // 
             // lb_Diachi
             // 
@@ -266,11 +269,7 @@
             // 
             // grb_Nhanvien
             // 
-            this.grb_Nhanvien.Controls.Add(this.textBox2);
-            this.grb_Nhanvien.Controls.Add(this.lb_MK);
-            this.grb_Nhanvien.Controls.Add(this.textBox1);
-            this.grb_Nhanvien.Controls.Add(this.lb_TTK);
-            this.grb_Nhanvien.Controls.Add(this.comboBox2);
+            this.grb_Nhanvien.Controls.Add(this.cb_GioiTinh);
             this.grb_Nhanvien.Controls.Add(this.lb_GioiTinh);
             this.grb_Nhanvien.Controls.Add(this.btn_Chitiet);
             this.grb_Nhanvien.Controls.Add(this.btn_Sua);
@@ -338,7 +337,8 @@
             this.Controls.Add(this.grb_ShowNV);
             this.Controls.Add(this.grb_Nhanvien);
             this.Name = "ThemNhanVien";
-            this.Size = new System.Drawing.Size(1068, 710);
+            this.Size = new System.Drawing.Size(980, 617);
+            this.Load += new System.EventHandler(this.ThemNhanVien_Load);
             this.grb_ShowNV.ResumeLayout(false);
             this.grb_ShowNV.PerformLayout();
             this.grb_Nhanvien.ResumeLayout(false);
@@ -349,7 +349,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cb_GioiTinh;
         private System.Windows.Forms.Label lb_GioiTinh;
         private System.Windows.Forms.Button btn_Chitiet;
         private System.Windows.Forms.Button btn_Sua;

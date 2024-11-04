@@ -174,6 +174,7 @@
             this.btn_Login.TabIndex = 14;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = true;
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // picb_exit
             // 
