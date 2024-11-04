@@ -23,14 +23,10 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             if (pn_Load1.Width >= 636)
             {
                 time_load.Stop();
-<<<<<<< HEAD
                 frm_Login frm = new frm_Login();
                 frm.Show();
                 this.Hide();
 
-=======
-                Form form = new Form();
->>>>>>> ced8c8150faac6ec6da4b86d59d3a47a8a58764e
             }
         }
 
