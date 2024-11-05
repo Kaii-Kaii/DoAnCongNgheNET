@@ -32,12 +32,12 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             int tongNV = (int)cmd.ExecuteScalar();
             int tongKH = (int)cmd1.ExecuteScalar();
             int tongNCC = (int)cmd2.ExecuteScalar();
-            decimal tongTienChi = (decimal)cmd3.ExecuteScalar();
+            decimal tongDoanhSo = (decimal)cmd3.ExecuteScalar();
             conn.Close();
             lb_slNV.Text = tongNV.ToString();
             lb_slKH.Text = tongKH.ToString();
             lb_slNCC.Text = tongNCC.ToString();
-            lb_Tienchi.Text = tongTienChi.ToString();
+            lb_Doanhso.Text = tongDoanhSo.ToString();
 
         }
 

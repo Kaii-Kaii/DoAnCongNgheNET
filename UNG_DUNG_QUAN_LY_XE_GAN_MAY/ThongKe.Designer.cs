@@ -404,7 +404,7 @@
             this.Controls.Add(this.cbo_Ngay);
             this.Controls.Add(this.grb_Nguoi);
             this.Name = "ThongKe";
-            this.Size = new System.Drawing.Size(980, 617);
+            this.Size = new System.Drawing.Size(1034, 666);
             this.Load += new System.EventHandler(this.ThongKe_Load);
             this.grb_DS.ResumeLayout(false);
             this.grb_DS.PerformLayout();
