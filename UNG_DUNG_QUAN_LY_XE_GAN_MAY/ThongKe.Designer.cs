@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Timkiem = new System.Windows.Forms.Button();
+            this.btn_ThongKe = new System.Windows.Forms.Button();
             this.cbo_Thang = new System.Windows.Forms.ComboBox();
             this.cbo_Nam = new System.Windows.Forms.ComboBox();
             this.lb_Doanhso = new System.Windows.Forms.Label();
@@ -68,22 +68,23 @@
             this.grb_Nguoi.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_Timkiem
+            // btn_ThongKe
             // 
-            this.btn_Timkiem.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btn_Timkiem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Timkiem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Timkiem.Location = new System.Drawing.Point(908, 14);
-            this.btn_Timkiem.Name = "btn_Timkiem";
-            this.btn_Timkiem.Size = new System.Drawing.Size(119, 35);
-            this.btn_Timkiem.TabIndex = 21;
-            this.btn_Timkiem.Text = "Tìm kiếm";
-            this.btn_Timkiem.UseVisualStyleBackColor = false;
+            this.btn_ThongKe.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_ThongKe.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThongKe.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_ThongKe.Location = new System.Drawing.Point(908, 14);
+            this.btn_ThongKe.Name = "btn_ThongKe";
+            this.btn_ThongKe.Size = new System.Drawing.Size(119, 35);
+            this.btn_ThongKe.TabIndex = 21;
+            this.btn_ThongKe.Text = "Tìm kiếm";
+            this.btn_ThongKe.UseVisualStyleBackColor = false;
+            this.btn_ThongKe.Click += new System.EventHandler(this.btn_ThongKe_Click);
             // 
             // cbo_Thang
             // 
             this.cbo_Thang.FormattingEnabled = true;
-            this.cbo_Thang.Location = new System.Drawing.Point(595, 21);
+            this.cbo_Thang.Location = new System.Drawing.Point(654, 21);
             this.cbo_Thang.Name = "cbo_Thang";
             this.cbo_Thang.Size = new System.Drawing.Size(121, 24);
             this.cbo_Thang.TabIndex = 19;
@@ -91,7 +92,7 @@
             // cbo_Nam
             // 
             this.cbo_Nam.FormattingEnabled = true;
-            this.cbo_Nam.Location = new System.Drawing.Point(746, 21);
+            this.cbo_Nam.Location = new System.Drawing.Point(781, 21);
             this.cbo_Nam.Name = "cbo_Nam";
             this.cbo_Nam.Size = new System.Drawing.Size(121, 24);
             this.cbo_Nam.TabIndex = 18;
@@ -376,7 +377,7 @@
             // cbo_Ngay
             // 
             this.cbo_Ngay.FormattingEnabled = true;
-            this.cbo_Ngay.Location = new System.Drawing.Point(413, 25);
+            this.cbo_Ngay.Location = new System.Drawing.Point(527, 21);
             this.cbo_Ngay.Name = "cbo_Ngay";
             this.cbo_Ngay.Size = new System.Drawing.Size(121, 24);
             this.cbo_Ngay.TabIndex = 20;
@@ -396,7 +397,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_Timkiem);
+            this.Controls.Add(this.btn_ThongKe);
             this.Controls.Add(this.cbo_Thang);
             this.Controls.Add(this.cbo_Nam);
             this.Controls.Add(this.grb_Tien);
@@ -429,7 +430,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_Timkiem;
+        private System.Windows.Forms.Button btn_ThongKe;
         private System.Windows.Forms.ComboBox cbo_Thang;
         private System.Windows.Forms.ComboBox cbo_Nam;
         private System.Windows.Forms.Label lb_Doanhso;
