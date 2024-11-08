@@ -191,7 +191,6 @@
             this.lb_slNCC.Size = new System.Drawing.Size(98, 32);
             this.lb_slNCC.TabIndex = 1;
             this.lb_slNCC.Text = "label6";
-            this.lb_slNCC.Click += new System.EventHandler(this.lb_slNCC_Click);
             // 
             // lb_hdNCC
             // 

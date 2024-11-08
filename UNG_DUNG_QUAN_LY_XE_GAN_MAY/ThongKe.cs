@@ -74,13 +74,76 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
             cbo_Ngay.SelectedIndex = cbo_Thang.SelectedIndex = cbo_Nam.SelectedIndex = 0;
         }
-
-
-        private void lb_slNCC_Click(object sender, EventArgs e)
+        private void btn_ThongKe_Click(object sender, EventArgs e)
         {
-
+            if(cbo_Ngay.SelectedIndex == 0 && cbo_Thang.SelectedIndex == 0 && cbo_Nam.SelectedIndex == 0)
+            {
+                Load_ThongKe();
+            }
+            if (cbo_Ngay.SelectedIndex != 0 && cbo_Thang.SelectedIndex != 0 && cbo_Nam.SelectedIndex != 0)
+            {
+                TinhThongKeTheoNgay();
+            }
+            if (cbo_Ngay.SelectedIndex == 0 && cbo_Thang.SelectedIndex != 0)
+            {
+                TinhThongKeTheoThang();
+            }
+            if (cbo_Ngay.SelectedIndex == 0 && cbo_Thang.SelectedIndex == 0 && cbo_Nam.SelectedIndex != 0)
+            {
+                TinhThongKeTheoNam();
+            }
         }
-
+        private void TinhThongKeTheoNgay()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT SUM(TONGBILL_XUAT) FROM HD_XUAT_BAOHANH WHERE DAY(NGAYXUAT) = @Ngay AND MONTH(NGAYXUAT) = @Thang AND YEAR(NGAYXUAT) = @Nam", conn);
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(TONGBILL_NHAP) FROM HD_NHAP WHERE DAY(NGAYNHAP) = @Ngay AND MONTH(NGAYNHAP) = @Thang AND YEAR(NGAYNHAP) = @Nam", conn);
+            cmd.Parameters.AddWithValue("@Ngay", cbo_Ngay.SelectedItem);
+            cmd.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
+            cmd.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
+            cmd1.Parameters.AddWithValue("@Ngay", cbo_Ngay.SelectedItem);
+            cmd1.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
+            cmd1.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
+            conn.Open();
+            decimal tongDoanhSo = cmd.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd.ExecuteScalar();
+            decimal tongTienChi = cmd1.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd1.ExecuteScalar();
+            conn.Close();
+            if (tongDoanhSo == 0) lb_Doanhso.Text = "0";
+            else lb_Doanhso.Text = tongDoanhSo.ToString();
+            if (tongTienChi == 0) lb_Tienchi.Text = "0";
+            else lb_Tienchi.Text = tongTienChi.ToString();
+        }
+        private void TinhThongKeTheoThang()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT SUM(TONGBILL_XUAT) FROM HD_XUAT_BAOHANH WHERE MONTH(NGAYXUAT) = @Thang AND YEAR(NGAYXUAT) = @Nam", conn);
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(TONGBILL_NHAP) FROM HD_NHAP WHERE MONTH(NGAYNHAP) = @Thang AND YEAR(NGAYNHAP) = @Nam", conn);
+            cmd.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
+            cmd.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
+            cmd1.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
+            cmd1.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
+            conn.Open();
+            decimal tongDoanhSo = cmd.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd.ExecuteScalar();
+            decimal tongTienChi = cmd1.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd1.ExecuteScalar();
+            conn.Close();
+            if (tongDoanhSo == 0) lb_Doanhso.Text = "0";
+            else lb_Doanhso.Text = tongDoanhSo.ToString();
+            if (tongTienChi == 0) lb_Tienchi.Text = "0";
+            else lb_Tienchi.Text = tongTienChi.ToString();
+        }
+        private void TinhThongKeTheoNam()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT SUM(TONGBILL_XUAT) FROM HD_XUAT_BAOHANH WHERE YEAR(NGAYXUAT) = @Nam", conn);
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(TONGBILL_NHAP) FROM HD_NHAP WHERE YEAR(NGAYNHAP) = @Nam", conn);
+            cmd.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
+            cmd1.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
+            conn.Open();
+            decimal tongDoanhSo = cmd.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd.ExecuteScalar();
+            decimal tongTienChi = cmd1.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd1.ExecuteScalar();
+            conn.Close();
+            if (tongDoanhSo == 0) lb_Doanhso.Text = "0";
+            else lb_Doanhso.Text = tongDoanhSo.ToString();
+            if (tongTienChi == 0) lb_Tienchi.Text = "0";
+            else lb_Tienchi.Text = tongTienChi.ToString();
+        }
         private void lb_Tienchi_Click(object sender, EventArgs e)
         {
 
@@ -99,83 +162,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private void grb_Nguoi_Enter(object sender, EventArgs e)
         {
 
-        }
-
-        private void btn_ThongKe_Click(object sender, EventArgs e)
-        {
-            //CREATE TABLE HD_NHAP(
-            //MAHD_NHAP CHAR(8) PRIMARY KEY, --Mã hóa đơn nhập(độ dài tối đa 8 ký tự)
-            //MA_NCC CHAR(6) NOT NULL, --Mã nhà cung cấp(khóa ngoại từ bảng NHACUNGCAP)
-            //MA_NV CHAR(6) NOT NULL, --Mã nhân viên(khóa ngoại từ bảng NHANVIEN)
-            //TONGBILL_NHAP DECIMAL(18, 2), --Tổng số tiền hóa đơn nhập
-            //NGAYNHAP DATE NOT NULL, --Ngày nhập hàng
-            //FOREIGN KEY(MA_NCC) REFERENCES NHACUNGCAP(MA_NCC),
-            //FOREIGN KEY(MA_NV) REFERENCES NHANVIEN(MA_NV)
-            //);
-            //        CREATE TABLE HD_XUAT_BAOHANH(
-            //MAHD_XUAT CHAR(8) PRIMARY KEY, --Mã hóa đơn xuất(độ dài tối đa 8 ký tự)
-            //SDT_KH CHAR(10) NOT NULL, --Số điện thoại khách hàng(khóa ngoại từ bảng KHACHHANG)
-            //MA_NV CHAR(6) NOT NULL, --Mã nhân viên(khóa ngoại từ bảng NHANVIEN)
-            //TONGBILL_XUAT DECIMAL(18, 2), --Tổng số tiền hóa đơn xuất
-            //PHUONGTHUCGIAODICH NVARCHAR(50), --Phương thức giao dịch
-            //NGAYXUAT DATE NOT NULL, --Ngày xuất hàng
-            //FOREIGN KEY(SDT_KH) REFERENCES KHACHHANG(SDT_KH),
-            //FOREIGN KEY(MA_NV) REFERENCES NHANVIEN(MA_NV)
-            //);
-            if(cbo_Ngay.SelectedIndex != 0 && cbo_Thang.SelectedIndex != 0 && cbo_Nam.SelectedIndex != 0)
-            {
-                // tính tổng doanh số và tổng tiền chi của ngày được chọn nếu không có đơn hàng nào thì báo in ra 0
-                SqlCommand cmd = new SqlCommand("SELECT SUM(TONGBILL_XUAT) FROM HD_XUAT_BAOHANH WHERE DAY(NGAYXUAT) = @Ngay AND MONTH(NGAYXUAT) = @Thang AND YEAR(NGAYXUAT) = @Nam", conn);
-                SqlCommand cmd1 = new SqlCommand("SELECT SUM(TONGBILL_NHAP) FROM HD_NHAP WHERE DAY(NGAYNHAP) = @Ngay AND MONTH(NGAYNHAP) = @Thang AND YEAR(NGAYNHAP) = @Nam", conn);
-                cmd.Parameters.AddWithValue("@Ngay", cbo_Ngay.SelectedItem);
-                cmd.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
-                cmd.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
-                cmd1.Parameters.AddWithValue("@Ngay", cbo_Ngay.SelectedItem);
-                cmd1.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
-                cmd1.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
-                conn.Open();
-                decimal tongDoanhSo = cmd.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd.ExecuteScalar();
-                decimal tongTienChi = cmd1.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd1.ExecuteScalar();
-                conn.Close();
-                if (tongDoanhSo == 0) lb_Doanhso.Text = "0";
-                else lb_Doanhso.Text = tongDoanhSo.ToString();
-                if (tongTienChi == 0) lb_Tienchi.Text = "0";
-                else lb_Tienchi.Text = tongTienChi.ToString();
-            }
-            if (cbo_Ngay.SelectedIndex == 0 && cbo_Thang.SelectedIndex != 0)
-            {
-                // tính tổng doanh số và tổng tiền chi của tháng được chọn nếu không có đơn hàng nào thì báo in ra 0
-                SqlCommand cmd = new SqlCommand("SELECT SUM(TONGBILL_XUAT) FROM HD_XUAT_BAOHANH WHERE MONTH(NGAYXUAT) = @Thang AND YEAR(NGAYXUAT) = @Nam", conn);
-                SqlCommand cmd1 = new SqlCommand("SELECT SUM(TONGBILL_NHAP) FROM HD_NHAP WHERE MONTH(NGAYNHAP) = @Thang AND YEAR(NGAYNHAP) = @Nam", conn);
-                cmd.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
-                cmd.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
-                cmd1.Parameters.AddWithValue("@Thang", cbo_Thang.SelectedItem);
-                cmd1.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
-                conn.Open();
-                decimal tongDoanhSo = cmd.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd.ExecuteScalar();
-                decimal tongTienChi = cmd1.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd1.ExecuteScalar();
-                conn.Close();
-                if (tongDoanhSo == 0) lb_Doanhso.Text = "0";
-                else lb_Doanhso.Text = tongDoanhSo.ToString();
-                if(tongTienChi == 0) lb_Tienchi.Text = "0";
-                else lb_Tienchi.Text = tongTienChi.ToString();
-            }
-            if (cbo_Ngay.SelectedIndex == 0 && cbo_Thang.SelectedIndex == 0 && cbo_Nam.SelectedIndex != 0)
-            {
-                // tính tổng doanh số và tổng tiền chi của năm được chọn nếu không có đơn hàng nào thì báo in ra 0
-                SqlCommand cmd = new SqlCommand("SELECT SUM(TONGBILL_XUAT) FROM HD_XUAT_BAOHANH WHERE YEAR(NGAYXUAT) = @Nam", conn);
-                SqlCommand cmd1 = new SqlCommand("SELECT SUM(TONGBILL_NHAP) FROM HD_NHAP WHERE YEAR(NGAYNHAP) = @Nam", conn);
-                cmd.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
-                cmd1.Parameters.AddWithValue("@Nam", cbo_Nam.SelectedItem);
-                conn.Open();
-                decimal tongDoanhSo = cmd.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd.ExecuteScalar();
-                decimal tongTienChi = cmd1.ExecuteScalar() == DBNull.Value ? 0 : (decimal)cmd1.ExecuteScalar();
-                conn.Close();
-                if (tongDoanhSo == 0) lb_Doanhso.Text = "0";
-                else lb_Doanhso.Text = tongDoanhSo.ToString();
-                if (tongTienChi == 0) lb_Tienchi.Text = "0";
-                else lb_Tienchi.Text = tongTienChi.ToString();
-            }
         }
     }
 }
