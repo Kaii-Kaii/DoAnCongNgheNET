@@ -17,19 +17,34 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             InitializeComponent();
         }
 
-        private void pn_bg3_Paint(object sender, PaintEventArgs e)
+        private void btn_KhachHang_Click(object sender, EventArgs e)
         {
-
+            User_KhachHang khachHang = new User_KhachHang();
+            pn_bg2.Controls.Clear();
+            pn_bg2.Controls.Add(khachHang);
+            khachHang.Dock = DockStyle.Fill;
+            khachHang.BringToFront();
+            this.Text = "KHÁCH HÀNG";
         }
 
-        private void pn_bg2_Paint(object sender, PaintEventArgs e)
+        private void btn_NhapHang_Click(object sender, EventArgs e)
         {
-
+            User_NhapHang nhapHang = new User_NhapHang();
+            pn_bg2.Controls.Clear();
+            pn_bg2.Controls.Add(nhapHang);
+            nhapHang.Dock = DockStyle.Fill;
+            nhapHang.BringToFront();
+            this.Text = "NHẬP HÀNG";
         }
 
-        private void pn_bg1_Paint(object sender, PaintEventArgs e)
+        private void btn_HoaDon_Click(object sender, EventArgs e)
         {
-
+            User_HoaDon hoaDon=new User_HoaDon();
+            pn_bg2.Controls.Clear();
+            pn_bg2.Controls.Add(hoaDon);
+            hoaDon.Dock = DockStyle.Fill;
+            hoaDon.BringToFront();
+            this.Text = "HOÁ ĐƠN";
         }
     }
 }
