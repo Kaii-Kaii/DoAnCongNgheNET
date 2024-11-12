@@ -198,7 +198,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             cmd.ExecuteNonQuery();
             conn.Close();
             MessageBox.Show("Sửa thông tin nhân viên thành công");
-            Load_Treeview();
+            Load_Treeview();    
         }
     }
 }
