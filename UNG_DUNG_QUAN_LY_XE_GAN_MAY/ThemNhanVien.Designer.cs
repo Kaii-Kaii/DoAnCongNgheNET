@@ -101,6 +101,7 @@
             this.btn_Sua.TabIndex = 15;
             this.btn_Sua.Text = "Sữa";
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Xoa
             // 
@@ -337,7 +338,7 @@
             this.Controls.Add(this.grb_ShowNV);
             this.Controls.Add(this.grb_Nhanvien);
             this.Name = "ThemNhanVien";
-            this.Size = new System.Drawing.Size(980, 617);
+            this.Size = new System.Drawing.Size(980, 697);
             this.Load += new System.EventHandler(this.ThemNhanVien_Load);
             this.grb_ShowNV.ResumeLayout(false);
             this.grb_ShowNV.PerformLayout();
