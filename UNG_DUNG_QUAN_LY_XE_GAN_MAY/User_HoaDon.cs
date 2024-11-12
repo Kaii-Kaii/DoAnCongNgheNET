@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
-    public partial class QuanLyTKNV : UserControl
+    public partial class User_HoaDon : UserControl
     {
-        public QuanLyTKNV()
+        public User_HoaDon()
         {
             InitializeComponent();
         }
+
     }
 }

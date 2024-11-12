@@ -14,20 +14,14 @@ using System.Windows.Input;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
-    public partial class ThemNhanVien : UserControl
+    public partial class Admin_ThemNhanVien : UserControl
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connect"].ConnectionString);
 
-        public ThemNhanVien()
+        public Admin_ThemNhanVien()
         {
             InitializeComponent();
         }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ThemNhanVien_Load(object sender, EventArgs e)
         {
             cb_GioiTinh.Items.Add("Nam");
@@ -135,11 +129,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 trv_NV.Nodes.Add(node);
             }
             conn.Close();
-
-        }
-
-        private void txt_MaNV_Enter(object sender, EventArgs e)
-        {
 
         }
     }

@@ -47,7 +47,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private void chb_Show_CheckedChanged(object sender, EventArgs e)
         {
             if (chb_Show.Checked) txt_Pass.PasswordChar = '\0';
-            else txt_Pass.PasswordChar = '*';
+            else txt_Pass.PasswordChar = '●';
         }
 
         private void btn_Login_Click(object sender, EventArgs e)

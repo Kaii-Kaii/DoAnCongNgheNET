@@ -15,55 +15,47 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         public frm_AdminApp()
         {
             InitializeComponent();
-            ThemNhanVien themNhanVien = new ThemNhanVien();
-            pn_bg3.Controls.Add(themNhanVien);
-            themNhanVien.Dock = DockStyle.Fill;
-            themNhanVien.BringToFront();
+            //ThemNhanVien themNhanVien = new ThemNhanVien();
+            //pn_bg3.Controls.Add(themNhanVien);
+            //themNhanVien.Dock = DockStyle.Fill;
+            //themNhanVien.BringToFront();
         }
-
-        private void picb_exit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
-            ThongKe thongKe = new ThongKe();
+            Admin_ThongKe thongKe = new Admin_ThongKe();
             pn_bg3.Controls.Clear();
             pn_bg3.Controls.Add(thongKe);
             thongKe.Dock = DockStyle.Fill;
             thongKe.BringToFront();
-        }
-
-        private void themNhanVien1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pn_bg3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pn_bg2_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Text = "THỐNG KÊ";
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            ThemNhanVien themNhanVien = new ThemNhanVien();
+            Admin_ThemNhanVien themNhanVien = new Admin_ThemNhanVien();
             pn_bg3.Controls.Add(themNhanVien);
             themNhanVien.Dock = DockStyle.Fill;
             themNhanVien.BringToFront();
+            this.Text = "QUẢN LÝ NHÂN VIÊN";
         }
 
         private void btn_NCC_Click(object sender, EventArgs e)
         {
-            NhaCungCap nhaCungCap = new NhaCungCap();
+            Admin_NhaCungCap nhaCungCap = new Admin_NhaCungCap();
             pn_bg3.Controls.Add(nhaCungCap);
             nhaCungCap.Dock = DockStyle.Fill;
             nhaCungCap.BringToFront();
+            this.Text = "QUẢN LÝ NHÀ CUNG CẤP";
+        }
+
+        private void btn_QLSP_Click(object sender, EventArgs e)
+        {
+            Admin_QuanLySP quanLySP = new Admin_QuanLySP();
+            pn_bg3.Controls.Add(quanLySP);
+            quanLySP.Dock = DockStyle.Fill;
+            quanLySP.BringToFront();
+            this.Text = "QUẢN LÝ SẢN PHẦM";
         }
     }
 }

@@ -14,10 +14,10 @@ using System.Security.Cryptography.Xml;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
-    public partial class ThongKe : UserControl
+    public partial class Admin_ThongKe : UserControl
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connect"].ConnectionString);
-        public ThongKe()
+        public Admin_ThongKe()
         {
             InitializeComponent();
         }
@@ -143,25 +143,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             else lb_Doanhso.Text = tongDoanhSo.ToString();
             if (tongTienChi == 0) lb_Tienchi.Text = "0";
             else lb_Tienchi.Text = tongTienChi.ToString();
-        }
-        private void lb_Tienchi_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_Doanhso_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_slKH_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grb_Nguoi_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

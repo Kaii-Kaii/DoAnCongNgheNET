@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
-    public partial class NhaCungCap : UserControl
+    public partial class User_NhapHang : UserControl
     {
-        public NhaCungCap()
+        public User_NhapHang()
         {
             InitializeComponent();
         }
