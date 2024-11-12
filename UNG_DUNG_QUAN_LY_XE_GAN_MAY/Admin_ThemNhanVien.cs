@@ -171,7 +171,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 conn.Close();
             }
         }
-<<<<<<< HEAD:UNG_DUNG_QUAN_LY_XE_GAN_MAY/ThemNhanVien.cs
 
         private void txt_MaNV_Enter(object sender, EventArgs e)
         {
@@ -195,7 +194,5 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             MessageBox.Show("Sửa thông tin nhân viên thành công");
             Load_Treeview();    
         }
-=======
->>>>>>> master:UNG_DUNG_QUAN_LY_XE_GAN_MAY/Admin_ThemNhanVien.cs
     }
 }

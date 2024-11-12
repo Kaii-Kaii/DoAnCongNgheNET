@@ -30,6 +30,7 @@
         {
             this.lb_br4 = new System.Windows.Forms.Label();
             this.pn_bg1 = new System.Windows.Forms.Panel();
+            this.btn_Home = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_NCC = new System.Windows.Forms.Button();
             this.btn_QLSP = new System.Windows.Forms.Button();
@@ -37,11 +38,7 @@
             this.lb_br3 = new System.Windows.Forms.Label();
             this.btn_Them = new System.Windows.Forms.Button();
             this.pn_bg3 = new System.Windows.Forms.Panel();
-            this.lb_br1 = new System.Windows.Forms.Label();
-            this.lb_br2 = new System.Windows.Forms.Label();
-            this.btn_Home = new System.Windows.Forms.Button();
             this.pn_bg1.SuspendLayout();
-            this.pn_bg3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_br4
@@ -71,6 +68,19 @@
             this.pn_bg1.Name = "pn_bg1";
             this.pn_bg1.Size = new System.Drawing.Size(262, 822);
             this.pn_bg1.TabIndex = 3;
+            // 
+            // btn_Home
+            // 
+            this.btn_Home.BackColor = System.Drawing.Color.DarkBlue;
+            this.btn_Home.Cursor = System.Windows.Forms.Cursors.Help;
+            this.btn_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Home.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btn_Home.Image = global::UNG_DUNG_QUAN_LY_XE_GAN_MAY.Properties.Resources.Home;
+            this.btn_Home.Location = new System.Drawing.Point(84, 680);
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.Size = new System.Drawing.Size(65, 63);
+            this.btn_Home.TabIndex = 17;
+            this.btn_Home.UseVisualStyleBackColor = false;
             // 
             // btn_Exit
             // 
@@ -155,46 +165,11 @@
             // pn_bg3
             // 
             this.pn_bg3.BackColor = System.Drawing.Color.Azure;
-            this.pn_bg3.Controls.Add(this.lb_br2);
-            this.pn_bg3.Controls.Add(this.lb_br1);
             this.pn_bg3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_bg3.Location = new System.Drawing.Point(262, 0);
             this.pn_bg3.Name = "pn_bg3";
             this.pn_bg3.Size = new System.Drawing.Size(1086, 822);
             this.pn_bg3.TabIndex = 5;
-            // 
-            // lb_br1
-            // 
-            this.lb_br1.AutoSize = true;
-            this.lb_br1.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_br1.Location = new System.Drawing.Point(266, 75);
-            this.lb_br1.Name = "lb_br1";
-            this.lb_br1.Size = new System.Drawing.Size(504, 51);
-            this.lb_br1.TabIndex = 0;
-            this.lb_br1.Text = "CHÀO MỪNG ĐẾN VỚI";
-            // 
-            // lb_br2
-            // 
-            this.lb_br2.AutoSize = true;
-            this.lb_br2.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_br2.Location = new System.Drawing.Point(68, 160);
-            this.lb_br2.Name = "lb_br2";
-            this.lb_br2.Size = new System.Drawing.Size(901, 57);
-            this.lb_br2.TabIndex = 1;
-            this.lb_br2.Text = "PHẦM MỀM QUẢN LÝ XE GẮN MÁY";
-            // 
-            // btn_Home
-            // 
-            this.btn_Home.BackColor = System.Drawing.Color.DarkBlue;
-            this.btn_Home.Cursor = System.Windows.Forms.Cursors.Help;
-            this.btn_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Home.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btn_Home.Image = global::UNG_DUNG_QUAN_LY_XE_GAN_MAY.Properties.Resources.Home;
-            this.btn_Home.Location = new System.Drawing.Point(84, 680);
-            this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(65, 63);
-            this.btn_Home.TabIndex = 17;
-            this.btn_Home.UseVisualStyleBackColor = false;
             // 
             // frm_AdminApp
             // 
@@ -210,8 +185,6 @@
             this.Text = "AdminApp";
             this.pn_bg1.ResumeLayout(false);
             this.pn_bg1.PerformLayout();
-            this.pn_bg3.ResumeLayout(false);
-            this.pn_bg3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -226,8 +199,6 @@
         private System.Windows.Forms.Button btn_NCC;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Panel pn_bg3;
-        private System.Windows.Forms.Label lb_br2;
-        private System.Windows.Forms.Label lb_br1;
         private System.Windows.Forms.Button btn_Home;
     }
 }

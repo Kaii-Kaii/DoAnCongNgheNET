@@ -466,13 +466,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grb_ShowNV);
             this.Controls.Add(this.grb_Nhanvien);
-<<<<<<< HEAD:UNG_DUNG_QUAN_LY_XE_GAN_MAY/ThemNhanVien.Designer.cs
             this.Name = "ThemNhanVien";
             this.Size = new System.Drawing.Size(980, 697);
-=======
             this.Name = "Admin_ThemNhanVien";
             this.Size = new System.Drawing.Size(1086, 822);
->>>>>>> master:UNG_DUNG_QUAN_LY_XE_GAN_MAY/Admin_ThemNhanVien.Designer.cs
             this.Load += new System.EventHandler(this.ThemNhanVien_Load);
             this.grb_ShowNV.ResumeLayout(false);
             this.grb_ShowNV.PerformLayout();
