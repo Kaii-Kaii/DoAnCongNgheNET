@@ -1,4 +1,8 @@
-﻿CREATE TABLE NHACUNGCAP(
+﻿create database QL_CH_Xe
+
+use QL_CH_XE
+
+CREATE TABLE NHACUNGCAP(
     MA_NCC CHAR(6) PRIMARY KEY,  -- Mã nhà cung cấp (độ dài tối đa 6 ký tự)
     TEN_NCC NVARCHAR(100) NOT NULL   -- Tên nhà cung cấp (độ dài tối đa 100 ký tự)
 );
