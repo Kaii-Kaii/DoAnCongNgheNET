@@ -74,8 +74,11 @@ CREATE TABLE NHANVIEN (
     DIACHI_NV NVARCHAR(255)  -- Địa chỉ nhân viên
 );
 
+select * from NHANVIEN
+
 INSERT INTO NHANVIEN (MA_NV, TENNV,GIOITINH, CHUCVU, SDT_NV, NGAYSINH, DIACHI_NV)
 VALUES
+('NV010', N'hi', N'Nam', N'Nhân viên bán hàng', '0987654321', '2000-09-09', N'Cao Bằng'),
 ('NV001', N'Trần Văn A',	N'Nam',		 N'Quản lý',			'0909876543', '1985-05-15', N'123 Hoàng Diệu, Hà Nội'),
 ('NV002', N'Nguyễn Thị B',	N'Nữ',		 N'Nhân viên bán hàng', '0918765432', '1990-11-20', N'234 Hùng Vương, TP.HCM'),
 ('NV003', N'Lê Văn C',		N'Nam',		 N'Nhân viên kỹ thuật', '0927654321', '1988-09-30', N'456 Trần Phú, Đà Nẵng');
@@ -85,11 +88,18 @@ CREATE TABLE TAIKHOAN_NV (
     PASS NVARCHAR(50) NOT NULL,  -- Mật khẩu
     FOREIGN KEY (MA_NV) REFERENCES NHANVIEN(MA_NV)  -- Khóa ngoại tham chiếu đến bảng NHANVIEN
 );
+
+ALTER TABLE TAIKHOAN_NV
+ADD IS_ACTIVE BIT DEFAULT 1;
+
 INSERT INTO TAIKHOAN_NV (MA_NV, PASS)
 VALUES
+('NV010','NV09'),
 ('NV001', '111111'),
 ('NV002', '101010'),
 ('NV003', '123123');
+
+select * from TAIKHOAN_NV
 
 CREATE TABLE HD_NHAP (
     MAHD_NHAP CHAR(8) PRIMARY KEY,  -- Mã hóa đơn nhập (độ dài tối đa 8 ký tự)
