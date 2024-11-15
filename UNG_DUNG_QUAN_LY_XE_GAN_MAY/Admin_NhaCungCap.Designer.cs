@@ -84,6 +84,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(895, 337);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // grb_LocNCC
             // 
@@ -137,6 +138,7 @@
             this.btn_Loc.TabIndex = 16;
             this.btn_Loc.Text = "Lọc";
             this.btn_Loc.UseVisualStyleBackColor = false;
+            this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
             // 
             // lb_TNCC
             // 
@@ -197,6 +199,7 @@
             this.btn_Them.TabIndex = 14;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Xoa
             // 
@@ -209,6 +212,7 @@
             this.btn_Xoa.TabIndex = 15;
             this.btn_Xoa.Text = "Xoá";
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
             // 
@@ -221,6 +225,7 @@
             this.btn_Sua.TabIndex = 16;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // grb_NCC
             // 

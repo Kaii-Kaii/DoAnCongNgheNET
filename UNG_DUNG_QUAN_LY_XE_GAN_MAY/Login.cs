@@ -58,6 +58,14 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 return;
             }
             // kiểm tra tài khoản và mật khẩu
+            if(txt_TDN.Text == "admin" && txt_Pass.Text == "admin")
+            {
+                frm_AdminApp frm = new frm_AdminApp();
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+                return;
+            }
             conn.Open();
             string query = "SELECT COUNT(*) FROM TAIKHOAN_NV WHERE MA_NV = @MANV AND PASS = @PASS";
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -67,21 +75,18 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             conn.Close();
             if (result > 0)
             {
+                SqlCommand cmd1 = new SqlCommand("SELECT * FROM TAIKHOAN_NV WHERE MA_NV = '" + txt_TDN.Text + "'", conn);
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+                if (dr1["IS_ACTIVE"].ToString() == "False")
+                {
+                    MessageBox.Show("Tài khoản đã bị khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (txt_TDN.Text == "NV001")
-                {
-                    frm_AdminApp frm = new frm_AdminApp();
-                    this.Hide();
-                    frm.ShowDialog();
-                    this.Show();
-                }
-                else
-                {
-                    //frm_MainNV frm = new frm_MainNV(txt_TDN.Text);
-                    //this.Hide();
-                    //frm.ShowDialog();
-                    //this.Show();
-                }
+                frm_AdminApp frm = new frm_AdminApp();
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
             }
             else
             {
