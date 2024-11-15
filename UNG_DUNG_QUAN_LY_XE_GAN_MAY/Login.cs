@@ -75,6 +75,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             conn.Close();
             if (result > 0)
             {
+                SqlCommand cmd1 = new SqlCommand("SELECT * FROM TAIKHOAN_NV WHERE MA_NV = '" + txt_TDN.Text + "'", conn);
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+                if (dr1["IS_ACTIVE"].ToString() == "False")
+                {
+                    MessageBox.Show("Tài khoản đã bị khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frm_AdminApp frm = new frm_AdminApp();
                 this.Hide();

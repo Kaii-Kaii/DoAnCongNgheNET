@@ -50,6 +50,23 @@ VALUES
 ('SP009', N'SYM Elegant', N'Xe số SYM',				 60, 18000000, 16000000, 18,'image9.png', 'LOAI002'),
 ('SP010', N'Suzuki Raider', N'Xe côn tay Suzuki',	 25, 51000000, 47000000, 24,'image10.png','LOAI003');
 
+SELECT 
+    NCC.MA_NCC,
+    NCC.TEN_NCC,
+    SP.TEN_SP,
+    CTHD.SL_NHAP,
+    CTHD.MA_SP,
+    CTHD.GIA_SP
+FROM 
+    NHACUNGCAP NCC
+JOIN 
+    HD_NHAP HD ON NCC.MA_NCC = HD.MA_NCC
+JOIN 
+    CTHD_NHAP CTHD ON HD.MAHD_NHAP = CTHD.MAHD_NHAP
+JOIN 
+    SANPHAM SP ON CTHD.MA_SP = SP.MA_SP;
+
+
 CREATE TABLE KHACHHANG (
     SDT_KH CHAR(10) PRIMARY KEY,  -- Số điện thoại khách hàng
     TENKH NVARCHAR(100) NOT NULL,  -- Tên khách hàng

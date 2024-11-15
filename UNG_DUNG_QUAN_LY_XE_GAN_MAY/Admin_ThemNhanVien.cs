@@ -248,7 +248,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             SqlDataReader dr1 = cmd1.ExecuteReader();
             if (dr1.Read())
             {
-                if(dr1["IS_ACTIVE"].ToString() == "1")
+                if(dr1["IS_ACTIVE"].ToString() == "True")
                 {
                     txt_TTK.Text = dr1["MA_NV"].ToString();
                     txt_MK.Text = dr1["PASS"].ToString();
