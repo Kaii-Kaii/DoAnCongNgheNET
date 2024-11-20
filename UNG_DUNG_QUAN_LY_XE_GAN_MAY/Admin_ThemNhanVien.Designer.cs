@@ -177,6 +177,7 @@
             // 
             // trv_NV
             // 
+            this.trv_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trv_NV.Location = new System.Drawing.Point(31, 52);
             this.trv_NV.Name = "trv_NV";
             this.trv_NV.Size = new System.Drawing.Size(504, 518);

@@ -1,4 +1,4 @@
-﻿create database QL_CH_Xe
+create database QL_CH_Xe
 
 use QL_CH_XE
 
