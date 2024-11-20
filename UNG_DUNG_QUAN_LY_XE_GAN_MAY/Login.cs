@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Security.Cryptography.Xml;
 using System.Net.NetworkInformation;
+using System.Windows.Input;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
@@ -60,8 +61,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // kiểm tra tài khoản và mật khẩu
-            if(txt_TDN.Text == "admin" && txt_Pass.Text == "admin")
+            if (txt_TDN.Text == "admin" && txt_Pass.Text == "admin")
             {
                 frm_AdminApp frm = new frm_AdminApp();
                 this.Hide();
@@ -78,30 +78,51 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             conn.Close();
             if (result > 0)
             {
-                SqlCommand cmd1 = new SqlCommand("SELECT * FROM TAIKHOAN_NV WHERE MA_NV = '" + txt_TDN.Text + "'", conn);
-                SqlDataReader dr1 = cmd1.ExecuteReader();
-                if (dr1["IS_ACTIVE"].ToString() == "False")
-                {
-                    MessageBox.Show("Tài khoản đã bị khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                else 
-                {
-                    NhanVien nhanVien = new NhanVien
-                    {
-                        Login = txt_TDN.Text,
-                        Pass = txt_Pass.Text
-                        // Thêm các thuộc tính khác nếu cần
-                    };
-                    txt_TDN.Clear();
-                    txt_Pass.Clear();
-                    MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frm_UserApp frm = new frm_UserApp(nhanVien);
-                    this.Hide();
-                    frm.ShowDialog();
-                    this.Show();
-                }
+                //CREATE TABLE TAIKHOAN_NV(
+                //MA_NV CHAR(6) PRIMARY KEY, --Mã nhân viên(khóa ngoại từ bảng NHANVIEN)
+                //PASS NVARCHAR(50) NOT NULL, --Mật khẩu
 
+                //IS_ACTIVE BIT DEFAULT 1,
+                //FOREIGN KEY(MA_NV) REFERENCES NHANVIEN(MA_NV)-- Khóa ngoại tham chiếu đến bảng NHANVIEN
+
+                // kiểm tra tài khoản có bị khóa không
+                conn.Open();
+                string query1 = "SELECT IS_ACTIVE FROM TAIKHOAN_NV WHERE MA_NV = @MANV";
+                SqlCommand cmd1 = new SqlCommand(query1, conn);
+                cmd1.Parameters.AddWithValue("@MANV", txt_TDN.Text);
+                SqlDataReader dr1 = cmd1.ExecuteReader();
+                if (dr1.Read())
+                {
+                    bool isActive = (bool)dr1["IS_ACTIVE"];
+                    dr1.Close();
+
+                    conn.Close();
+                    if (isActive == false)
+                    {
+                        MessageBox.Show("Tài khoản đã bị khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        NhanVien nhanVien = new NhanVien
+                        {
+                            Login = txt_TDN.Text,
+                            Pass = txt_Pass.Text
+                        };
+                        txt_TDN.Clear();
+                        txt_Pass.Clear();
+                        MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frm_UserApp frm = new frm_UserApp(nhanVien);
+                        this.Hide();
+                        frm.ShowDialog();
+                        this.Show();
+                    }
+                }
+                else
+                {
+                    conn.Close();
+                    MessageBox.Show("Tài khoản hoặc mật khẩu không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
