@@ -120,5 +120,21 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             picb_SanPham.Image = Image.FromFile(imagePath);
 
         }
+
+        // khi bấm esc thì clear các textbox
+        private void Admin_QuanLySP_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                txt_MSP.Text = "";
+                txt_TenSP.Text = "";
+                cob_Loai.Text = "";
+                txt_TGBH.Text = "";
+                txt_GiaXuat.Text = "";
+                txt_GiaNhap.Text = "";
+                txt_Anh.Text = "";
+                picb_SanPham.Image = null;
+            }
+        }
     }
 }
