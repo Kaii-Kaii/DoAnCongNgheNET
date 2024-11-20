@@ -161,6 +161,7 @@
       <DependentUpon>AdminApp.cs</DependentUpon>
     </Compile>
     <Compile Include="HoaDon.cs" />
+    <Compile Include="TaiKhoanNhanVien.cs" />
     <Compile Include="User_HoaDon.cs">
       <SubType>UserControl</SubType>
     </Compile>

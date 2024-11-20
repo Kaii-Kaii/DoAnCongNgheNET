@@ -70,6 +70,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             this.Text = "QUẢN LÝ SẢN PHẦM";
         }
 
-       
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            // trở về trang load app
+            frm_LoadApp frm = new frm_LoadApp();
+            frm.Show();
+            this.Hide();
+
+        }
     }
 }

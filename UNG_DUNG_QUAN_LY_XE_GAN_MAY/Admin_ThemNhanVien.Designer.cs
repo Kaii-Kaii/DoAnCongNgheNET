@@ -116,6 +116,7 @@
             this.btn_Xoa.TabIndex = 14;
             this.btn_Xoa.Text = "Xoá";
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Them
             // 
@@ -181,6 +182,7 @@
             this.trv_NV.Name = "trv_NV";
             this.trv_NV.Size = new System.Drawing.Size(504, 518);
             this.trv_NV.TabIndex = 2;
+            this.trv_NV.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trv_NV_AfterSelect);
             // 
             // lb_NV
             // 
@@ -304,6 +306,7 @@
             this.btn_VoHieu.TabIndex = 24;
             this.btn_VoHieu.Text = "Vô Hiệu";
             this.btn_VoHieu.UseVisualStyleBackColor = false;
+            this.btn_VoHieu.Click += new System.EventHandler(this.btn_VoHieu_Click);
             // 
             // txt_MK
             // 

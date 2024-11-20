@@ -33,6 +33,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             cob_ChucVu.Items.Add("Nhân viên kỹ thuật");
             cob_ChucVu.SelectedIndex = 0;
             txt_SDT.KeyPress += new KeyPressEventHandler(txt_SDT_KeyPress);
+            txt_TTK.Enabled = txt_MK.Enabled = false;
             Load_Treeview();
 
         }
@@ -90,6 +91,9 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             nhanVien.SDT_NV = txt_SDT.Text;
             nhanVien.NgaySinh = dt_NgaySinh.Value.ToString("yyyy-MM-dd");
             nhanVien.DiaChi = txt_DiaChi.Text;
+            TaiKhoanNhanVien TK = new TaiKhoanNhanVien();
+            TK.TenDangNhap = nhanVien.MaNV;
+            TK.MatKhau = nhanVien.MaNV;
             if (!checkNgaySinh(nhanVien.NgaySinh))
             {
                 MessageBox.Show("Nhân viên phải lớn hơn 18 tuổi");
@@ -107,16 +111,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             conn.Close();
             conn.Open();
             SqlCommand cmd1 = new SqlCommand("INSERT INTO NHANVIEN VALUES('" + nhanVien.MaNV + "', N'" + nhanVien.TenNV + "', N'" + nhanVien.GioiTinh + "', N'" + nhanVien.ChucVu + "', '" + nhanVien.SDT_NV + "', '" + nhanVien.NgaySinh + "', N'" + nhanVien.DiaChi + "')", conn);
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO TAIKHOAN_NV (MA_NV, PASS) VALUES('"+ TK.TenDangNhap +"', '" + TK.MatKhau + "')", conn);
             cmd1.ExecuteNonQuery();
-            conn.Close();
-            MessageBox.Show("Thêm nhân viên thành công");
-            txt_MaNV.Text = txt_DiaChi.Text = txt_SDT.Text = txt_TenNV.Text = "";
-            cb_GioiTinh.SelectedIndex = cob_ChucVu.SelectedIndex = 0;
-            conn.Open();
-            SqlCommand cmd2 = new SqlCommand("INSERT INTO TAIKHOAN_NV VALUES('" + nhanVien.MaNV + "', '" + nhanVien.MaNV + "')", conn);
             cmd2.ExecuteNonQuery();
             conn.Close();
+            MessageBox.Show("Thêm nhân viên thành công");
             Load_Treeview();
+            XoaThongTin_txt();
         }
 
         private void btn_Chitiet_Click(object sender, EventArgs e)
@@ -142,7 +143,32 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             else
             {
                 MessageBox.Show("Không tìm thấy nhân viên");
+                dr.Close();
+                conn.Close();
+                return;
             }
+            dr.Close();
+
+            SqlCommand cmd2 = new SqlCommand("SELECT * FROM TAIKHOAN_NV WHERE MA_NV = '" + MaNV + "'", conn);
+            SqlDataReader dr1 = cmd2.ExecuteReader();
+            if (dr1.Read())
+            {
+                if (dr1["IS_ACTIVE"].ToString() == "1")
+                {
+                    txt_TTK.Text = dr1["MA_NV"].ToString();
+                    txt_MK.Text = dr1["PASS"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản đã bị khóa");
+                    txt_TTK.Text = txt_MK.Text = "";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy tài khoản");
+            }
+            dr1.Close();
             conn.Close();
         }
 
@@ -160,14 +186,15 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    TreeNode node1 = new TreeNode(dr["TENNV"].ToString());
-                    node1.Nodes.Add("Mã nhân viên: " + dr["MA_NV"].ToString());
+                    TreeNode node1 = new TreeNode(dr["MA_NV"].ToString());
+                    node1.Nodes.Add("Tên nhân viên: " + dr["TENNV"].ToString());
                     node1.Nodes.Add("Giới tính: " + dr["GIOITINH"].ToString());
                     node1.Nodes.Add("Số điện thoại: " + dr["SDT_NV"].ToString());
                     node1.Nodes.Add("Ngày sinh: " + Convert.ToDateTime(dr["NGAYSINH"]).ToString("dd-MM-yyyy"));
                     node1.Nodes.Add("Địa chỉ: " + dr["DIACHI_NV"].ToString());
                     node.Nodes.Add(node1);
                 }
+                dr.Close();
                 conn.Close();
             }
         }
@@ -192,7 +219,91 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             cmd.ExecuteNonQuery();
             conn.Close();
             MessageBox.Show("Sửa thông tin nhân viên thành công");
-            Load_Treeview();    
+            Load_Treeview();
+            XoaThongTin_txt();
+        }
+
+        private void trv_NV_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string MaNV = trv_NV.SelectedNode.Text;
+            if (MaNV == "Quản lý" || MaNV == "Nhân viên bán hàng" || MaNV == "Nhân viên kỹ thuật")
+            {
+                return;
+            }
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM NHANVIEN WHERE MA_NV = '" + MaNV + "'", conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                txt_MaNV.Text = dr["MA_NV"].ToString();
+                txt_TenNV.Text = dr["TENNV"].ToString();
+                cb_GioiTinh.Text = dr["GIOITINH"].ToString();
+                cob_ChucVu.Text = dr["CHUCVU"].ToString();
+                txt_SDT.Text = dr["SDT_NV"].ToString();
+                dt_NgaySinh.Value = DateTime.Parse(dr["NGAYSINH"].ToString());
+                txt_DiaChi.Text = dr["DIACHI_NV"].ToString();
+            }
+            dr.Close();
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM TAIKHOAN_NV WHERE MA_NV = '" + MaNV + "'", conn);
+            SqlDataReader dr1 = cmd1.ExecuteReader();
+            if (dr1.Read())
+            {
+                if(dr1["IS_ACTIVE"].ToString() == "True")
+                {
+                    txt_TTK.Text = dr1["MA_NV"].ToString();
+                    txt_MK.Text = dr1["PASS"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản đã bị khóa");
+                    txt_TTK.Text = txt_MK.Text = "";
+                }
+            }
+            dr1.Close();
+            conn.Close();
+
+        }
+
+        private void btn_VoHieu_Click(object sender, EventArgs e)
+        {
+            // vô hiệu hóa tài khoản
+            string MaNV = txt_MaNV.Text;
+            if (MaNV == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã nhân viên");
+                return;
+            }
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE TAIKHOAN_NV SET IS_ACTIVE = 0 WHERE MA_NV = '" + MaNV + "'", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Vô hiệu hóa tài khoản thành công");
+            Load_Treeview();
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            // xóa nhân viên
+            string MaNV = txt_MaNV.Text;
+            if (MaNV == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã nhân viên");
+                return;
+            }
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM NHANVIEN WHERE MA_NV = '" + MaNV + "'", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Xóa nhân viên thành công");
+            Load_Treeview();
+            XoaThongTin_txt();
+        }
+
+        private void XoaThongTin_txt()
+        {
+            txt_MaNV.Text = txt_DiaChi.Text = txt_SDT.Text = txt_TenNV.Text = "";
+            cb_GioiTinh.SelectedIndex = cob_ChucVu.SelectedIndex = 0;
+            txt_TTK.Text = txt_MK.Text = "";
         }
     }
 }

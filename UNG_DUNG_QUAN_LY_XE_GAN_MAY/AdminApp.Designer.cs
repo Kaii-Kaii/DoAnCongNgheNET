@@ -81,6 +81,7 @@
             this.btn_Home.Size = new System.Drawing.Size(65, 63);
             this.btn_Home.TabIndex = 17;
             this.btn_Home.UseVisualStyleBackColor = false;
+            this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
             // 
             // btn_Exit
             // 
