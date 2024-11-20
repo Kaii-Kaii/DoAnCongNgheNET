@@ -164,7 +164,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                     node1.Nodes.Add("Mã nhân viên: " + dr["MA_NV"].ToString());
                     node1.Nodes.Add("Giới tính: " + dr["GIOITINH"].ToString());
                     node1.Nodes.Add("Số điện thoại: " + dr["SDT_NV"].ToString());
-                    node1.Nodes.Add("Ngày sinh: " + dr["NGAYSINH"].ToString());
+                    node1.Nodes.Add("Ngày sinh: " + Convert.ToDateTime(dr["NGAYSINH"]).ToString("dd-MM-yyyy"));
                     node1.Nodes.Add("Địa chỉ: " + dr["DIACHI_NV"].ToString());
                     node.Nodes.Add(node1);
                 }

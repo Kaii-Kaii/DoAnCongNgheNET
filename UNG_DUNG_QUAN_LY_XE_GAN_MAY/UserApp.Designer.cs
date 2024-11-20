@@ -112,6 +112,7 @@
             this.btn_TTNV.TabIndex = 10;
             this.btn_TTNV.Text = "Thông tin cá nhân";
             this.btn_TTNV.UseVisualStyleBackColor = false;
+            this.btn_TTNV.Click += new System.EventHandler(this.btn_TTNV_Click);
             // 
             // btn_HoaDon
             // 
@@ -129,14 +130,15 @@
             // btn_exit
             // 
             this.btn_exit.BackColor = System.Drawing.Color.MediumBlue;
-            this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_exit.Location = new System.Drawing.Point(30, 725);
+            this.btn_exit.Location = new System.Drawing.Point(30, 719);
             this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(114, 63);
+            this.btn_exit.Size = new System.Drawing.Size(114, 69);
             this.btn_exit.TabIndex = 8;
-            this.btn_exit.Text = "Exit";
+            this.btn_exit.Text = "Đăng xuất";
             this.btn_exit.UseVisualStyleBackColor = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // lb_br2
             // 

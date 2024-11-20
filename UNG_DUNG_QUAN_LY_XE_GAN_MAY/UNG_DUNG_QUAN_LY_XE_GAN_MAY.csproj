@@ -160,6 +160,7 @@
     <Compile Include="AdminApp.Designer.cs">
       <DependentUpon>AdminApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDon.cs" />
     <Compile Include="User_HoaDon.cs">
       <SubType>UserControl</SubType>
     </Compile>

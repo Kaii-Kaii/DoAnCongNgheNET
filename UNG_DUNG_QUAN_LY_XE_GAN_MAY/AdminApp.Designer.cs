@@ -99,6 +99,7 @@
             // 
             this.btn_NCC.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_NCC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_NCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_NCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_NCC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_NCC.Location = new System.Drawing.Point(12, 250);
@@ -113,6 +114,7 @@
             // 
             this.btn_QLSP.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_QLSP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_QLSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_QLSP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_QLSP.Location = new System.Drawing.Point(12, 336);
@@ -127,6 +129,7 @@
             // 
             this.btn_ThongKe.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_ThongKe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThongKe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_ThongKe.Location = new System.Drawing.Point(12, 422);
@@ -152,6 +155,7 @@
             // 
             this.btn_Them.BackColor = System.Drawing.Color.DarkBlue;
             this.btn_Them.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Them.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Them.Location = new System.Drawing.Point(12, 170);
@@ -183,6 +187,7 @@
             this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Name = "frm_AdminApp";
             this.Text = "AdminApp";
+            this.Load += new System.EventHandler(this.frm_AdminApp_Load);
             this.pn_bg1.ResumeLayout(false);
             this.pn_bg1.PerformLayout();
             this.ResumeLayout(false);

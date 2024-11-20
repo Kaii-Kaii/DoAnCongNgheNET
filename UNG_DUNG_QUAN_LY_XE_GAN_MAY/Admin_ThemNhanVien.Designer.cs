@@ -176,6 +176,7 @@
             // 
             // trv_NV
             // 
+            this.trv_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trv_NV.Location = new System.Drawing.Point(31, 52);
             this.trv_NV.Name = "trv_NV";
             this.trv_NV.Size = new System.Drawing.Size(504, 518);
@@ -466,8 +467,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grb_ShowNV);
             this.Controls.Add(this.grb_Nhanvien);
-            this.Name = "ThemNhanVien";
-            this.Size = new System.Drawing.Size(980, 697);
             this.Name = "Admin_ThemNhanVien";
             this.Size = new System.Drawing.Size(1086, 822);
             this.Load += new System.EventHandler(this.ThemNhanVien_Load);
