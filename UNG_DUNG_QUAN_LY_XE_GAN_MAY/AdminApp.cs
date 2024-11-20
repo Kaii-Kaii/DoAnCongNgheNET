@@ -12,6 +12,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
     public partial class frm_AdminApp : Form
     {
+
         public frm_AdminApp()
         {
             InitializeComponent();
@@ -19,10 +20,18 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             //pn_bg3.Controls.Add(themNhanVien);
             //themNhanVien.Dock = DockStyle.Fill;
             //themNhanVien.BringToFront();
+            
+
         }
-        
+        private void frm_AdminApp_Load(object sender, EventArgs e)
+        {
+           
+        }
+       
+
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
+            
             Admin_ThongKe thongKe = new Admin_ThongKe();
             pn_bg3.Controls.Clear();
             pn_bg3.Controls.Add(thongKe);
@@ -30,6 +39,9 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             thongKe.BringToFront();
             this.Text = "THỐNG KÊ";
         }
+
+
+
 
         private void btn_Them_Click(object sender, EventArgs e)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
-    internal class NhanVien
+    public class NhanVien
     {
         public string MaNV { get; set; }
         public string TenNV { get; set; }
@@ -15,5 +15,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         public string SDT_NV { get; set; }
         public string NgaySinh { get; set; }
         public string DiaChi { get; set; }
+        public string Login { get; set; }
+        public string Pass { get; set; }
     }
 }

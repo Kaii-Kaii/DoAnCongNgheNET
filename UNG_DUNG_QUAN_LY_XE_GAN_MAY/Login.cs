@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Security.Cryptography.Xml;
+using System.Net.NetworkInformation;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
@@ -22,7 +23,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         {
             InitializeComponent();
         }
-
+       
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -32,6 +33,8 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         {
 
         }
+        
+
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
@@ -82,11 +85,23 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                     MessageBox.Show("Tài khoản đã bị khóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frm_AdminApp frm = new frm_AdminApp();
-                this.Hide();
-                frm.ShowDialog();
-                this.Show();
+                else 
+                {
+                    NhanVien nhanVien = new NhanVien
+                    {
+                        Login = txt_TDN.Text,
+                        Pass = txt_Pass.Text
+                        // Thêm các thuộc tính khác nếu cần
+                    };
+                    txt_TDN.Clear();
+                    txt_Pass.Clear();
+                    MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frm_UserApp frm = new frm_UserApp(nhanVien);
+                    this.Hide();
+                    frm.ShowDialog();
+                    this.Show();
+                }
+
             }
             else
             {
