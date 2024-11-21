@@ -214,7 +214,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 return;
             }
             conn.Open();
-            // cập nhật thông tin nhân viên
             SqlCommand cmd = new SqlCommand("UPDATE NHANVIEN SET TENNV = N'" + txt_TenNV.Text + "', GIOITINH = N'" + cb_GioiTinh.Text + "', CHUCVU = N'" + cob_ChucVu.Text + "', SDT_NV = '" + txt_SDT.Text + "', NGAYSINH = '" + dt_NgaySinh.Value.ToString("yyyy-MM-dd") + "', DIACHI_NV = N'" + txt_DiaChi.Text + "' WHERE MA_NV = '" + MaNV + "'", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -266,7 +265,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void btn_VoHieu_Click(object sender, EventArgs e)
         {
-            // vô hiệu hóa tài khoản
             string MaNV = txt_MaNV.Text;
             if (MaNV == "")
             {
@@ -274,19 +272,11 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 return;
             }
             conn.Open();
-            // kiểm tài khoản có bị khóa hay không
             SqlCommand cmd = new SqlCommand("SELECT * FROM TAIKHOAN_NV WHERE MA_NV = @MaNV", conn);
             cmd.Parameters.AddWithValue("@MaNV", MaNV);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                //CREATE TABLE TAIKHOAN_NV(
-                //MA_NV CHAR(6) PRIMARY KEY, --Mã nhân viên(khóa ngoại từ bảng NHANVIEN)
-                //PASS NVARCHAR(50) NOT NULL, --Mật khẩu
-
-                //IS_ACTIVE BIT DEFAULT 1,
-                //FOREIGN KEY(MA_NV) REFERENCES NHANVIEN(MA_NV)-- Khóa ngoại tham chiếu đến bảng NHANVIEN
-                // nếu tài khoản đang hoạt động thì vô hiệu hóa
                 if (dr["IS_ACTIVE"].ToString() == "True")
                 {
                     dr.Close();
@@ -297,7 +287,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 }
                 else
                 {
-                    // nếu tài khoản đã bị vô hiệu hóa thì mở lại
                     dr.Close();
                     SqlCommand cmd1 = new SqlCommand("UPDATE TAIKHOAN_NV SET IS_ACTIVE = 1 WHERE MA_NV = @MaNV", conn);
                     cmd1.Parameters.AddWithValue("@MaNV", MaNV);
