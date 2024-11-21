@@ -15,7 +15,8 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
     public partial class User_ThongTinCaNhan : UserControl
     {
         private NhanVien CurrentNhanVien;
-        private List<HoaDon> hoaDons = new List<HoaDon>();
+        private List<HoaDon> hoaDonXuats = new List<HoaDon>();
+        private List<HoaDon> hoaDonNhaps = new List<HoaDon>();
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connect"].ConnectionString);
         public User_ThongTinCaNhan(NhanVien currentNhanVien)
         {
@@ -46,7 +47,9 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 CurrentNhanVien.NgaySinh = reader["NGAYSINH"].ToString();
                 CurrentNhanVien.DiaChi = reader["DIACHI_NV"].ToString();
             }
-            conn.Close();
+            conn.Close(); }
+        public void LoadHDX()
+        {
             conn.Open();
             SqlCommand cmd_HD = new SqlCommand("SELECT MAHD_XUAT,NGAYXUAT " +
                                                 "FROM HD_XUAT_BAOHANH " +
@@ -56,19 +59,48 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             { 
                 HoaDon hoaDon = new HoaDon();
                 hoaDon.MaHD = readerHD["MAHD_XUAT"].ToString();
-                hoaDon.NgayXuat = Convert.ToDateTime(readerHD["NGAYXUAT"]).ToString("yyyy-MM-dd");
-                hoaDons.Add(hoaDon);
+                hoaDon.Ngay = Convert.ToDateTime(readerHD["NGAYXUAT"]).ToString("dd-MM-yyyy");
+                hoaDonXuats.Add(hoaDon);
             }
                 conn.Close();
         }
-        public void LoadHoaDonXuat() {
-            dataGridView1.DataSource = null; 
-            dataGridView1.DataSource = hoaDons;
-        }
-        private void CustomizeGridView()
+        public void LoadHDN()
         {
+            conn.Open();
+            SqlCommand cmd_HD = new SqlCommand("SELECT MAHD_NHAP,NGAYNHAP " +
+                                                "FROM HD_NHAP " +
+                                                "WHERE MA_NV = '" + CurrentNhanVien.Login + "'", conn);
+            SqlDataReader readerHD = cmd_HD.ExecuteReader();
+            while (readerHD.Read())
+            {
+                HoaDon hoaDon = new HoaDon();
+                hoaDon.MaHD = readerHD["MAHD_NHAP"].ToString();
+                hoaDon.Ngay = Convert.ToDateTime(readerHD["NGAYNHAP"]).ToString("dd-MM-yyyy");
+                hoaDonNhaps.Add(hoaDon);
+            }
+            conn.Close();
+        }
+        public void LoadHoaDonXuat() {
+            LoadHDX();
+            dataGridView1.DataSource = null; 
+            dataGridView1.DataSource = hoaDonXuats;
             dataGridView1.Columns["MaHD"].HeaderText = "Mã Hoá Đơn";
-            dataGridView1.Columns["NgayXuat"].HeaderText = "Ngày Xuất";
+            dataGridView1.Columns["Ngay"].HeaderText = "Ngày Xuất";
+            dataGridView1.Columns["MaSP"].Visible = false;
+            dataGridView1.Columns["MoTa"].Visible = false;
+            dataGridView1.Columns["GiaBan"].Visible = false;
+            dataGridView1.Columns["GiaNhap"].Visible = false;
+            dataGridView1.Columns["TgBaoHanh"].Visible = false;
+            dataGridView1.Columns["AnhSP"].Visible = false;
+            dataGridView1.Columns["MaLoai"].Visible = false;
+        }
+        public void LoadHoaDonNhap()
+        {
+            LoadHDN();
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = hoaDonNhaps;
+            dataGridView2.Columns["MaHD"].HeaderText = "Mã Hoá Đơn";
+            dataGridView2.Columns["Ngay"].HeaderText = "Ngày Nhập";
         }
 
         private void User_ThongTinCaNhan_Load(object sender, EventArgs e)
@@ -76,8 +108,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             LoadGioiTinh();
             LoadInfor();
             LoadHoaDonXuat();
-            CustomizeGridView();
-            //// Hiển thị thông tin cá nhân từ AppState
+            LoadHoaDonNhap();
             txt_MaNV.Text = CurrentNhanVien.MaNV;
             txt_Pass.Text = CurrentNhanVien.Pass;
             txt_ChucVu.Text= CurrentNhanVien.ChucVu;
@@ -92,11 +123,25 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         {
             txt_Pass.PasswordChar = '●';
         }
-
+        
         private void chb_Show_CheckedChanged(object sender, EventArgs e)
         {
             if (chb_Show.Checked) txt_Pass.PasswordChar = '\0';
             else txt_Pass.PasswordChar = '●';
+        }
+        // các hàm check dl 
+        private bool checkSoDienThoai(string sdt)
+        {
+            // số đầu tiên là số 0
+            if (sdt[0] != '0')
+            {
+                return false;
+            }
+            if (sdt.Length != 10)
+            {
+                return false;
+            }
+            return true;
         }
 
         private void btn_ChinhSua_Click(object sender, EventArgs e)
@@ -120,6 +165,28 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 {
                     return;
                 }
+                if (txt_Pass.Text == "" || cb_GioiTinh.Text == "" || txt_SDT.Text == "" || txt_DiaChi.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                    return;
+                }
+                if (checkSoDienThoai(txt_SDT.Text) == false)
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ");
+                    return;
+                }
+                conn.Open();
+                // cập nhật thông tin nhân viên
+                SqlCommand cmd = new SqlCommand("UPDATE NHANVIEN SET GIOITINH = N'" + cb_GioiTinh.Text + "', SDT_NV = '" + txt_SDT.Text + "', DIACHI_NV = N'" + txt_DiaChi.Text + "' WHERE MA_NV = '" + CurrentNhanVien.MaNV + "'", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                conn.Open();
+                // cập nhật Pass nhân viên
+                SqlCommand cmd1 = new SqlCommand("UPDATE TAIKHOAN_NV SET PASS = '" + txt_Pass.Text + "'", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                LoadInfor();
+                MessageBox.Show("Sửa thông tin nhân viên thành công");
                 btn_ChinhSua.Text = "Chỉnh sửa";
                 btn_ChinhSua.BackColor = Color.AliceBlue;
                 btn_ChinhSua.ForeColor = Color.FromArgb(0, 0, 255);

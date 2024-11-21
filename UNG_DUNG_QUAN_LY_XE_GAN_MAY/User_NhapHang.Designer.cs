@@ -112,6 +112,7 @@
             // 
             // cb_NCC
             // 
+            this.cb_NCC.Enabled = false;
             this.cb_NCC.FormattingEnabled = true;
             this.cb_NCC.Location = new System.Drawing.Point(423, 90);
             this.cb_NCC.Name = "cb_NCC";
@@ -143,6 +144,7 @@
             this.btn_TaoPN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_TaoPN.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_TaoPN.UseVisualStyleBackColor = false;
+            this.btn_TaoPN.Click += new System.EventHandler(this.btn_TaoPN_Click);
             // 
             // lb_MaHD1
             // 
@@ -157,11 +159,10 @@
             // txt_MaHD1
             // 
             this.txt_MaHD1.Enabled = false;
-            this.txt_MaHD1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MaHD1.Location = new System.Drawing.Point(167, 34);
+            this.txt_MaHD1.Location = new System.Drawing.Point(171, 32);
             this.txt_MaHD1.Name = "txt_MaHD1";
-            this.txt_MaHD1.Size = new System.Drawing.Size(223, 27);
-            this.txt_MaHD1.TabIndex = 12;
+            this.txt_MaHD1.Size = new System.Drawing.Size(194, 27);
+            this.txt_MaHD1.TabIndex = 27;
             // 
             // lb_NgayNhap
             // 
@@ -329,6 +330,7 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(12, 31);
@@ -464,6 +466,7 @@
             this.Controls.Add(this.lb_NhapHang);
             this.Name = "User_NhapHang";
             this.Size = new System.Drawing.Size(1106, 800);
+            this.Load += new System.EventHandler(this.User_NhapHang_Load);
             this.grb_PhieuNhap.ResumeLayout(false);
             this.grb_PhieuNhap.PerformLayout();
             this.grb_CTNH.ResumeLayout(false);
