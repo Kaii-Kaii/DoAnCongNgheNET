@@ -111,12 +111,12 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             SanPham sp = new SanPham();
             sp.MaSP = txt_MSP.Text = dataGridView.Rows[i].Cells[0].Value.ToString();
             sp.TenSP = txt_TenSP.Text = dataGridView.Rows[i].Cells[1].Value.ToString();
-            sp.LoaiSP = cob_Loai.Text = dataGridView.Rows[i].Cells[7].Value.ToString();
-            sp.TGBH = txt_TGBH.Text = dataGridView.Rows[i].Cells[6].Value.ToString();
+            cob_Loai.Text = dataGridView.Rows[i].Cells[7].Value.ToString();
+            txt_TGBH.Text = dataGridView.Rows[i].Cells[6].Value.ToString();
             // bỏ số .00 ở cuối
-            sp.GiaXuat = txt_GiaXuat.Text = dataGridView.Rows[i].Cells[4].Value.ToString().Split('.')[0];
-            sp.GiaNhap = txt_GiaNhap.Text = dataGridView.Rows[i].Cells[5].Value.ToString().Split('.')[0];
-            sp.Anh = txt_Anh.Text = dataGridView.Rows[i].Cells[8].Value.ToString();
+            txt_GiaXuat.Text = dataGridView.Rows[i].Cells[4].Value.ToString().Split('.')[0];
+            txt_GiaNhap.Text = dataGridView.Rows[i].Cells[5].Value.ToString().Split('.')[0];
+            txt_Anh.Text = dataGridView.Rows[i].Cells[8].Value.ToString();
             string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
             string imagePath = Path.Combine(projectPath, "image_xe", dataGridView.Rows[i].Cells[8].Value.ToString());
             picb_SanPham.Image = Image.FromFile(imagePath);
