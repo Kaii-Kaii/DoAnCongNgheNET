@@ -72,11 +72,28 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            // trở về trang load app
-            frm_LoadApp frm = new frm_LoadApp();
-            frm.Show();
-            this.Hide();
+            pn_bg3.Controls.Clear();
 
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            DialogResult r;
+            r = MessageBox.Show("Bạn có muốn THOÁT?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.No)
+            {
+                return;
+            }
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frm_Login loginForm)
+                {
+                    loginForm.Show(); // Hiển thị lại form Login
+                    break;
+                }
+            }
+            this.Close(); 
         }
     }
 }

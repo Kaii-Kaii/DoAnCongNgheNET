@@ -16,6 +16,7 @@ VALUES
 
 select * from NHACUNGCAP
 
+
 CREATE TABLE LOAISANPHAM (
     MA_LOAI CHAR(7) PRIMARY KEY,  -- Mã loại sản phẩm (độ dài tối đa 10 ký tự)
     TENLOAI NVARCHAR(100) NOT NULL     -- Tên loại sản phẩm (độ dài tối đa 100 ký tự)
@@ -39,17 +40,17 @@ CREATE TABLE SANPHAM (
 );
 INSERT INTO SANPHAM (MA_SP, TEN_SP, MOTA_SP, SOLUONG_SP, GIA_BAN, GIA_NHAP, TGBAOHANH,ANH_SP, MA_LOAI)
 VALUES
-('SP001', N'Vision 2024', N'Xe tay ga Honda',		 50, 35000000, 30000000, 24,'image1.png', 'LOAI001'),
-('SP002', N'Air Blade 2024', N'Xe tay ga Honda',	 40, 45000000, 40000000, 24,'image2.png', 'LOAI001'),
-('SP003', N'Exciter 150', N'Xe côn tay Yamaha',		 30, 50000000, 47000000, 24,'image3.png', 'LOAI003'),
-('SP004', N'Sirius 2024', N'Xe số Yamaha',			 60, 25000000, 22000000, 18,'image4.png', 'LOAI002'),
-('SP005', N'Janus 2024', N'Xe tay ga Yamaha',		 40, 32000000, 29000000, 24,'image5.png', 'LOAI001'),
-('SP006', N'Piaggio Liberty', N'Xe tay ga Piaggio',	 20, 60000000, 55000000, 24,'image6.png', 'LOAI001'),
-('SP007', N'Piaggio Vespa', N'Xe tay ga Piaggio',	 15, 80000000, 75000000, 24,'image7.png', 'LOAI001'),
-('SP008', N'SYM Galaxy', N'Xe số SYM',				 50, 20000000, 18000000, 18,'image8.png', 'LOAI002'),
-('SP009', N'SYM Elegant', N'Xe số SYM',				 60, 18000000, 16000000, 18,'image9.png', 'LOAI002'),
-('SP010', N'Suzuki Raider', N'Xe côn tay Suzuki',	 25, 51000000, 47000000, 24,'image10.png','LOAI003');
-
+('SP001', N'Vision 2024',		N'Xe tay ga Honda',			50, 35000000, 30000000, 24,'image1.png', 'LOAI001'),
+('SP002', N'Air Blade 2024',	N'Xe tay ga Honda',			40, 45000000, 40000000, 24,'image2.png', 'LOAI001'),
+('SP003', N'Exciter 150',		N'Xe côn tay Yamaha',		30, 50000000, 47000000, 24,'image3.png', 'LOAI003'),
+('SP004', N'Sirius 2024',		N'Xe số Yamaha',			60, 25000000, 22000000, 18,'image4.png', 'LOAI002'),
+('SP005', N'Janus 2024',		N'Xe tay ga Yamaha',		40, 32000000, 29000000, 24,'image5.png', 'LOAI001'),
+('SP006', N'Piaggio Liberty',	N'Xe tay ga Piaggio',		20, 60000000, 55000000, 24,'image6.png', 'LOAI001'),
+('SP007', N'Piaggio Vespa',		N'Xe tay ga Piaggio',		15, 80000000, 75000000, 24,'image7.png', 'LOAI001'),
+('SP008', N'SYM Galaxy',		N'Xe số SYM',				50, 20000000, 18000000, 18,'image8.png', 'LOAI002'),
+('SP009', N'SYM Elegant',		N'Xe số SYM',				60, 18000000, 16000000, 18,'image9.png', 'LOAI002'),
+('SP010', N'Suzuki Raider',		N'Xe côn tay Suzuki',		25, 51000000, 47000000, 24,'image10.png','LOAI003');
+select * from SANPHAM
 CREATE TABLE KHACHHANG (
     SDT_KH CHAR(10) PRIMARY KEY,  -- Số điện thoại khách hàng
     TENKH NVARCHAR(100) NOT NULL,  -- Tên khách hàng
@@ -95,8 +96,10 @@ VALUES
 ('NV002', '101010', 1),
 ('NV003', '123123', 1);
 
-select * from TAIKHOAN_NV
-
+select * from NHANVIEN WHERE MA_NV ='NV002'
+SELECT MAHD_NHAP,NGAYNHAP 
+FROM HD_NHAP 
+WHERE MA_NV ='NV002'
 CREATE TABLE HD_NHAP (
     MAHD_NHAP CHAR(8) PRIMARY KEY,  -- Mã hóa đơn nhập (độ dài tối đa 8 ký tự)
     MA_NCC CHAR(6) NOT NULL,  -- Mã nhà cung cấp (khóa ngoại từ bảng NHACUNGCAP)
@@ -132,7 +135,7 @@ VALUES
 ('HDN004', 'SP004', 25, NULL),
 ('HDN005', 'SP005', 12, NULL);
 SELECT * FROM CTHD_NHAP
-
+SELECT * FROM HD_XUAT_BAOHANH
 CREATE TABLE HD_XUAT_BAOHANH (
     MAHD_XUAT CHAR(8) PRIMARY KEY,  -- Mã hóa đơn xuất (độ dài tối đa 8 ký tự)
     SDT_KH CHAR(10) NOT NULL,  -- Số điện thoại khách hàng (khóa ngoại từ bảng KHACHHANG)
@@ -145,12 +148,12 @@ CREATE TABLE HD_XUAT_BAOHANH (
 );
 INSERT INTO HD_XUAT_BAOHANH (MAHD_XUAT, SDT_KH, MA_NV, TONGBILL_XUAT, PHUONGTHUCGIAODICH, NGAYXUAT)
 VALUES
-('HDX009', '0901234567', 'NV002', 60, N'Tiền mặt', '2024-12-30'),
-('HDX004', '0901234567', 'NV002', 1236560, N'Tiền mặt', '2024-10-30'),
-('HDX005', '0934567890', 'NV003', 123120, N'Chuyển khoản', '2024-10-31'),
-('HDX006', '0945678901', 'NV002', 7789900, N'Tiền mặt', '2024-11-01'),
-('HDX007', '0912345678', 'NV001', 2300000, N'Chuyển khoản', '2024-11-02'),
-('HDX008', '0923456789', 'NV003', 3000000, N'Tiền mặt', '2024-11-03');
+('HDX001', '0901234567', 'NV002', 60, N'Tiền mặt', '2024-12-30'),
+('HDX002', '0901234567', 'NV002', 1236560, N'Tiền mặt', '2024-10-30'),
+('HDX003', '0934567890', 'NV003', 123120, N'Chuyển khoản', '2024-10-31'),
+('HDX004', '0945678901', 'NV002', 7789900, N'Tiền mặt', '2024-11-01'),
+('HDX005', '0912345678', 'NV001', 2300000, N'Chuyển khoản', '2024-11-02'),
+('HDX006', '0923456789', 'NV003', 3000000, N'Tiền mặt', '2024-11-03');
 SELECT * FROM HD_XUAT_BAOHANH
 
 CREATE TABLE CTHD_XUAT (

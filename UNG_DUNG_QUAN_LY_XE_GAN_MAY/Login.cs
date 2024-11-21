@@ -63,6 +63,8 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
             if (txt_TDN.Text == "admin" && txt_Pass.Text == "admin")
             {
+                txt_TDN.Clear();
+                txt_Pass.Clear();
                 frm_AdminApp frm = new frm_AdminApp();
                 this.Hide();
                 frm.ShowDialog();

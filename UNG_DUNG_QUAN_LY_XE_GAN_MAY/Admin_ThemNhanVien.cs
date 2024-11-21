@@ -47,17 +47,17 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         }
         private bool checkSoDienThoai(string sdt)
         {
-            // số đầu tiên là số 0
             if (sdt[0] != '0')
             {
                 return false;
             }
-            if (sdt.Length != 10)
+            if (sdt.Length != 10 && sdt.Length != 11)
             {
                 return false;
             }
             return true;
         }
+
 
         private bool checkNgaySinh(string ngaySinh)
         {
