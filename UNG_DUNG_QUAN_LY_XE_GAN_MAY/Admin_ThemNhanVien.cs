@@ -214,7 +214,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 return;
             }
             conn.Open();
-            // cập nhật thông tin nhân viên
             SqlCommand cmd = new SqlCommand("UPDATE NHANVIEN SET TENNV = N'" + txt_TenNV.Text + "', GIOITINH = N'" + cb_GioiTinh.Text + "', CHUCVU = N'" + cob_ChucVu.Text + "', SDT_NV = '" + txt_SDT.Text + "', NGAYSINH = '" + dt_NgaySinh.Value.ToString("yyyy-MM-dd") + "', DIACHI_NV = N'" + txt_DiaChi.Text + "' WHERE MA_NV = '" + MaNV + "'", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -266,7 +265,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void btn_VoHieu_Click(object sender, EventArgs e)
         {
-            // vô hiệu hóa tài khoản
             string MaNV = txt_MaNV.Text;
             if (MaNV == "")
             {
@@ -274,10 +272,34 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 return;
             }
             conn.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE TAIKHOAN_NV SET IS_ACTIVE = 0 WHERE MA_NV = '" + MaNV + "'", conn);
-            cmd.ExecuteNonQuery();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM TAIKHOAN_NV WHERE MA_NV = @MaNV", conn);
+            cmd.Parameters.AddWithValue("@MaNV", MaNV);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                if (dr["IS_ACTIVE"].ToString() == "True")
+                {
+                    dr.Close();
+                    SqlCommand cmd1 = new SqlCommand("UPDATE TAIKHOAN_NV SET IS_ACTIVE = 0 WHERE MA_NV = @MaNV", conn);
+                    cmd1.Parameters.AddWithValue("@MaNV", MaNV);
+                    cmd1.ExecuteNonQuery();
+                    MessageBox.Show("Vô hiệu hóa tài khoản thành công");
+                }
+                else
+                {
+                    dr.Close();
+                    SqlCommand cmd1 = new SqlCommand("UPDATE TAIKHOAN_NV SET IS_ACTIVE = 1 WHERE MA_NV = @MaNV", conn);
+                    cmd1.Parameters.AddWithValue("@MaNV", MaNV);
+                    cmd1.ExecuteNonQuery();
+                    MessageBox.Show("Mở tài khoản thành công");
+                }
+            }
+            else
+            {
+                dr.Close();
+                MessageBox.Show("Không tìm thấy tài khoản");
+            }
             conn.Close();
-            MessageBox.Show("Vô hiệu hóa tài khoản thành công");
             Load_Treeview();
         }
 

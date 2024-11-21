@@ -162,7 +162,6 @@
             // 
             // txt_MNCC
             // 
-            this.txt_MNCC.Enabled = false;
             this.txt_MNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MNCC.Location = new System.Drawing.Point(195, 30);
             this.txt_MNCC.Name = "txt_MNCC";
@@ -171,7 +170,6 @@
             // 
             // txt_TNCC
             // 
-            this.txt_TNCC.Enabled = false;
             this.txt_TNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TNCC.Location = new System.Drawing.Point(195, 94);
             this.txt_TNCC.Name = "txt_TNCC";
