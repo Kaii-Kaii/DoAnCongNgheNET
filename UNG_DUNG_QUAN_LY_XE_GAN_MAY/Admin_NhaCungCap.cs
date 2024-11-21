@@ -33,7 +33,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             {
                 cb_TNCC.Items.Add(dr["Ten_NCC"].ToString());
             }
-
+            
             cb_TSP.Items.Clear();
             cb_TSP.Items.Add("ALL");
             string query1 = "SELECT * FROM SANPHAM";

@@ -14,6 +14,8 @@ VALUES
 ('NCC004',N'Piaggio Việt Nam'),
 ('NCC005',N'SYM Việt Nam');
 
+select * from NHACUNGCAP
+
 CREATE TABLE LOAISANPHAM (
     MA_LOAI CHAR(7) PRIMARY KEY,  -- Mã loại sản phẩm (độ dài tối đa 10 ký tự)
     TENLOAI NVARCHAR(100) NOT NULL     -- Tên loại sản phẩm (độ dài tối đa 100 ký tự)
