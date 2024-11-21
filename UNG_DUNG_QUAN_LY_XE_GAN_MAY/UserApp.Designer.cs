@@ -204,6 +204,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_UserApp";
             this.Text = "CỬA HÀNG XE GẮN MÁY";
+            this.Load += new System.EventHandler(this.frm_UserApp_Load);
             this.pn_bg1.ResumeLayout(false);
             this.pn_bg1.PerformLayout();
             this.pn_bg2.ResumeLayout(false);

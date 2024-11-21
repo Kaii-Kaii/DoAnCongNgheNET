@@ -95,6 +95,7 @@
             this.btn_Exit.TabIndex = 16;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // btn_NCC
             // 

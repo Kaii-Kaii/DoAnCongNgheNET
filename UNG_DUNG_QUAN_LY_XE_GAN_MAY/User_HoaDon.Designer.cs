@@ -55,10 +55,10 @@
             this.lb_SDTKH = new System.Windows.Forms.Label();
             this.btn_TaoHD = new System.Windows.Forms.Button();
             this.lb_MaHD1 = new System.Windows.Forms.Label();
-            this.txt_MaHD1 = new System.Windows.Forms.TextBox();
             this.lb_NgayNhap = new System.Windows.Forms.Label();
             this.lb_TongSL2 = new System.Windows.Forms.Label();
             this.grb_HD = new System.Windows.Forms.GroupBox();
+            this.txt_MaHD1 = new System.Windows.Forms.TextBox();
             this.txt_TenKH = new System.Windows.Forms.TextBox();
             this.lb_TenKH = new System.Windows.Forms.Label();
             this.lb_HoaDon = new System.Windows.Forms.Label();
@@ -148,6 +148,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 31);
@@ -173,6 +174,7 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(12, 31);
@@ -349,6 +351,7 @@
             // 
             // cb_SDTKH
             // 
+            this.cb_SDTKH.Enabled = false;
             this.cb_SDTKH.FormattingEnabled = true;
             this.cb_SDTKH.Location = new System.Drawing.Point(570, 34);
             this.cb_SDTKH.Name = "cb_SDTKH";
@@ -372,14 +375,15 @@
             this.btn_TaoHD.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_TaoHD.Image = global::UNG_DUNG_QUAN_LY_XE_GAN_MAY.Properties.Resources.Download_from_the_Cloud_1;
             this.btn_TaoHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TaoHD.Location = new System.Drawing.Point(841, 34);
+            this.btn_TaoHD.Location = new System.Drawing.Point(819, 34);
             this.btn_TaoHD.Name = "btn_TaoHD";
-            this.btn_TaoHD.Size = new System.Drawing.Size(167, 71);
+            this.btn_TaoHD.Size = new System.Drawing.Size(200, 71);
             this.btn_TaoHD.TabIndex = 14;
             this.btn_TaoHD.Text = "Tạo Hoá Đơn";
             this.btn_TaoHD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_TaoHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_TaoHD.UseVisualStyleBackColor = false;
+            this.btn_TaoHD.Click += new System.EventHandler(this.btn_TaoHD_Click);
             // 
             // lb_MaHD1
             // 
@@ -390,15 +394,6 @@
             this.lb_MaHD1.Size = new System.Drawing.Size(114, 21);
             this.lb_MaHD1.TabIndex = 11;
             this.lb_MaHD1.Text = "Mã Hoá Đơn";
-            // 
-            // txt_MaHD1
-            // 
-            this.txt_MaHD1.Enabled = false;
-            this.txt_MaHD1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MaHD1.Location = new System.Drawing.Point(167, 34);
-            this.txt_MaHD1.Name = "txt_MaHD1";
-            this.txt_MaHD1.Size = new System.Drawing.Size(173, 27);
-            this.txt_MaHD1.TabIndex = 12;
             // 
             // lb_NgayNhap
             // 
@@ -424,6 +419,7 @@
             // grb_HD
             // 
             this.grb_HD.BackColor = System.Drawing.Color.LightBlue;
+            this.grb_HD.Controls.Add(this.txt_MaHD1);
             this.grb_HD.Controls.Add(this.txt_TenKH);
             this.grb_HD.Controls.Add(this.lb_TenKH);
             this.grb_HD.Controls.Add(this.dt_NgayNhap);
@@ -431,7 +427,6 @@
             this.grb_HD.Controls.Add(this.lb_SDTKH);
             this.grb_HD.Controls.Add(this.btn_TaoHD);
             this.grb_HD.Controls.Add(this.lb_MaHD1);
-            this.grb_HD.Controls.Add(this.txt_MaHD1);
             this.grb_HD.Controls.Add(this.lb_NgayNhap);
             this.grb_HD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_HD.ForeColor = System.Drawing.Color.DarkBlue;
@@ -441,6 +436,15 @@
             this.grb_HD.TabIndex = 37;
             this.grb_HD.TabStop = false;
             this.grb_HD.Text = "Hoá Đơn";
+            // 
+            // txt_MaHD1
+            // 
+            this.txt_MaHD1.Enabled = false;
+            this.txt_MaHD1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MaHD1.Location = new System.Drawing.Point(167, 34);
+            this.txt_MaHD1.Name = "txt_MaHD1";
+            this.txt_MaHD1.Size = new System.Drawing.Size(173, 27);
+            this.txt_MaHD1.TabIndex = 29;
             // 
             // txt_TenKH
             // 
@@ -540,6 +544,7 @@
             this.Controls.Add(this.lb_HoaDon);
             this.Name = "User_HoaDon";
             this.Size = new System.Drawing.Size(1106, 800);
+            this.Load += new System.EventHandler(this.User_HoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picb_SanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.grb_DSSPHD.ResumeLayout(false);
@@ -583,7 +588,6 @@
         private System.Windows.Forms.Label lb_SDTKH;
         private System.Windows.Forms.Button btn_TaoHD;
         private System.Windows.Forms.Label lb_MaHD1;
-        private System.Windows.Forms.TextBox txt_MaHD1;
         private System.Windows.Forms.Label lb_NgayNhap;
         private System.Windows.Forms.Label lb_TongSL2;
         private System.Windows.Forms.GroupBox grb_HD;
@@ -594,5 +598,6 @@
         private System.Windows.Forms.RadioButton rdo_ATM;
         private System.Windows.Forms.RadioButton rdo_Khac;
         private System.Windows.Forms.TextBox txt_Khac;
+        private System.Windows.Forms.TextBox txt_MaHD1;
     }
 }
