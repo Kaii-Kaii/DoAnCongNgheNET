@@ -103,6 +103,7 @@
             // 
             this.dt_NgayNhap.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.dt_NgayNhap.CustomFormat = "dd/MM/yyyy";
+            this.dt_NgayNhap.Enabled = false;
             this.dt_NgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_NgayNhap.Location = new System.Drawing.Point(574, 34);
@@ -112,6 +113,8 @@
             // 
             // cb_NCC
             // 
+            this.cb_NCC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_NCC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_NCC.Enabled = false;
             this.cb_NCC.FormattingEnabled = true;
             this.cb_NCC.Location = new System.Drawing.Point(423, 90);
@@ -227,11 +230,14 @@
             // 
             // cb_TenHang
             // 
+            this.cb_TenHang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_TenHang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_TenHang.FormattingEnabled = true;
             this.cb_TenHang.Location = new System.Drawing.Point(505, 51);
             this.cb_TenHang.Name = "cb_TenHang";
             this.cb_TenHang.Size = new System.Drawing.Size(266, 28);
             this.cb_TenHang.TabIndex = 28;
+            this.cb_TenHang.SelectedIndexChanged += new System.EventHandler(this.cb_TenHang_SelectedIndexChanged);
             // 
             // lb_MaHD2
             // 
@@ -339,6 +345,7 @@
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(378, 214);
             this.dataGridView.TabIndex = 31;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // grb_DSSPDD
             // 

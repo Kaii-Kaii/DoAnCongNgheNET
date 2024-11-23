@@ -17,6 +17,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         public int TgBaoHanh { get; set; }
         public string AnhSP { get; set; }
         public string MaLoai { get; set; }
-
+        public int Tongtt => (int)(SoLuong * GiaBan);
     }
 }
