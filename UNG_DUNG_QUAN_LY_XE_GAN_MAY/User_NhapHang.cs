@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 {
@@ -19,6 +20,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private List<HoaDon> hoaDonNhaps = new List<HoaDon>();
         private List<SanPham> sanPhams = new List<SanPham>();
         private List<NhaCungCap> nhaCungCaps = new List<NhaCungCap>();
+        private HoaDon hoaDon = new HoaDon();
         public User_NhapHang(NhanVien currentNhanVien, List<HoaDon> hoaDonNhap, List<SanPham> sanPham, List<NhaCungCap> nhaCungCap)
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             MaMax = $"HDN{nextNumber.ToString("D3")}";
             return MaMax;
         }
-        public void LoadSanPham()
+        public void LoadSanPham(List<SanPham> sp)
         {
             //LoadSP();
             //if (sanPhams == null || sanPhams.Count == 0)
@@ -48,7 +50,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             //    return;
             //}
             dataGridView.DataSource = null;
-            dataGridView.DataSource = sanPhams;
+            dataGridView.DataSource = sp;
             dataGridView.Columns["TenSP"].HeaderText = "Tên SP";
             dataGridView.Columns["SoLuong"].HeaderText = "SL";
             dataGridView.Columns["MaSP"].Visible = false;
@@ -61,27 +63,117 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         }
         public void LoadNCC()
         {
-            foreach(NhaCungCap nha in nhaCungCaps)
+
+            foreach (NhaCungCap nha in nhaCungCaps)
             {
                 cb_NCC.Items.Add(nha.TenNCC);
             }
             cb_NCC.SelectedIndex = 0;
         }
-
+        public void LoadCB_SP()
+        {
+            cb_TenHang.Items.Add("");
+            foreach (SanPham sanPham in sanPhams)
+            {
+                cb_TenHang.Items.Add(sanPham.TenSP);
+            }
+            cb_TenHang.SelectedIndex = 0;
+        }
         private void User_NhapHang_Load(object sender, EventArgs e)
         {
-            LoadSanPham();
+            LoadCB_SP();
+            LoadSanPham(sanPhams);
+            
         }
 
         private void btn_TaoPN_Click(object sender, EventArgs e)
         {
-            string Mamoi = MaHDNew(hoaDonNhaps);
-            txt_MaHD1.Text = Mamoi;
-            btn_TaoPN.Text = "Tạo Hoá Đơn";
-            LoadNCC();
-            cb_NCC.Enabled = true;
-            btn_TaoPN.BackColor = Color.DarkBlue;
-            btn_TaoPN.ForeColor = Color.White;
+            if(btn_TaoPN.BackColor == Color.AliceBlue)
+            {
+                string Mamoi = MaHDNew(hoaDonNhaps);
+                txt_MaHD1.Text = Mamoi;
+                btn_TaoPN.Text = "Tạo Hoá Đơn";
+                LoadNCC();
+                cb_NCC.Enabled = true;
+                btn_TaoPN.BackColor = Color.DarkBlue;
+                btn_TaoPN.ForeColor = Color.White;
+            }
+            else
+            {
+                if(cb_NCC==null)
+                {
+                    MessageBox.Show("Vui lòng chọn nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                DialogResult r;
+                r = MessageBox.Show($"Bạn có muốn tạo hoá đơn với Nhà Cung Cấp {cb_NCC.Text}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (r == DialogResult.No)
+                {
+                    return;
+                }
+                
+                hoaDon.MaHD = txt_MaHD1.Text;
+                var selectedNCC = nhaCungCaps.FirstOrDefault(t => t.TenNCC == cb_NCC.Text);
+                if (selectedNCC != null)
+                {
+                    hoaDon.MA_NCC = selectedNCC.MaNCC;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy nhà cung cấp phù hợp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                btn_TaoPN.BackColor = Color.AliceBlue;
+                btn_TaoPN.ForeColor = Color.FromArgb(0, 120, 215);
+                txt_MaHD2.Text = hoaDon.MaHD;
+                txt_MaHD1.Clear();
+                cb_NCC.Text = ""; 
+                cb_NCC.Enabled = false;
+                LoadCB_SP();
+                cb_TenHang.Enabled = true;
+                txt_SoLuong.Enabled= true;
+            }
+           
+        }
+
+        private void cb_TenHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var sanPham = sanPhams.FirstOrDefault(t => t.TenSP == cb_TenHang.Text);
+            if (sanPham != null)
+            {
+                LoadSanPham(sanPhams.Where(t => t.TenSP == sanPham.TenSP).ToList());
+                string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+                string imagePath = Path.Combine(projectPath, "image_xe", sanPham.AnhSP);
+
+                // Kiểm tra file ảnh tồn tại
+                if (File.Exists(imagePath))
+                {
+                    picb_SanPham.Image = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    picb_SanPham.Image = null; // Reset ảnh nếu không tìm thấy
+                    MessageBox.Show("Không tìm thấy file ảnh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                picb_SanPham.Image = null; // Reset ảnh nếu không tìm thấy sản phẩm
+                LoadSanPham(sanPhams);
+            }
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SanPham sanPham = new SanPham();
+            int i;
+            i = dataGridView.CurrentCell.RowIndex;
+            sanPham = sanPhams.FirstOrDefault(t => t.MaSP == dataGridView.Rows[i].Cells[0].Value.ToString());
+            cb_TenHang.Text = sanPham.TenSP;
+            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            string imagePath = Path.Combine(projectPath, "image_xe", sanPham.AnhSP);
+            picb_SanPham.Image = Image.FromFile(imagePath);
         }
     }
 }

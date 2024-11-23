@@ -22,6 +22,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         {
             InitializeComponent();
             CurrentNhanVien = currentNhanVien;
+            
         }
         public void LoadGioiTinh()
         {
@@ -47,7 +48,8 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 CurrentNhanVien.NgaySinh = reader["NGAYSINH"].ToString();
                 CurrentNhanVien.DiaChi = reader["DIACHI_NV"].ToString();
             }
-            conn.Close(); }
+            conn.Close(); 
+        }
         public void LoadHDX()
         {
             conn.Open();
@@ -56,13 +58,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                                                 "WHERE MA_NV = '" + CurrentNhanVien.Login + "'", conn);
             SqlDataReader readerHD = cmd_HD.ExecuteReader();
             while (readerHD.Read())
-            { 
+            {
                 HoaDon hoaDon = new HoaDon();
                 hoaDon.MaHD = readerHD["MAHD_XUAT"].ToString();
                 hoaDon.Ngay = Convert.ToDateTime(readerHD["NGAYXUAT"]).ToString("dd-MM-yyyy");
                 hoaDonXuats.Add(hoaDon);
             }
-                conn.Close();
+            conn.Close();
         }
         public void LoadHDN()
         {
@@ -80,19 +82,19 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
             conn.Close();
         }
-        public void LoadHoaDonXuat() {
+        public void LoadHoaDonXuat()
+        {
             LoadHDX();
-            dataGridView1.DataSource = null; 
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = hoaDonXuats;
             dataGridView1.Columns["MaHD"].HeaderText = "Mã Hoá Đơn";
             dataGridView1.Columns["Ngay"].HeaderText = "Ngày Xuất";
-            dataGridView1.Columns["MaSP"].Visible = false;
-            dataGridView1.Columns["MoTa"].Visible = false;
-            dataGridView1.Columns["GiaBan"].Visible = false;
-            dataGridView1.Columns["GiaNhap"].Visible = false;
-            dataGridView1.Columns["TgBaoHanh"].Visible = false;
-            dataGridView1.Columns["AnhSP"].Visible = false;
-            dataGridView1.Columns["MaLoai"].Visible = false;
+            dataGridView1.Columns["SDT_KH"].Visible = false;
+            //dataGridView1.Columns["MoTa"].Visible = false;
+            dataGridView1.Columns["MA_NCC"].Visible = false;
+            dataGridView1.Columns["Ma_NV"].Visible = false;
+            dataGridView1.Columns["TongBill"].Visible = false;
+            dataGridView1.Columns["PhuongThucGiaoDich"].Visible = false;
         }
         public void LoadHoaDonNhap()
         {
@@ -101,6 +103,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             dataGridView2.DataSource = hoaDonNhaps;
             dataGridView2.Columns["MaHD"].HeaderText = "Mã Hoá Đơn";
             dataGridView2.Columns["Ngay"].HeaderText = "Ngày Nhập";
+            dataGridView2.Columns["SDT_KH"].Visible = false;
+            //dataGridView2.Columns["MoTa"].Visible = false;
+            dataGridView2.Columns["MA_NCC"].Visible = false;
+            dataGridView2.Columns["Ma_NV"].Visible = false;
+            dataGridView2.Columns["TongBill"].Visible = false;
+            dataGridView2.Columns["PhuongThucGiaoDich"].Visible = false;
+            dataGridView2.Refresh();
         }
 
         private void User_ThongTinCaNhan_Load(object sender, EventArgs e)

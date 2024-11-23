@@ -82,9 +82,9 @@
             this.lb_ThongTT2.ForeColor = System.Drawing.Color.Red;
             this.lb_ThongTT2.Location = new System.Drawing.Point(805, 761);
             this.lb_ThongTT2.Name = "lb_ThongTT2";
-            this.lb_ThongTT2.Size = new System.Drawing.Size(70, 25);
+            this.lb_ThongTT2.Size = new System.Drawing.Size(24, 25);
             this.lb_ThongTT2.TabIndex = 47;
-            this.lb_ThongTT2.Text = "label8";
+            this.lb_ThongTT2.Text = "0";
             // 
             // lb_TongSL1
             // 
@@ -135,6 +135,7 @@
             this.btn_LuuHD.Text = "LƯU";
             this.btn_LuuHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_LuuHD.UseVisualStyleBackColor = false;
+            this.btn_LuuHD.Click += new System.EventHandler(this.btn_LuuHD_Click);
             // 
             // picb_SanPham
             // 
@@ -157,6 +158,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(378, 238);
             this.dataGridView1.TabIndex = 32;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // grb_DSSPHD
             // 
@@ -177,12 +179,16 @@
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Enabled = false;
+            this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.Location = new System.Drawing.Point(12, 31);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(378, 238);
             this.dataGridView.TabIndex = 31;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // grb_DSSP
             // 
@@ -201,6 +207,7 @@
             // btn_SuaHD
             // 
             this.btn_SuaHD.BackColor = System.Drawing.Color.AliceBlue;
+            this.btn_SuaHD.Enabled = false;
             this.btn_SuaHD.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SuaHD.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_SuaHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,10 +218,12 @@
             this.btn_SuaHD.Text = "SỬA";
             this.btn_SuaHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_SuaHD.UseVisualStyleBackColor = false;
+            this.btn_SuaHD.Click += new System.EventHandler(this.btn_SuaHD_Click);
             // 
             // btn_XoaHD
             // 
             this.btn_XoaHD.BackColor = System.Drawing.Color.AliceBlue;
+            this.btn_XoaHD.Enabled = false;
             this.btn_XoaHD.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XoaHD.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_XoaHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,14 +234,19 @@
             this.btn_XoaHD.Text = "XOÁ";
             this.btn_XoaHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_XoaHD.UseVisualStyleBackColor = false;
+            this.btn_XoaHD.Click += new System.EventHandler(this.btn_XoaHD_Click);
             // 
             // cb_TenHang
             // 
+            this.cb_TenHang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_TenHang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_TenHang.Enabled = false;
             this.cb_TenHang.FormattingEnabled = true;
             this.cb_TenHang.Location = new System.Drawing.Point(505, 51);
             this.cb_TenHang.Name = "cb_TenHang";
             this.cb_TenHang.Size = new System.Drawing.Size(266, 28);
             this.cb_TenHang.TabIndex = 28;
+            this.cb_TenHang.SelectedIndexChanged += new System.EventHandler(this.cb_TenHang_SelectedIndexChanged);
             // 
             // lb_MaHD2
             // 
@@ -276,6 +290,7 @@
             // btn_ThemHD
             // 
             this.btn_ThemHD.BackColor = System.Drawing.Color.AliceBlue;
+            this.btn_ThemHD.Enabled = false;
             this.btn_ThemHD.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ThemHD.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_ThemHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -286,6 +301,7 @@
             this.btn_ThemHD.Text = "THÊM";
             this.btn_ThemHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_ThemHD.UseVisualStyleBackColor = false;
+            this.btn_ThemHD.Click += new System.EventHandler(this.btn_ThemHD_Click);
             // 
             // txt_GiaBan
             // 
@@ -304,6 +320,7 @@
             this.txt_MaHD2.Name = "txt_MaHD2";
             this.txt_MaHD2.Size = new System.Drawing.Size(223, 27);
             this.txt_MaHD2.TabIndex = 12;
+            this.txt_MaHD2.TextChanged += new System.EventHandler(this.txt_MaHD2_TextChanged);
             // 
             // lb_GiaBan
             // 
@@ -342,6 +359,7 @@
             // 
             this.dt_NgayNhap.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.dt_NgayNhap.CustomFormat = "dd/MM/yyyy";
+            this.dt_NgayNhap.Enabled = false;
             this.dt_NgayNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_NgayNhap.Location = new System.Drawing.Point(167, 90);
@@ -351,12 +369,15 @@
             // 
             // cb_SDTKH
             // 
+            this.cb_SDTKH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_SDTKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_SDTKH.Enabled = false;
             this.cb_SDTKH.FormattingEnabled = true;
             this.cb_SDTKH.Location = new System.Drawing.Point(570, 34);
             this.cb_SDTKH.Name = "cb_SDTKH";
             this.cb_SDTKH.Size = new System.Drawing.Size(225, 28);
             this.cb_SDTKH.TabIndex = 25;
+            this.cb_SDTKH.SelectedIndexChanged += new System.EventHandler(this.cb_SDTKH_SelectedIndexChanged);
             // 
             // lb_SDTKH
             // 
@@ -412,9 +433,9 @@
             this.lb_TongSL2.ForeColor = System.Drawing.Color.Red;
             this.lb_TongSL2.Location = new System.Drawing.Point(265, 761);
             this.lb_TongSL2.Name = "lb_TongSL2";
-            this.lb_TongSL2.Size = new System.Drawing.Size(70, 25);
+            this.lb_TongSL2.Size = new System.Drawing.Size(24, 25);
             this.lb_TongSL2.TabIndex = 46;
-            this.lb_TongSL2.Text = "label7";
+            this.lb_TongSL2.Text = "0";
             // 
             // grb_HD
             // 
@@ -485,8 +506,9 @@
             this.rdo_TienMat.Size = new System.Drawing.Size(103, 24);
             this.rdo_TienMat.TabIndex = 48;
             this.rdo_TienMat.TabStop = true;
-            this.rdo_TienMat.Text = "Tiền Mặt";
+            this.rdo_TienMat.Text = "Tiền mặt";
             this.rdo_TienMat.UseVisualStyleBackColor = true;
+            this.rdo_TienMat.CheckedChanged += new System.EventHandler(this.rdo_TienMat_CheckedChanged);
             // 
             // rdo_ATM
             // 
@@ -499,6 +521,7 @@
             this.rdo_ATM.TabStop = true;
             this.rdo_ATM.Text = "ATM";
             this.rdo_ATM.UseVisualStyleBackColor = true;
+            this.rdo_ATM.CheckedChanged += new System.EventHandler(this.rdo_ATM_CheckedChanged);
             // 
             // rdo_Khac
             // 
@@ -511,6 +534,7 @@
             this.rdo_Khac.TabStop = true;
             this.rdo_Khac.Text = "Khác";
             this.rdo_Khac.UseVisualStyleBackColor = true;
+            this.rdo_Khac.CheckedChanged += new System.EventHandler(this.rdo_Khac_CheckedChanged);
             // 
             // txt_Khac
             // 
@@ -569,7 +593,6 @@
         private System.Windows.Forms.PictureBox picb_SanPham;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox grb_DSSPHD;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.GroupBox grb_DSSP;
         private System.Windows.Forms.Button btn_SuaHD;
         private System.Windows.Forms.Button btn_XoaHD;
@@ -599,5 +622,6 @@
         private System.Windows.Forms.RadioButton rdo_Khac;
         private System.Windows.Forms.TextBox txt_Khac;
         private System.Windows.Forms.TextBox txt_MaHD1;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }
