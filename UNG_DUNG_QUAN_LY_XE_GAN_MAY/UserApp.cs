@@ -193,6 +193,19 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             LoadHDN();
             LoadSP();
             LoadKH();
+            LoadNCC();
+        }
+
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            if (pn_bg2.Controls.Count > 1)
+            {
+                pn_bg2.Controls.Clear();
+            }
+            if (!picb_bgrUser.Visible)
+            {
+                picb_bgrUser.Show();
+            }
         }
     }
 }

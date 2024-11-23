@@ -16,5 +16,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         public string Ma_NV { get; set; }
         public decimal TongBill { get; set; }
         public string PhuongThucGiaoDich { get; set; }
+        
     }
 }

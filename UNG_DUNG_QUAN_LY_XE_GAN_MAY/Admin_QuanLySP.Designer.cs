@@ -343,6 +343,8 @@
             // 
             // cob_Loai
             // 
+            this.cob_Loai.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cob_Loai.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cob_Loai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cob_Loai.FormattingEnabled = true;
             this.cob_Loai.Location = new System.Drawing.Point(191, 136);
