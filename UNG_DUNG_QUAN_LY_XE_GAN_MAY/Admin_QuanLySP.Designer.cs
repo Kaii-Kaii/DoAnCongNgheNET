@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -42,6 +42,8 @@
             this.txt_Anh = new System.Windows.Forms.TextBox();
             this.lb_Anh = new System.Windows.Forms.Label();
             this.grb_ChiTietSp = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txt_MoTa = new System.Windows.Forms.TextBox();
             this.txt_GiaXuat = new System.Windows.Forms.TextBox();
             this.txt_GiaNhap = new System.Windows.Forms.TextBox();
@@ -64,7 +66,7 @@
             this.lb_TimKiem = new System.Windows.Forms.Label();
             this.btn_XuatDS = new System.Windows.Forms.Button();
             this.btn_XuatEx = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txt_SL = new System.Windows.Forms.TextBox();
             this.grb_DSSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.grb_Anh.SuspendLayout();
@@ -129,23 +131,23 @@
             // dataGridView
             // 
             this.dataGridView.BackgroundColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.Location = new System.Drawing.Point(21, 31);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
@@ -223,6 +225,8 @@
             // 
             // grb_ChiTietSp
             // 
+            this.grb_ChiTietSp.Controls.Add(this.txt_SL);
+            this.grb_ChiTietSp.Controls.Add(this.label2);
             this.grb_ChiTietSp.Controls.Add(this.label1);
             this.grb_ChiTietSp.Controls.Add(this.txt_MoTa);
             this.grb_ChiTietSp.Controls.Add(this.txt_GiaXuat);
@@ -244,6 +248,26 @@
             this.grb_ChiTietSp.Size = new System.Drawing.Size(486, 387);
             this.grb_ChiTietSp.TabIndex = 22;
             this.grb_ChiTietSp.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(314, 203);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 22);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "SL:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 331);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 22);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Mô Tả";
             // 
             // txt_MoTa
             // 
@@ -293,7 +317,7 @@
             // 
             this.lb_Thang.AutoSize = true;
             this.lb_Thang.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Thang.Location = new System.Drawing.Point(389, 195);
+            this.lb_Thang.Location = new System.Drawing.Point(238, 201);
             this.lb_Thang.Name = "lb_Thang";
             this.lb_Thang.Size = new System.Drawing.Size(70, 21);
             this.lb_Thang.TabIndex = 21;
@@ -304,7 +328,7 @@
             this.txt_TGBH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TGBH.Location = new System.Drawing.Point(191, 195);
             this.txt_TGBH.Name = "txt_TGBH";
-            this.txt_TGBH.Size = new System.Drawing.Size(167, 30);
+            this.txt_TGBH.Size = new System.Drawing.Size(41, 30);
             this.txt_TGBH.TabIndex = 20;
             // 
             // lb_tgbh
@@ -462,15 +486,13 @@
             this.btn_XuatEx.Text = "Xuất Excel";
             this.btn_XuatEx.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // txt_SL
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 331);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 22);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Mô Tả";
+            this.txt_SL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_SL.Location = new System.Drawing.Point(349, 198);
+            this.txt_SL.Name = "txt_SL";
+            this.txt_SL.Size = new System.Drawing.Size(41, 30);
+            this.txt_SL.TabIndex = 29;
             // 
             // Admin_QuanLySP
             // 
@@ -538,5 +560,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox txt_MoTa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_SL;
     }
 }

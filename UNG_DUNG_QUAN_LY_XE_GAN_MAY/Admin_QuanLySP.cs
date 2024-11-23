@@ -136,6 +136,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             sp.TenSP = txt_TenSP.Text = dataGridView.Rows[i].Cells[1].Value.ToString();
             cob_Loai.Text = dataGridView.Rows[i].Cells[7].Value.ToString();
             txt_TGBH.Text = dataGridView.Rows[i].Cells[6].Value.ToString();
+            txt_SL.Text = dataGridView.Rows[i].Cells[3].Value.ToString();
             // bỏ số .00 ở cuối
             txt_MoTa.Text = dataGridView.Rows[i].Cells[2].Value.ToString();
             txt_GiaXuat.Text = dataGridView.Rows[i].Cells[4].Value.ToString().Split('.')[0];
@@ -166,7 +167,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private void btn_Them_Click(object sender, EventArgs e)
         {
             // thêm sản phẩm
-            if (txt_MSP.Text == "" || txt_TenSP.Text == "" || cob_Loai.Text == "" || txt_TGBH.Text == "" || txt_GiaXuat.Text == "" || txt_GiaNhap.Text == "" || txt_Anh.Text == "")
+            if (txt_MSP.Text == "" || txt_TenSP.Text == "" || cob_Loai.Text == "" || txt_TGBH.Text == "" || txt_GiaXuat.Text == "" || txt_GiaNhap.Text == "" || txt_Anh.Text == "" || txt_SL.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -177,20 +178,17 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 cmd.Parameters.AddWithValue("@MA_SP", txt_MSP.Text);
                 cmd.Parameters.AddWithValue("@TEN_SP", txt_TenSP.Text);
                 cmd.Parameters.AddWithValue("@MOTA_SP", txt_MoTa.Text);
-                cmd.Parameters.AddWithValue("@SOLUONG_SP", 0);
+                cmd.Parameters.AddWithValue("@SOLUONG_SP", txt_SL.Text);
                 cmd.Parameters.AddWithValue("@GIA_BAN", txt_GiaXuat.Text);
                 cmd.Parameters.AddWithValue("@GIA_NHAP", txt_GiaNhap.Text);
                 cmd.Parameters.AddWithValue("@TGBAOHANH", txt_TGBH.Text);
                 cmd.Parameters.AddWithValue("@ANH_SP", txt_Anh.Text);
-                // lấy mã loại sản phẩm
-                string query1 = "SELECT MA_LOAI FROM LOAISANPHAM WHERE TENLOAI = @TENLOAI";
-                SqlCommand cmd1 = new SqlCommand(query1, conn);
-                cmd1.Parameters.AddWithValue("@TENLOAI", cob_Loai.Text);
-                SqlDataAdapter da = new SqlDataAdapter(cmd1);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                cmd.Parameters.AddWithValue("@MA_LOAI", dt.Rows[0][0].ToString());
+                string query2 = "SELECT MA_LOAI FROM LOAISANPHAM WHERE TENLOAI = @TENLOAI";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                cmd2.Parameters.AddWithValue("@TENLOAI", cob_Loai.Text);
                 conn.Open();
+                string ma_loai = cmd2.ExecuteScalar().ToString();
+                cmd.Parameters.AddWithValue("@MA_LOAI", ma_loai);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 Load_data();
@@ -239,20 +237,25 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
             else
             {
-                string query = "UPDATE SANPHAM SET TEN_SP = @TEN_SP, MOTA_SP = @MOTA_SP, GIA_BAN = @GIA_BAN, GIA_NHAP = @GIA_NHAP, TGBAOHANH = @TGBAOHANH, ANH_SP = @ANH_SP WHERE MA_SP = @MA_SP";
+                string query = "UPDATE SANPHAM SET TEN_SP = @TEN_SP, MOTA_SP = @MOTA_SP, SOLUONG_SP = @SOLUONG_SP, GIA_BAN = @GIA_BAN, GIA_NHAP = @GIA_NHAP, TGBAOHANH = @TGBAOHANH, ANH_SP = @ANH_SP, MA_LOAI = @MA_LOAI WHERE MA_SP = @MA_SP";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@MA_SP", txt_MSP.Text);
                 cmd.Parameters.AddWithValue("@TEN_SP", txt_TenSP.Text);
                 cmd.Parameters.AddWithValue("@MOTA_SP", txt_MoTa.Text);
+                cmd.Parameters.AddWithValue("@SOLUONG_SP", txt_SL.Text);
                 cmd.Parameters.AddWithValue("@GIA_BAN", txt_GiaXuat.Text);
                 cmd.Parameters.AddWithValue("@GIA_NHAP", txt_GiaNhap.Text);
                 cmd.Parameters.AddWithValue("@TGBAOHANH", txt_TGBH.Text);
                 cmd.Parameters.AddWithValue("@ANH_SP", txt_Anh.Text);
+                string query2 = "SELECT MA_LOAI FROM LOAISANPHAM WHERE TENLOAI = @TENLOAI";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                cmd2.Parameters.AddWithValue("@TENLOAI", cob_Loai.Text);
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 Load_data();
                 CLEAR();
             }
+        }
     }
 }
