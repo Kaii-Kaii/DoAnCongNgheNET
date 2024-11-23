@@ -53,31 +53,47 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private void btn_OpenPic_Click(object sender, EventArgs e)
         {
             OpenFileDialog uploadFileStream = new OpenFileDialog();
-            uploadFileStream.InitialDirectory = "D:\\Ky_04_2024_2025\\CongNgheNet\\DoAnCongNgheNET\\UNG_DUNG_QUAN_LY_XE_GAN_MAY\\image_xe\\";
+            uploadFileStream.Title = "Chọn ảnh sản phẩm";
+
+            // Lấy đường dẫn thư mục hiện tại (bin\Debug hoặc bin\Release)
+            string projectDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Di chuyển lên hai cấp để lấy thư mục dự án
+            string projectRoot = Directory.GetParent(projectDirectory).Parent.Parent.FullName;
+
+            // Đường dẫn tương đối tới thư mục "image_xe"
+            string imageXeDir = Path.Combine(projectRoot, @"UNG_DUNG_QUAN_LY_XE_GAN_MAY\image_xe");
+
+            // Kiểm tra và tạo thư mục "image_xe" nếu chưa tồn tại
+            if (!Directory.Exists(imageXeDir))
+            {
+                Directory.CreateDirectory(imageXeDir);
+            }
+
+            // Gán đường dẫn "image_xe" làm thư mục mặc định cho dialog
+            uploadFileStream.InitialDirectory = imageXeDir;
             uploadFileStream.Filter = "Image Files|*.png;*.jpg;*.jpeg";
             uploadFileStream.FilterIndex = 1;
 
             if (uploadFileStream.ShowDialog() == DialogResult.OK)
             {
-                // Đường dẫn đến thư mục image_xe
-                string imageXeDir = @"D:\Ky_04_2024_2025\CongNgheNet\DoAnCongNgheNET\UNG_DUNG_QUAN_LY_XE_GAN_MAY\image_xe";
-
-                // Kiểm tra và tạo thư mục image_xe nếu chưa tồn tại
-                if (!Directory.Exists(imageXeDir))
-                {
-                    Directory.CreateDirectory(imageXeDir);
-                }
-
-                // Đường dẫn đầy đủ của file đích
+                // Đường dẫn đầy đủ của file đích trong thư mục "image_xe"
                 string destPath = Path.Combine(imageXeDir, uploadFileStream.SafeFileName);
 
-                // Sao chép file vào thư mục image_xe
-                File.Copy(uploadFileStream.FileName, destPath, true);  // 'true' để ghi đè nếu file đã tồn tại
+                // Kiểm tra nếu file đã nằm trong thư mục "image_xe"
+                if (!File.Exists(destPath) || !string.Equals(uploadFileStream.FileName, destPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Sao chép file vào thư mục "image_xe"
+                    File.Copy(uploadFileStream.FileName, destPath, true); // 'true' để ghi đè nếu file đã tồn tại
+                }
 
-                // Chỉ gán tên ảnh vào txt_Anh (không bao gồm đường dẫn)
+                // Gán tên file (không bao gồm đường dẫn) vào txt_Anh
                 txt_Anh.Text = uploadFileStream.SafeFileName;
+
+                // Hiển thị hình ảnh trong PictureBox
                 picb_SanPham.Image = Image.FromFile(destPath);
             }
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -87,6 +103,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void Load_data()
         {
+            dataGridView.BackgroundColor = Color.White;
+            dataGridView.BorderStyle = BorderStyle.Fixed3D;
+            dataGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dataGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView.BackgroundColor = Color.White;
             // load thông tin sản phẩm lên datagridview gồm cả tên loại sản phẩm
             string query = "SELECT SP.MA_SP, SP.TEN_SP, SP.MOTA_SP, SP.SOLUONG_SP, SP.GIA_BAN, SP.GIA_NHAP, SP.TGBAOHANH, LSP.TENLOAI, SP.ANH_SP FROM SANPHAM SP JOIN LOAISANPHAM LSP ON SP.MA_LOAI = LSP.MA_LOAI";
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -113,7 +136,9 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             sp.TenSP = txt_TenSP.Text = dataGridView.Rows[i].Cells[1].Value.ToString();
             cob_Loai.Text = dataGridView.Rows[i].Cells[7].Value.ToString();
             txt_TGBH.Text = dataGridView.Rows[i].Cells[6].Value.ToString();
+            txt_SL.Text = dataGridView.Rows[i].Cells[3].Value.ToString();
             // bỏ số .00 ở cuối
+            txt_MoTa.Text = dataGridView.Rows[i].Cells[2].Value.ToString();
             txt_GiaXuat.Text = dataGridView.Rows[i].Cells[4].Value.ToString().Split('.')[0];
             txt_GiaNhap.Text = dataGridView.Rows[i].Cells[5].Value.ToString().Split('.')[0];
             txt_Anh.Text = dataGridView.Rows[i].Cells[8].Value.ToString();
@@ -136,6 +161,100 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 txt_GiaNhap.Text = "";
                 txt_Anh.Text = "";
                 picb_SanPham.Image = null;
+            }
+        }
+
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            // thêm sản phẩm
+            if (txt_MSP.Text == "" || txt_TenSP.Text == "" || cob_Loai.Text == "" || txt_TGBH.Text == "" || txt_GiaXuat.Text == "" || txt_GiaNhap.Text == "" || txt_Anh.Text == "" || txt_SL.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string query = "INSERT INTO SANPHAM VALUES(@MA_SP, @TEN_SP, @MOTA_SP, @SOLUONG_SP, @GIA_BAN, @GIA_NHAP, @TGBAOHANH, @ANH_SP, @MA_LOAI)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MA_SP", txt_MSP.Text);
+                cmd.Parameters.AddWithValue("@TEN_SP", txt_TenSP.Text);
+                cmd.Parameters.AddWithValue("@MOTA_SP", txt_MoTa.Text);
+                cmd.Parameters.AddWithValue("@SOLUONG_SP", txt_SL.Text);
+                cmd.Parameters.AddWithValue("@GIA_BAN", txt_GiaXuat.Text);
+                cmd.Parameters.AddWithValue("@GIA_NHAP", txt_GiaNhap.Text);
+                cmd.Parameters.AddWithValue("@TGBAOHANH", txt_TGBH.Text);
+                cmd.Parameters.AddWithValue("@ANH_SP", txt_Anh.Text);
+                string query2 = "SELECT MA_LOAI FROM LOAISANPHAM WHERE TENLOAI = @TENLOAI";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                cmd2.Parameters.AddWithValue("@TENLOAI", cob_Loai.Text);
+                conn.Open();
+                string ma_loai = cmd2.ExecuteScalar().ToString();
+                cmd.Parameters.AddWithValue("@MA_LOAI", ma_loai);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Load_data();
+                CLEAR();
+            }
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            // xóa sản phẩm
+            if (txt_MSP.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string query = "DELETE FROM SANPHAM WHERE MA_SP = @MA_SP";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MA_SP", txt_MSP.Text);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Load_data();
+                CLEAR();
+            }
+        }
+
+        private void CLEAR()
+        {
+            txt_MSP.Text = "";
+            txt_TenSP.Text = "";
+            cob_Loai.Text = "";
+            txt_TGBH.Text = "";
+            txt_GiaXuat.Text = "";
+            txt_GiaNhap.Text = "";
+            txt_Anh.Text = "";
+            picb_SanPham.Image = null;
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+            // sửa sản phẩm
+            if (txt_MSP.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string query = "UPDATE SANPHAM SET TEN_SP = @TEN_SP, MOTA_SP = @MOTA_SP, SOLUONG_SP = @SOLUONG_SP, GIA_BAN = @GIA_BAN, GIA_NHAP = @GIA_NHAP, TGBAOHANH = @TGBAOHANH, ANH_SP = @ANH_SP, MA_LOAI = @MA_LOAI WHERE MA_SP = @MA_SP";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MA_SP", txt_MSP.Text);
+                cmd.Parameters.AddWithValue("@TEN_SP", txt_TenSP.Text);
+                cmd.Parameters.AddWithValue("@MOTA_SP", txt_MoTa.Text);
+                cmd.Parameters.AddWithValue("@SOLUONG_SP", txt_SL.Text);
+                cmd.Parameters.AddWithValue("@GIA_BAN", txt_GiaXuat.Text);
+                cmd.Parameters.AddWithValue("@GIA_NHAP", txt_GiaNhap.Text);
+                cmd.Parameters.AddWithValue("@TGBAOHANH", txt_TGBH.Text);
+                cmd.Parameters.AddWithValue("@ANH_SP", txt_Anh.Text);
+                string query2 = "SELECT MA_LOAI FROM LOAISANPHAM WHERE TENLOAI = @TENLOAI";
+                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                cmd2.Parameters.AddWithValue("@TENLOAI", cob_Loai.Text);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Load_data();
+                CLEAR();
             }
         }
     }

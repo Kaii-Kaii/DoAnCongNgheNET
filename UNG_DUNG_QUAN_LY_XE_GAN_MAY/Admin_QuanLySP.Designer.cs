@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -41,6 +42,9 @@
             this.txt_Anh = new System.Windows.Forms.TextBox();
             this.lb_Anh = new System.Windows.Forms.Label();
             this.grb_ChiTietSp = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_MoTa = new System.Windows.Forms.TextBox();
             this.txt_GiaXuat = new System.Windows.Forms.TextBox();
             this.txt_GiaNhap = new System.Windows.Forms.TextBox();
             this.lb_GiaXuat = new System.Windows.Forms.Label();
@@ -62,6 +66,7 @@
             this.lb_TimKiem = new System.Windows.Forms.Label();
             this.btn_XuatDS = new System.Windows.Forms.Button();
             this.btn_XuatEx = new System.Windows.Forms.Button();
+            this.txt_SL = new System.Windows.Forms.TextBox();
             this.grb_DSSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.grb_Anh.SuspendLayout();
@@ -81,6 +86,7 @@
             this.btn_Them.TabIndex = 25;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Sua
             // 
@@ -93,6 +99,7 @@
             this.btn_Sua.TabIndex = 21;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Xoa
             // 
@@ -105,6 +112,7 @@
             this.btn_Xoa.TabIndex = 20;
             this.btn_Xoa.Text = "Xoá";
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // grb_DSSP
             // 
@@ -112,7 +120,7 @@
             this.grb_DSSP.BackColor = System.Drawing.Color.LightSlateGray;
             this.grb_DSSP.Controls.Add(this.dataGridView);
             this.grb_DSSP.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_DSSP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.grb_DSSP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.grb_DSSP.Location = new System.Drawing.Point(32, 479);
             this.grb_DSSP.Name = "grb_DSSP";
             this.grb_DSSP.Size = new System.Drawing.Size(1014, 325);
@@ -122,16 +130,24 @@
             // 
             // dataGridView
             // 
-            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.Location = new System.Drawing.Point(21, 31);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
@@ -209,6 +225,10 @@
             // 
             // grb_ChiTietSp
             // 
+            this.grb_ChiTietSp.Controls.Add(this.txt_SL);
+            this.grb_ChiTietSp.Controls.Add(this.label2);
+            this.grb_ChiTietSp.Controls.Add(this.label1);
+            this.grb_ChiTietSp.Controls.Add(this.txt_MoTa);
             this.grb_ChiTietSp.Controls.Add(this.txt_GiaXuat);
             this.grb_ChiTietSp.Controls.Add(this.txt_GiaNhap);
             this.grb_ChiTietSp.Controls.Add(this.lb_GiaXuat);
@@ -229,10 +249,38 @@
             this.grb_ChiTietSp.TabIndex = 22;
             this.grb_ChiTietSp.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(314, 203);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 22);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "SL:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 331);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 22);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Mô Tả";
+            // 
+            // txt_MoTa
+            // 
+            this.txt_MoTa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MoTa.Location = new System.Drawing.Point(191, 326);
+            this.txt_MoTa.Name = "txt_MoTa";
+            this.txt_MoTa.Size = new System.Drawing.Size(268, 30);
+            this.txt_MoTa.TabIndex = 26;
+            // 
             // txt_GiaXuat
             // 
             this.txt_GiaXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_GiaXuat.Location = new System.Drawing.Point(191, 318);
+            this.txt_GiaXuat.Location = new System.Drawing.Point(191, 290);
             this.txt_GiaXuat.Name = "txt_GiaXuat";
             this.txt_GiaXuat.Size = new System.Drawing.Size(268, 30);
             this.txt_GiaXuat.TabIndex = 25;
@@ -249,7 +297,7 @@
             // 
             this.lb_GiaXuat.AutoSize = true;
             this.lb_GiaXuat.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GiaXuat.Location = new System.Drawing.Point(14, 318);
+            this.lb_GiaXuat.Location = new System.Drawing.Point(17, 298);
             this.lb_GiaXuat.Name = "lb_GiaXuat";
             this.lb_GiaXuat.Size = new System.Drawing.Size(71, 22);
             this.lb_GiaXuat.TabIndex = 23;
@@ -269,7 +317,7 @@
             // 
             this.lb_Thang.AutoSize = true;
             this.lb_Thang.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Thang.Location = new System.Drawing.Point(389, 195);
+            this.lb_Thang.Location = new System.Drawing.Point(238, 201);
             this.lb_Thang.Name = "lb_Thang";
             this.lb_Thang.Size = new System.Drawing.Size(70, 21);
             this.lb_Thang.TabIndex = 21;
@@ -280,7 +328,7 @@
             this.txt_TGBH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TGBH.Location = new System.Drawing.Point(191, 195);
             this.txt_TGBH.Name = "txt_TGBH";
-            this.txt_TGBH.Size = new System.Drawing.Size(167, 30);
+            this.txt_TGBH.Size = new System.Drawing.Size(41, 30);
             this.txt_TGBH.TabIndex = 20;
             // 
             // lb_tgbh
@@ -316,7 +364,6 @@
             // 
             // txt_MSP
             // 
-            this.txt_MSP.Enabled = false;
             this.txt_MSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MSP.Location = new System.Drawing.Point(191, 36);
             this.txt_MSP.Name = "txt_MSP";
@@ -441,6 +488,14 @@
             this.btn_XuatEx.Text = "Xuất Excel";
             this.btn_XuatEx.UseVisualStyleBackColor = false;
             // 
+            // txt_SL
+            // 
+            this.txt_SL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_SL.Location = new System.Drawing.Point(349, 198);
+            this.txt_SL.Name = "txt_SL";
+            this.txt_SL.Size = new System.Drawing.Size(41, 30);
+            this.txt_SL.TabIndex = 29;
+            // 
             // Admin_QuanLySP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -505,5 +560,9 @@
         private System.Windows.Forms.Button btn_XuatDS;
         private System.Windows.Forms.Button btn_XuatEx;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt_MoTa;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_SL;
     }
 }
