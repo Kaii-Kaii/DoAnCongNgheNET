@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Them = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.txt_Anh = new System.Windows.Forms.TextBox();
             this.lb_Anh = new System.Windows.Forms.Label();
             this.grb_ChiTietSp = new System.Windows.Forms.GroupBox();
+            this.txt_MoTa = new System.Windows.Forms.TextBox();
             this.txt_GiaXuat = new System.Windows.Forms.TextBox();
             this.txt_GiaNhap = new System.Windows.Forms.TextBox();
             this.lb_GiaXuat = new System.Windows.Forms.Label();
@@ -62,6 +64,7 @@
             this.lb_TimKiem = new System.Windows.Forms.Label();
             this.btn_XuatDS = new System.Windows.Forms.Button();
             this.btn_XuatEx = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.grb_DSSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.grb_Anh.SuspendLayout();
@@ -81,6 +84,7 @@
             this.btn_Them.TabIndex = 25;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Sua
             // 
@@ -93,6 +97,7 @@
             this.btn_Sua.TabIndex = 21;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Xoa
             // 
@@ -105,6 +110,7 @@
             this.btn_Xoa.TabIndex = 20;
             this.btn_Xoa.Text = "Xoá";
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // grb_DSSP
             // 
@@ -112,7 +118,7 @@
             this.grb_DSSP.BackColor = System.Drawing.Color.LightSlateGray;
             this.grb_DSSP.Controls.Add(this.dataGridView);
             this.grb_DSSP.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_DSSP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.grb_DSSP.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.grb_DSSP.Location = new System.Drawing.Point(32, 479);
             this.grb_DSSP.Name = "grb_DSSP";
             this.grb_DSSP.Size = new System.Drawing.Size(1014, 325);
@@ -122,16 +128,24 @@
             // 
             // dataGridView
             // 
-            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView.Location = new System.Drawing.Point(21, 31);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
@@ -209,6 +223,8 @@
             // 
             // grb_ChiTietSp
             // 
+            this.grb_ChiTietSp.Controls.Add(this.label1);
+            this.grb_ChiTietSp.Controls.Add(this.txt_MoTa);
             this.grb_ChiTietSp.Controls.Add(this.txt_GiaXuat);
             this.grb_ChiTietSp.Controls.Add(this.txt_GiaNhap);
             this.grb_ChiTietSp.Controls.Add(this.lb_GiaXuat);
@@ -229,10 +245,18 @@
             this.grb_ChiTietSp.TabIndex = 22;
             this.grb_ChiTietSp.TabStop = false;
             // 
+            // txt_MoTa
+            // 
+            this.txt_MoTa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MoTa.Location = new System.Drawing.Point(191, 326);
+            this.txt_MoTa.Name = "txt_MoTa";
+            this.txt_MoTa.Size = new System.Drawing.Size(268, 30);
+            this.txt_MoTa.TabIndex = 26;
+            // 
             // txt_GiaXuat
             // 
             this.txt_GiaXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_GiaXuat.Location = new System.Drawing.Point(191, 318);
+            this.txt_GiaXuat.Location = new System.Drawing.Point(191, 290);
             this.txt_GiaXuat.Name = "txt_GiaXuat";
             this.txt_GiaXuat.Size = new System.Drawing.Size(268, 30);
             this.txt_GiaXuat.TabIndex = 25;
@@ -249,7 +273,7 @@
             // 
             this.lb_GiaXuat.AutoSize = true;
             this.lb_GiaXuat.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GiaXuat.Location = new System.Drawing.Point(14, 318);
+            this.lb_GiaXuat.Location = new System.Drawing.Point(17, 298);
             this.lb_GiaXuat.Name = "lb_GiaXuat";
             this.lb_GiaXuat.Size = new System.Drawing.Size(71, 22);
             this.lb_GiaXuat.TabIndex = 23;
@@ -314,7 +338,6 @@
             // 
             // txt_MSP
             // 
-            this.txt_MSP.Enabled = false;
             this.txt_MSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MSP.Location = new System.Drawing.Point(191, 36);
             this.txt_MSP.Name = "txt_MSP";
@@ -439,6 +462,16 @@
             this.btn_XuatEx.Text = "Xuất Excel";
             this.btn_XuatEx.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 331);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 22);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Mô Tả";
+            // 
             // Admin_QuanLySP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -503,5 +536,7 @@
         private System.Windows.Forms.Button btn_XuatDS;
         private System.Windows.Forms.Button btn_XuatEx;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt_MoTa;
+        private System.Windows.Forms.Label label1;
     }
 }
