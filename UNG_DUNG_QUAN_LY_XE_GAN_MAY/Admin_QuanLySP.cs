@@ -230,32 +230,60 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            // sửa sản phẩm
-            if (txt_MSP.Text == "")
+            if (string.IsNullOrWhiteSpace(txt_MSP.Text))
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            try
             {
-                string query = "UPDATE SANPHAM SET TEN_SP = @TEN_SP, MOTA_SP = @MOTA_SP, SOLUONG_SP = @SOLUONG_SP, GIA_BAN = @GIA_BAN, GIA_NHAP = @GIA_NHAP, TGBAOHANH = @TGBAOHANH, ANH_SP = @ANH_SP, MA_LOAI = @MA_LOAI WHERE MA_SP = @MA_SP";
+                // Truy vấn cập nhật
+                string query = "UPDATE SANPHAM SET TEN_SP = @TEN_SP, MOTA_SP = @MOTA_SP, SOLUONG_SP = @SOLUONG_SP, " +
+                               "GIA_BAN = @GIA_BAN, GIA_NHAP = @GIA_NHAP, TGBAOHANH = @TGBAOHANH, ANH_SP = @ANH_SP, " +
+                               "MA_LOAI = @MA_LOAI WHERE MA_SP = @MA_SP";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@MA_SP", txt_MSP.Text);
                 cmd.Parameters.AddWithValue("@TEN_SP", txt_TenSP.Text);
-                cmd.Parameters.AddWithValue("@MOTA_SP", txt_MoTa.Text);
-                cmd.Parameters.AddWithValue("@SOLUONG_SP", txt_SL.Text);
-                cmd.Parameters.AddWithValue("@GIA_BAN", txt_GiaXuat.Text);
-                cmd.Parameters.AddWithValue("@GIA_NHAP", txt_GiaNhap.Text);
-                cmd.Parameters.AddWithValue("@TGBAOHANH", txt_TGBH.Text);
-                cmd.Parameters.AddWithValue("@ANH_SP", txt_Anh.Text);
+                cmd.Parameters.AddWithValue("@MOTA_SP", txt_MoTa.Text ?? string.Empty);
+                cmd.Parameters.AddWithValue("@SOLUONG_SP", int.TryParse(txt_SL.Text, out int sl) ? sl : 0);
+                cmd.Parameters.AddWithValue("@GIA_BAN", decimal.TryParse(txt_GiaXuat.Text, out decimal giaBan) ? giaBan : 0);
+                cmd.Parameters.AddWithValue("@GIA_NHAP", decimal.TryParse(txt_GiaNhap.Text, out decimal giaNhap) ? giaNhap : 0);
+                cmd.Parameters.AddWithValue("@TGBAOHANH", int.TryParse(txt_TGBH.Text, out int tgBaoHanh) ? tgBaoHanh : 0);
+                cmd.Parameters.AddWithValue("@ANH_SP", txt_Anh.Text ?? string.Empty);
+
+                // Lấy MA_LOAI từ ComboBox
                 string query2 = "SELECT MA_LOAI FROM LOAISANPHAM WHERE TENLOAI = @TENLOAI";
                 SqlCommand cmd2 = new SqlCommand(query2, conn);
                 cmd2.Parameters.AddWithValue("@TENLOAI", cob_Loai.Text);
                 conn.Open();
+                object maLoaiObj = cmd2.ExecuteScalar();
+                if (maLoaiObj == null)
+                {
+                    MessageBox.Show("Loại sản phẩm không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                cmd.Parameters.AddWithValue("@MA_LOAI", maLoaiObj.ToString());
+
+                // Thực thi truy vấn
                 cmd.ExecuteNonQuery();
                 conn.Close();
+
+                MessageBox.Show("Sản phẩm đã được cập nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Load_data();
                 CLEAR();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
         }
+
     }
 }
