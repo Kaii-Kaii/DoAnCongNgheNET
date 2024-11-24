@@ -38,6 +38,7 @@
             this.lb_br3 = new System.Windows.Forms.Label();
             this.btn_Them = new System.Windows.Forms.Button();
             this.pn_bg3 = new System.Windows.Forms.Panel();
+            this.btn_QLHD = new System.Windows.Forms.Button();
             this.pn_bg1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             // pn_bg1
             // 
             this.pn_bg1.BackColor = System.Drawing.Color.DarkBlue;
+            this.pn_bg1.Controls.Add(this.btn_QLHD);
             this.pn_bg1.Controls.Add(this.btn_Home);
             this.pn_bg1.Controls.Add(this.btn_Exit);
             this.pn_bg1.Controls.Add(this.btn_NCC);
@@ -177,6 +179,20 @@
             this.pn_bg3.Size = new System.Drawing.Size(1086, 822);
             this.pn_bg3.TabIndex = 5;
             // 
+            // btn_QLHD
+            // 
+            this.btn_QLHD.BackColor = System.Drawing.Color.DarkBlue;
+            this.btn_QLHD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QLHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QLHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_QLHD.Location = new System.Drawing.Point(12, 506);
+            this.btn_QLHD.Name = "btn_QLHD";
+            this.btn_QLHD.Size = new System.Drawing.Size(227, 37);
+            this.btn_QLHD.TabIndex = 18;
+            this.btn_QLHD.Text = "Quản Lý Hoá Đơn";
+            this.btn_QLHD.UseVisualStyleBackColor = false;
+            // 
             // frm_AdminApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,5 +223,6 @@
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Panel pn_bg3;
         private System.Windows.Forms.Button btn_Home;
+        private System.Windows.Forms.Button btn_QLHD;
     }
 }
