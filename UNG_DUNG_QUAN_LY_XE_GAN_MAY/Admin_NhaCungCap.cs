@@ -113,7 +113,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             da.Fill(dt);
             da1.Fill(dt);
             dataGridView1.DataSource = dt;
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -180,6 +179,15 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 return false;
             }
             return true;
+        }
+
+        private void btn_XuatEx_Click(object sender, EventArgs e)
+        {
+            // xuất excel
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
         }
     }
 }
