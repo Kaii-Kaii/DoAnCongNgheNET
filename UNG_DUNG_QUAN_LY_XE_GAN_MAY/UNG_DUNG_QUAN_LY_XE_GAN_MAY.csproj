@@ -160,6 +160,12 @@
     <Compile Include="AdminApp.Designer.cs">
       <DependentUpon>AdminApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_QuanLyHD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admin_QuanLyHD.Designer.cs">
+      <DependentUpon>Admin_QuanLyHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="HoaDon.cs" />
     <Compile Include="KhachHang.cs" />
     <Compile Include="NhaCungCap.cs" />
@@ -242,6 +248,9 @@
     </Compile>
     <EmbeddedResource Include="AdminApp.resx">
       <DependentUpon>AdminApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_QuanLyHD.resx">
+      <DependentUpon>Admin_QuanLyHD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_HoaDon.resx">
       <DependentUpon>User_HoaDon.cs</DependentUpon>
