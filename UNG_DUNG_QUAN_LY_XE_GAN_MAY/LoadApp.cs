@@ -29,7 +29,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
             }
         }
-
+        //Data Source=DESKTOP-A4AOROR;Initial Catalog=QL_CH_Xe;Integrated Security=True;Encrypt=True;TrustServerCertificate=True
         private void frm_LoadApp_Load(object sender, EventArgs e)
         {
 

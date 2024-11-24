@@ -53,6 +53,10 @@
             this.btn_XuatDS = new System.Windows.Forms.Button();
             this.btn_XuatEx = new System.Windows.Forms.Button();
             this.btn_XuatNCC = new System.Windows.Forms.Button();
+            this.lb_ThongTT2 = new System.Windows.Forms.Label();
+            this.lb_TongSL1 = new System.Windows.Forms.Label();
+            this.lb_ThongTT1 = new System.Windows.Forms.Label();
+            this.lb_TongSL2 = new System.Windows.Forms.Label();
             this.grb_DSNCC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grb_LocNCC.SuspendLayout();
@@ -67,9 +71,9 @@
             this.grb_DSNCC.Controls.Add(this.dataGridView1);
             this.grb_DSNCC.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_DSNCC.ForeColor = System.Drawing.Color.Tomato;
-            this.grb_DSNCC.Location = new System.Drawing.Point(53, 395);
+            this.grb_DSNCC.Location = new System.Drawing.Point(18, 395);
             this.grb_DSNCC.Name = "grb_DSNCC";
-            this.grb_DSNCC.Size = new System.Drawing.Size(960, 394);
+            this.grb_DSNCC.Size = new System.Drawing.Size(1052, 407);
             this.grb_DSNCC.TabIndex = 0;
             this.grb_DSNCC.TabStop = false;
             this.grb_DSNCC.Text = "NHÀ CUNG CẤP";
@@ -78,11 +82,11 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 31);
+            this.dataGridView1.Location = new System.Drawing.Point(19, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(895, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(1016, 354);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -93,7 +97,7 @@
             this.grb_LocNCC.Controls.Add(this.cb_TNCC);
             this.grb_LocNCC.Controls.Add(this.btn_Loc);
             this.grb_LocNCC.Controls.Add(this.lb_TNCC);
-            this.grb_LocNCC.Location = new System.Drawing.Point(595, 103);
+            this.grb_LocNCC.Location = new System.Drawing.Point(613, 88);
             this.grb_LocNCC.Name = "grb_LocNCC";
             this.grb_LocNCC.Size = new System.Drawing.Size(440, 191);
             this.grb_LocNCC.TabIndex = 17;
@@ -165,7 +169,7 @@
             this.txt_MNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MNCC.Location = new System.Drawing.Point(195, 30);
             this.txt_MNCC.Name = "txt_MNCC";
-            this.txt_MNCC.Size = new System.Drawing.Size(223, 27);
+            this.txt_MNCC.Size = new System.Drawing.Size(248, 27);
             this.txt_MNCC.TabIndex = 12;
             // 
             // txt_TNCC
@@ -173,7 +177,7 @@
             this.txt_TNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TNCC.Location = new System.Drawing.Point(195, 94);
             this.txt_TNCC.Name = "txt_TNCC";
-            this.txt_TNCC.Size = new System.Drawing.Size(223, 27);
+            this.txt_TNCC.Size = new System.Drawing.Size(248, 27);
             this.txt_TNCC.TabIndex = 13;
             // 
             // lb_MNCC
@@ -234,9 +238,9 @@
             this.grb_NCC.Controls.Add(this.txt_TNCC);
             this.grb_NCC.Controls.Add(this.txt_MNCC);
             this.grb_NCC.Controls.Add(this.lb_TNCC1);
-            this.grb_NCC.Location = new System.Drawing.Point(37, 103);
+            this.grb_NCC.Location = new System.Drawing.Point(37, 88);
             this.grb_NCC.Name = "grb_NCC";
-            this.grb_NCC.Size = new System.Drawing.Size(440, 191);
+            this.grb_NCC.Size = new System.Drawing.Size(465, 191);
             this.grb_NCC.TabIndex = 14;
             this.grb_NCC.TabStop = false;
             // 
@@ -310,7 +314,7 @@
             this.btn_XuatDS.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_XuatDS.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XuatDS.ForeColor = System.Drawing.Color.Black;
-            this.btn_XuatDS.Location = new System.Drawing.Point(82, 316);
+            this.btn_XuatDS.Location = new System.Drawing.Point(37, 332);
             this.btn_XuatDS.Name = "btn_XuatDS";
             this.btn_XuatDS.Size = new System.Drawing.Size(206, 44);
             this.btn_XuatDS.TabIndex = 23;
@@ -322,7 +326,7 @@
             this.btn_XuatEx.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_XuatEx.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_XuatEx.ForeColor = System.Drawing.Color.Black;
-            this.btn_XuatEx.Location = new System.Drawing.Point(771, 316);
+            this.btn_XuatEx.Location = new System.Drawing.Point(847, 332);
             this.btn_XuatEx.Name = "btn_XuatEx";
             this.btn_XuatEx.Size = new System.Drawing.Size(206, 44);
             this.btn_XuatEx.TabIndex = 25;
@@ -335,17 +339,65 @@
             this.btn_XuatNCC.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_XuatNCC.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btn_XuatNCC.ForeColor = System.Drawing.Color.Black;
-            this.btn_XuatNCC.Location = new System.Drawing.Point(452, 316);
+            this.btn_XuatNCC.Location = new System.Drawing.Point(452, 332);
             this.btn_XuatNCC.Name = "btn_XuatNCC";
             this.btn_XuatNCC.Size = new System.Drawing.Size(206, 44);
             this.btn_XuatNCC.TabIndex = 26;
             this.btn_XuatNCC.Text = "In Nhà Cung Cấp";
             this.btn_XuatNCC.UseVisualStyleBackColor = false;
             // 
+            // lb_ThongTT2
+            // 
+            this.lb_ThongTT2.AutoSize = true;
+            this.lb_ThongTT2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ThongTT2.ForeColor = System.Drawing.Color.Red;
+            this.lb_ThongTT2.Location = new System.Drawing.Point(840, 295);
+            this.lb_ThongTT2.Name = "lb_ThongTT2";
+            this.lb_ThongTT2.Size = new System.Drawing.Size(70, 25);
+            this.lb_ThongTT2.TabIndex = 55;
+            this.lb_ThongTT2.Text = "label8";
+            // 
+            // lb_TongSL1
+            // 
+            this.lb_TongSL1.AutoSize = true;
+            this.lb_TongSL1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TongSL1.ForeColor = System.Drawing.Color.Red;
+            this.lb_TongSL1.Location = new System.Drawing.Point(63, 295);
+            this.lb_TongSL1.Name = "lb_TongSL1";
+            this.lb_TongSL1.Size = new System.Drawing.Size(217, 25);
+            this.lb_TongSL1.TabIndex = 53;
+            this.lb_TongSL1.Text = "TỔNG SỐ LƯỢNG:";
+            // 
+            // lb_ThongTT1
+            // 
+            this.lb_ThongTT1.AutoSize = true;
+            this.lb_ThongTT1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ThongTT1.ForeColor = System.Drawing.Color.Red;
+            this.lb_ThongTT1.Location = new System.Drawing.Point(558, 295);
+            this.lb_ThongTT1.Name = "lb_ThongTT1";
+            this.lb_ThongTT1.Size = new System.Drawing.Size(241, 25);
+            this.lb_ThongTT1.TabIndex = 52;
+            this.lb_ThongTT1.Text = "TỔNG THÀNH TIỀN:";
+            // 
+            // lb_TongSL2
+            // 
+            this.lb_TongSL2.AutoSize = true;
+            this.lb_TongSL2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TongSL2.ForeColor = System.Drawing.Color.Red;
+            this.lb_TongSL2.Location = new System.Drawing.Point(300, 295);
+            this.lb_TongSL2.Name = "lb_TongSL2";
+            this.lb_TongSL2.Size = new System.Drawing.Size(70, 25);
+            this.lb_TongSL2.TabIndex = 54;
+            this.lb_TongSL2.Text = "label7";
+            // 
             // Admin_NhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lb_ThongTT2);
+            this.Controls.Add(this.lb_TongSL1);
+            this.Controls.Add(this.lb_ThongTT1);
+            this.Controls.Add(this.lb_TongSL2);
             this.Controls.Add(this.btn_XuatNCC);
             this.Controls.Add(this.btn_XuatEx);
             this.Controls.Add(this.btn_XuatDS);
@@ -364,6 +416,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -394,5 +447,9 @@
         private System.Windows.Forms.Button btn_XuatDS;
         private System.Windows.Forms.Button btn_XuatEx;
         private System.Windows.Forms.Button btn_XuatNCC;
+        private System.Windows.Forms.Label lb_ThongTT2;
+        private System.Windows.Forms.Label lb_TongSL1;
+        private System.Windows.Forms.Label lb_ThongTT1;
+        private System.Windows.Forms.Label lb_TongSL2;
     }
 }
