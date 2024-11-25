@@ -183,11 +183,27 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
         private void btn_XuatEx_Click(object sender, EventArgs e)
         {
-            // xuất excel
+            // xuất ra file excel từ datagirdview
             Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
             Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-
+            app.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Nhà cung cấp";
+            worksheet = workbook.ActiveSheet;
+            for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+            {
+                worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+            }
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    var cellValue = dataGridView1.Rows[i].Cells[j].Value;
+                    worksheet.Cells[i + 2, j + 1] = cellValue != null ? cellValue.ToString() : string.Empty;
+                }
+            }
         }
     }
 }
