@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             this.grb_DSNCC = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.grb_NCC = new System.Windows.Forms.GroupBox();
-            this.btn_Sua = new System.Windows.Forms.Button();
-            this.lb_MNCC = new System.Windows.Forms.Label();
-            this.txt_MNCC = new System.Windows.Forms.TextBox();
-            this.lb_TNCC1 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dt_NgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Loai_HoaDon = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_TongBill = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_Xoa = new System.Windows.Forms.Button();
+            this.btn_Sua = new System.Windows.Forms.Button();
+            this.dt_NgayHoaDon = new System.Windows.Forms.DateTimePicker();
+            this.txt_MaNhanVien = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_MNCC = new System.Windows.Forms.Label();
+            this.txt_HoaDon = new System.Windows.Forms.TextBox();
+            this.lb_TNCC1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.grb_LocNCC = new System.Windows.Forms.GroupBox();
+            this.radio_HD_Xuat = new System.Windows.Forms.RadioButton();
+            this.radio_HD_Nhap = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker_KetThuc = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_BatDau = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn_Loc = new System.Windows.Forms.Button();
             this.cb_TSP = new System.Windows.Forms.ComboBox();
             this.lb_TSP = new System.Windows.Forms.Label();
             this.cb_TNCC = new System.Windows.Forms.ComboBox();
-            this.btn_Loc = new System.Windows.Forms.Button();
             this.lb_TNCC = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btn_Xoa = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.chb_Show = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.grb_DSNCC.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.grb_NCC.SuspendLayout();
             this.grb_LocNCC.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.grb_DSNCC.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.grb_DSNCC.BackColor = System.Drawing.Color.LightBlue;
-            this.grb_DSNCC.Controls.Add(this.dataGridView1);
+            this.grb_DSNCC.Controls.Add(this.dataGridView);
             this.grb_DSNCC.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_DSNCC.ForeColor = System.Drawing.Color.Navy;
             this.grb_DSNCC.Location = new System.Drawing.Point(16, 254);
@@ -78,31 +78,32 @@
             this.grb_DSNCC.TabStop = false;
             this.grb_DSNCC.Text = "DANH SÁCH HOÁ ĐƠN";
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1015, 505);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(23, 31);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(1015, 505);
+            this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // grb_NCC
             // 
             this.grb_NCC.Controls.Add(this.button2);
-            this.grb_NCC.Controls.Add(this.textBox3);
+            this.grb_NCC.Controls.Add(this.Loai_HoaDon);
             this.grb_NCC.Controls.Add(this.label3);
-            this.grb_NCC.Controls.Add(this.textBox2);
+            this.grb_NCC.Controls.Add(this.txt_TongBill);
             this.grb_NCC.Controls.Add(this.label2);
             this.grb_NCC.Controls.Add(this.btn_Xoa);
             this.grb_NCC.Controls.Add(this.btn_Sua);
-            this.grb_NCC.Controls.Add(this.dt_NgaySinh);
-            this.grb_NCC.Controls.Add(this.textBox1);
+            this.grb_NCC.Controls.Add(this.dt_NgayHoaDon);
+            this.grb_NCC.Controls.Add(this.txt_MaNhanVien);
             this.grb_NCC.Controls.Add(this.label1);
             this.grb_NCC.Controls.Add(this.lb_MNCC);
-            this.grb_NCC.Controls.Add(this.txt_MNCC);
+            this.grb_NCC.Controls.Add(this.txt_HoaDon);
             this.grb_NCC.Controls.Add(this.lb_TNCC1);
             this.grb_NCC.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_NCC.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -112,6 +113,67 @@
             this.grb_NCC.TabIndex = 15;
             this.grb_NCC.TabStop = false;
             this.grb_NCC.Text = "Thông tin hoá đơn";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(333, 170);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 37);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Chi Tiết";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // Loai_HoaDon
+            // 
+            this.Loai_HoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loai_HoaDon.Location = new System.Drawing.Point(110, 180);
+            this.Loai_HoaDon.Name = "Loai_HoaDon";
+            this.Loai_HoaDon.Size = new System.Drawing.Size(194, 27);
+            this.Loai_HoaDon.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 182);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 21);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Loại HD";
+            // 
+            // txt_TongBill
+            // 
+            this.txt_TongBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TongBill.Location = new System.Drawing.Point(110, 131);
+            this.txt_TongBill.Name = "txt_TongBill";
+            this.txt_TongBill.Size = new System.Drawing.Size(194, 27);
+            this.txt_TongBill.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 134);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 21);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Tổng Bill";
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_Xoa.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Xoa.Location = new System.Drawing.Point(333, 73);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(108, 37);
+            this.btn_Xoa.TabIndex = 15;
+            this.btn_Xoa.Text = "Xoá";
+            this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
             // 
@@ -124,34 +186,26 @@
             this.btn_Sua.TabIndex = 16;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
-            // lb_MNCC
+            // dt_NgayHoaDon
             // 
-            this.lb_MNCC.AutoSize = true;
-            this.lb_MNCC.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_MNCC.Location = new System.Drawing.Point(9, 36);
-            this.lb_MNCC.Name = "lb_MNCC";
-            this.lb_MNCC.Size = new System.Drawing.Size(66, 21);
-            this.lb_MNCC.TabIndex = 11;
-            this.lb_MNCC.Text = "Mã HD";
+            this.dt_NgayHoaDon.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dt_NgayHoaDon.CustomFormat = "dd/MM/yyyy";
+            this.dt_NgayHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_NgayHoaDon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dt_NgayHoaDon.Location = new System.Drawing.Point(141, 86);
+            this.dt_NgayHoaDon.Name = "dt_NgayHoaDon";
+            this.dt_NgayHoaDon.Size = new System.Drawing.Size(121, 24);
+            this.dt_NgayHoaDon.TabIndex = 19;
             // 
-            // txt_MNCC
+            // txt_MaNhanVien
             // 
-            this.txt_MNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MNCC.Location = new System.Drawing.Point(81, 34);
-            this.txt_MNCC.Name = "txt_MNCC";
-            this.txt_MNCC.Size = new System.Drawing.Size(113, 27);
-            this.txt_MNCC.TabIndex = 12;
-            // 
-            // lb_TNCC1
-            // 
-            this.lb_TNCC1.AutoSize = true;
-            this.lb_TNCC1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TNCC1.Location = new System.Drawing.Point(9, 86);
-            this.lb_TNCC1.Name = "lb_TNCC1";
-            this.lb_TNCC1.Size = new System.Drawing.Size(112, 21);
-            this.lb_TNCC1.TabIndex = 10;
-            this.lb_TNCC1.Text = "Ngày Tháng";
+            this.txt_MaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MaNhanVien.Location = new System.Drawing.Point(295, 34);
+            this.txt_MaNhanVien.Name = "txt_MaNhanVien";
+            this.txt_MaNhanVien.Size = new System.Drawing.Size(113, 27);
+            this.txt_MaNhanVien.TabIndex = 18;
             // 
             // label1
             // 
@@ -163,24 +217,33 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Mã NV";
             // 
-            // textBox1
+            // lb_MNCC
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(295, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 27);
-            this.textBox1.TabIndex = 18;
+            this.lb_MNCC.AutoSize = true;
+            this.lb_MNCC.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_MNCC.Location = new System.Drawing.Point(9, 36);
+            this.lb_MNCC.Name = "lb_MNCC";
+            this.lb_MNCC.Size = new System.Drawing.Size(66, 21);
+            this.lb_MNCC.TabIndex = 11;
+            this.lb_MNCC.Text = "Mã HD";
             // 
-            // dt_NgaySinh
+            // txt_HoaDon
             // 
-            this.dt_NgaySinh.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dt_NgaySinh.CustomFormat = "dd/MM/yyyy";
-            this.dt_NgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_NgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dt_NgaySinh.Location = new System.Drawing.Point(141, 86);
-            this.dt_NgaySinh.Name = "dt_NgaySinh";
-            this.dt_NgaySinh.Size = new System.Drawing.Size(121, 24);
-            this.dt_NgaySinh.TabIndex = 19;
+            this.txt_HoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_HoaDon.Location = new System.Drawing.Point(81, 34);
+            this.txt_HoaDon.Name = "txt_HoaDon";
+            this.txt_HoaDon.Size = new System.Drawing.Size(113, 27);
+            this.txt_HoaDon.TabIndex = 12;
+            // 
+            // lb_TNCC1
+            // 
+            this.lb_TNCC1.AutoSize = true;
+            this.lb_TNCC1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TNCC1.Location = new System.Drawing.Point(9, 86);
+            this.lb_TNCC1.Name = "lb_TNCC1";
+            this.lb_TNCC1.Size = new System.Drawing.Size(112, 21);
+            this.lb_TNCC1.TabIndex = 10;
+            this.lb_TNCC1.Text = "Ngày Tháng";
             // 
             // button1
             // 
@@ -194,48 +257,12 @@
             this.button1.Text = "Làm mới";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 21);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Thông Tin";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(110, 131);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 27);
-            this.textBox2.TabIndex = 22;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 182);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 21);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Loại HD";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(110, 180);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(194, 27);
-            this.textBox3.TabIndex = 24;
-            // 
             // grb_LocNCC
             // 
-            this.grb_LocNCC.Controls.Add(this.checkBox1);
-            this.grb_LocNCC.Controls.Add(this.chb_Show);
-            this.grb_LocNCC.Controls.Add(this.dateTimePicker2);
-            this.grb_LocNCC.Controls.Add(this.dateTimePicker1);
+            this.grb_LocNCC.Controls.Add(this.radio_HD_Xuat);
+            this.grb_LocNCC.Controls.Add(this.radio_HD_Nhap);
+            this.grb_LocNCC.Controls.Add(this.dateTimePicker_KetThuc);
+            this.grb_LocNCC.Controls.Add(this.dateTimePicker_BatDau);
             this.grb_LocNCC.Controls.Add(this.label5);
             this.grb_LocNCC.Controls.Add(this.label4);
             this.grb_LocNCC.Controls.Add(this.btn_Loc);
@@ -248,6 +275,87 @@
             this.grb_LocNCC.Size = new System.Drawing.Size(487, 224);
             this.grb_LocNCC.TabIndex = 18;
             this.grb_LocNCC.TabStop = false;
+            // 
+            // radio_HD_Xuat
+            // 
+            this.radio_HD_Xuat.AutoSize = true;
+            this.radio_HD_Xuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radio_HD_Xuat.Location = new System.Drawing.Point(195, 177);
+            this.radio_HD_Xuat.Name = "radio_HD_Xuat";
+            this.radio_HD_Xuat.Size = new System.Drawing.Size(129, 22);
+            this.radio_HD_Xuat.TabIndex = 29;
+            this.radio_HD_Xuat.TabStop = true;
+            this.radio_HD_Xuat.Text = "Hóa đơn xuất";
+            this.radio_HD_Xuat.UseVisualStyleBackColor = true;
+            this.radio_HD_Xuat.CheckedChanged += new System.EventHandler(this.radio_HD_Xuat_CheckedChanged);
+            // 
+            // radio_HD_Nhap
+            // 
+            this.radio_HD_Nhap.AutoSize = true;
+            this.radio_HD_Nhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radio_HD_Nhap.Location = new System.Drawing.Point(29, 177);
+            this.radio_HD_Nhap.Name = "radio_HD_Nhap";
+            this.radio_HD_Nhap.Size = new System.Drawing.Size(134, 22);
+            this.radio_HD_Nhap.TabIndex = 28;
+            this.radio_HD_Nhap.TabStop = true;
+            this.radio_HD_Nhap.Text = "Hóa đơn nhập";
+            this.radio_HD_Nhap.UseVisualStyleBackColor = true;
+            this.radio_HD_Nhap.CheckedChanged += new System.EventHandler(this.radio_HD_Nhap_CheckedChanged);
+            // 
+            // dateTimePicker_KetThuc
+            // 
+            this.dateTimePicker_KetThuc.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dateTimePicker_KetThuc.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_KetThuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_KetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_KetThuc.Location = new System.Drawing.Point(355, 125);
+            this.dateTimePicker_KetThuc.Name = "dateTimePicker_KetThuc";
+            this.dateTimePicker_KetThuc.Size = new System.Drawing.Size(121, 24);
+            this.dateTimePicker_KetThuc.TabIndex = 27;
+            // 
+            // dateTimePicker_BatDau
+            // 
+            this.dateTimePicker_BatDau.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dateTimePicker_BatDau.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker_BatDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_BatDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_BatDau.Location = new System.Drawing.Point(109, 125);
+            this.dateTimePicker_BatDau.Name = "dateTimePicker_BatDau";
+            this.dateTimePicker_BatDau.Size = new System.Drawing.Size(121, 24);
+            this.dateTimePicker_BatDau.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(247, 128);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 21);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Đến Ngày";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(10, 126);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 21);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Từ ngày";
+            // 
+            // btn_Loc
+            // 
+            this.btn_Loc.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_Loc.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Loc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Loc.Location = new System.Drawing.Point(347, 170);
+            this.btn_Loc.Name = "btn_Loc";
+            this.btn_Loc.Size = new System.Drawing.Size(108, 37);
+            this.btn_Loc.TabIndex = 16;
+            this.btn_Loc.Text = "Lọc";
+            this.btn_Loc.UseVisualStyleBackColor = false;
+            this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
             // 
             // cb_TSP
             // 
@@ -277,18 +385,6 @@
             this.cb_TNCC.Size = new System.Drawing.Size(223, 28);
             this.cb_TNCC.TabIndex = 17;
             // 
-            // btn_Loc
-            // 
-            this.btn_Loc.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btn_Loc.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Loc.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Loc.Location = new System.Drawing.Point(347, 170);
-            this.btn_Loc.Name = "btn_Loc";
-            this.btn_Loc.Size = new System.Drawing.Size(108, 37);
-            this.btn_Loc.TabIndex = 16;
-            this.btn_Loc.Text = "Lọc";
-            this.btn_Loc.UseVisualStyleBackColor = false;
-            // 
             // lb_TNCC
             // 
             this.lb_TNCC.AutoSize = true;
@@ -298,72 +394,6 @@
             this.lb_TNCC.Size = new System.Drawing.Size(136, 21);
             this.lb_TNCC.TabIndex = 10;
             this.lb_TNCC.Text = "Tìm Kiếm Theo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 126);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 21);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Từ ngày";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(247, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 21);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Đến Ngày";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(109, 125);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 24);
-            this.dateTimePicker1.TabIndex = 25;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CalendarTitleBackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(355, 125);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(121, 24);
-            this.dateTimePicker2.TabIndex = 27;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(333, 170);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 37);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Chi Tiết";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btn_Xoa.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Xoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Xoa.Location = new System.Drawing.Point(333, 73);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(108, 37);
-            this.btn_Xoa.TabIndex = 15;
-            this.btn_Xoa.Text = "Xoá";
-            this.btn_Xoa.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -377,28 +407,6 @@
             this.button3.Text = "In ";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // chb_Show
-            // 
-            this.chb_Show.AutoSize = true;
-            this.chb_Show.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.chb_Show.Location = new System.Drawing.Point(26, 170);
-            this.chb_Show.Name = "chb_Show";
-            this.chb_Show.Size = new System.Drawing.Size(132, 24);
-            this.chb_Show.TabIndex = 28;
-            this.chb_Show.Text = "Hoá Đơn Xuất";
-            this.chb_Show.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(182, 170);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(137, 24);
-            this.checkBox1.TabIndex = 29;
-            this.checkBox1.Text = "Hoá Đơn Nhập";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // Admin_QuanLyHD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -410,8 +418,9 @@
             this.Controls.Add(this.button1);
             this.Name = "Admin_QuanLyHD";
             this.Size = new System.Drawing.Size(1086, 822);
+            this.Load += new System.EventHandler(this.Admin_QuanLyHD_Load);
             this.grb_DSNCC.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.grb_NCC.ResumeLayout(false);
             this.grb_NCC.PerformLayout();
             this.grb_LocNCC.ResumeLayout(false);
@@ -423,19 +432,19 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grb_DSNCC;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.GroupBox grb_NCC;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Label lb_MNCC;
-        private System.Windows.Forms.TextBox txt_MNCC;
+        private System.Windows.Forms.TextBox txt_HoaDon;
         private System.Windows.Forms.Label lb_TNCC1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_MaNhanVien;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_TongBill;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        internal System.Windows.Forms.DateTimePicker dt_NgaySinh;
-        private System.Windows.Forms.TextBox textBox3;
+        internal System.Windows.Forms.DateTimePicker dt_NgayHoaDon;
+        private System.Windows.Forms.TextBox Loai_HoaDon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox grb_LocNCC;
         private System.Windows.Forms.ComboBox cb_TSP;
@@ -443,14 +452,14 @@
         private System.Windows.Forms.ComboBox cb_TNCC;
         private System.Windows.Forms.Button btn_Loc;
         private System.Windows.Forms.Label lb_TNCC;
-        internal System.Windows.Forms.DateTimePicker dateTimePicker2;
-        internal System.Windows.Forms.DateTimePicker dateTimePicker1;
+        internal System.Windows.Forms.DateTimePicker dateTimePicker_KetThuc;
+        internal System.Windows.Forms.DateTimePicker dateTimePicker_BatDau;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox chb_Show;
+        private System.Windows.Forms.RadioButton radio_HD_Xuat;
+        private System.Windows.Forms.RadioButton radio_HD_Nhap;
     }
 }

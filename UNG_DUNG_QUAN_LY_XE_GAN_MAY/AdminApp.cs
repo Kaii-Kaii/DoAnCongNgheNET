@@ -95,5 +95,14 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
             this.Close(); 
         }
+
+        private void btn_QLHD_Click(object sender, EventArgs e)
+        {
+            Admin_QuanLyHD quanLyHD = new Admin_QuanLyHD();
+            pn_bg3.Controls.Add(quanLyHD);
+            quanLyHD.Dock = DockStyle.Fill;
+            quanLyHD.BringToFront();
+            this.Text = "QUẢN LÝ HÓA ĐƠN";
+        }
     }
 }

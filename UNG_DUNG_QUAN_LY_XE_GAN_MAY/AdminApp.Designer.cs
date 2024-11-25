@@ -30,6 +30,7 @@
         {
             this.lb_br4 = new System.Windows.Forms.Label();
             this.pn_bg1 = new System.Windows.Forms.Panel();
+            this.btn_QLHD = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_NCC = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.lb_br3 = new System.Windows.Forms.Label();
             this.btn_Them = new System.Windows.Forms.Button();
             this.pn_bg3 = new System.Windows.Forms.Panel();
-            this.btn_QLHD = new System.Windows.Forms.Button();
             this.pn_bg1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,21 @@
             this.pn_bg1.Name = "pn_bg1";
             this.pn_bg1.Size = new System.Drawing.Size(262, 822);
             this.pn_bg1.TabIndex = 3;
+            // 
+            // btn_QLHD
+            // 
+            this.btn_QLHD.BackColor = System.Drawing.Color.DarkBlue;
+            this.btn_QLHD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QLHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QLHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_QLHD.Location = new System.Drawing.Point(12, 506);
+            this.btn_QLHD.Name = "btn_QLHD";
+            this.btn_QLHD.Size = new System.Drawing.Size(227, 37);
+            this.btn_QLHD.TabIndex = 18;
+            this.btn_QLHD.Text = "Quản Lý Hoá Đơn";
+            this.btn_QLHD.UseVisualStyleBackColor = false;
+            this.btn_QLHD.Click += new System.EventHandler(this.btn_QLHD_Click);
             // 
             // btn_Home
             // 
@@ -178,20 +193,6 @@
             this.pn_bg3.Name = "pn_bg3";
             this.pn_bg3.Size = new System.Drawing.Size(1086, 822);
             this.pn_bg3.TabIndex = 5;
-            // 
-            // btn_QLHD
-            // 
-            this.btn_QLHD.BackColor = System.Drawing.Color.DarkBlue;
-            this.btn_QLHD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_QLHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_QLHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_QLHD.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_QLHD.Location = new System.Drawing.Point(12, 506);
-            this.btn_QLHD.Name = "btn_QLHD";
-            this.btn_QLHD.Size = new System.Drawing.Size(227, 37);
-            this.btn_QLHD.TabIndex = 18;
-            this.btn_QLHD.Text = "Quản Lý Hoá Đơn";
-            this.btn_QLHD.UseVisualStyleBackColor = false;
             // 
             // frm_AdminApp
             // 
