@@ -167,9 +167,9 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private void btn_Them_Click(object sender, EventArgs e)
         {
             // thêm sản phẩm
-            if (txt_MSP.Text == "" || txt_TenSP.Text == "" || cob_Loai.Text == "" || txt_TGBH.Text == "" || txt_GiaXuat.Text == "" || txt_GiaNhap.Text == "" || txt_Anh.Text == "" || txt_SL.Text == "")
+            if (check_SP() == false)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
@@ -196,12 +196,74 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
         }
 
+        private bool check_SP()
+        {
+            if (txt_MSP.Text == "" || txt_TenSP.Text == "" || cob_Loai.Text == "" || txt_TGBH.Text == "" || txt_GiaXuat.Text == "" || txt_GiaNhap.Text == "" || txt_Anh.Text == "" || txt_SL.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            // kiểm tra mã sản phẩm đã tồn tại chưa
+            string query = "SELECT COUNT(*) FROM SANPHAM WHERE MA_SP = @MA_SP";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@MA_SP", txt_MSP.Text);
+            conn.Open();
+            int count = (int)cmd.ExecuteScalar();
+            conn.Close();
+            if (count > 0)
+            {
+                MessageBox.Show("Mã sản phẩm đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            // kiểm tra mã loại sản phẩm có tồn tại không
+            string query2 = "SELECT COUNT(*) FROM LOAISANPHAM WHERE TENLOAI = @TENLOAI";
+            SqlCommand cmd2 = new SqlCommand(query2, conn);
+            cmd2.Parameters.AddWithValue("@TENLOAI", cob_Loai.Text);
+            conn.Open();
+            int count2 = (int)cmd2.ExecuteScalar();
+            conn.Close();
+            if (count2 == 0)
+            {
+                MessageBox.Show("Loại sản phẩm không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            // kiểm tra giá nhập và giá xuất
+            if (decimal.TryParse(txt_GiaNhap.Text, out decimal giaNhap) == false || decimal.TryParse(txt_GiaXuat.Text, out decimal giaXuat) == false)
+            {
+                MessageBox.Show("Giá nhập và giá xuất phải là số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            // kiểm tra thời gian bảo hành
+            if (int.TryParse(txt_TGBH.Text, out int tgBaoHanh) == false)
+            {
+                MessageBox.Show("Thời gian bảo hành phải là số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            // nếu các ô số lượng, giá nhập, giá xuất, thời gian bảo hành không phải là số hoặc bé hơn 0 thì thông báo hoặc bằng 0
+            if (int.TryParse(txt_SL.Text, out int sl) == false || sl <= 0)
+            {
+                MessageBox.Show("Số lượng sản phẩm phải là số và lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (giaNhap <= 0 || giaXuat <= 0 || tgBaoHanh <= 0)
+            {
+                MessageBox.Show("Giá nhập, giá xuất và thời gian bảo hành phải lớn hơn 0", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
             // xóa sản phẩm
             if (txt_MSP.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(check_SP() == false)
+            {
+                return;
             }
             else
             {
@@ -285,5 +347,29 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
         }
 
+        private void btn_XuatEx_Click(object sender, EventArgs e)
+        {
+            // xuất excel
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            app.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Sản phẩm";
+            worksheet = workbook.ActiveSheet;
+            for (int i = 1; i < dataGridView.Columns.Count + 1; i++)
+            {
+                worksheet.Cells[1, i] = dataGridView.Columns[i - 1].HeaderText;
+            }
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView.Columns.Count; j++)
+                {
+                    var cellValue = dataGridView.Rows[i].Cells[j].Value;
+                    worksheet.Cells[i + 2, j + 1] = cellValue != null ? cellValue.ToString() : string.Empty;
+                }
+            }
+        }
     }
 }

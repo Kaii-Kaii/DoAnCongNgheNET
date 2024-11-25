@@ -327,5 +327,53 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             cb_GioiTinh.SelectedIndex = cob_ChucVu.SelectedIndex = 0;
             txt_TTK.Text = txt_MK.Text = "";
         }
+
+        private void btn_XuatEx_Click(object sender, EventArgs e)
+        {
+            // xuất excel
+            List<NhanVien> list = new List<NhanVien>();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM NHANVIEN", conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                NhanVien nhanVien = new NhanVien();
+                nhanVien.MaNV = dr["MA_NV"].ToString();
+                nhanVien.TenNV = dr["TENNV"].ToString();
+                nhanVien.GioiTinh = dr["GIOITINH"].ToString();
+                nhanVien.ChucVu = dr["CHUCVU"].ToString();
+                nhanVien.SDT_NV = "'" + dr["SDT_NV"].ToString();
+                nhanVien.NgaySinh = Convert.ToDateTime(dr["NGAYSINH"]).ToString("dd/MM/yyyy");
+                nhanVien.DiaChi = dr["DIACHI_NV"].ToString();
+                list.Add(nhanVien);
+            }
+            dr.Close();
+            conn.Close();
+            // xuất excel
+            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            worksheet = workbook.Sheets["Sheet1"];
+            app.Visible = true;
+            worksheet.Cells[1, 1] = "Mã nhân viên";
+            worksheet.Cells[1, 2] = "Tên nhân viên";
+            worksheet.Cells[1, 3] = "Giới tính";
+            worksheet.Cells[1, 4] = "Chức vụ";
+            worksheet.Cells[1, 5] = "Số điện thoại";
+            worksheet.Cells[1, 6] = "Ngày sinh";
+            worksheet.Cells[1, 7] = "Địa chỉ";
+            for (int i = 0; i < list.Count; i++)
+            {
+                worksheet.Cells[i + 2, 1] = list[i].MaNV;
+                worksheet.Cells[i + 2, 2] = list[i].TenNV;
+                worksheet.Cells[i + 2, 3] = list[i].GioiTinh;
+                worksheet.Cells[i + 2, 4] = list[i].ChucVu;
+                worksheet.Cells[i + 2, 5] = list[i].SDT_NV;
+                worksheet.Cells[i + 2, 6] = list[i].NgaySinh;
+                worksheet.Cells[i + 2, 7] = list[i].DiaChi;
+            }
+
+        }
+
     }
 }

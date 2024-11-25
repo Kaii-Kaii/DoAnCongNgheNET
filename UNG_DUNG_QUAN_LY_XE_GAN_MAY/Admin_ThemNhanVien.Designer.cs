@@ -459,6 +459,7 @@
             this.btn_XuatEx.TabIndex = 26;
             this.btn_XuatEx.Text = "Xuất Excel";
             this.btn_XuatEx.UseVisualStyleBackColor = false;
+            this.btn_XuatEx.Click += new System.EventHandler(this.btn_XuatEx_Click);
             // 
             // Admin_ThemNhanVien
             // 
