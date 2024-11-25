@@ -213,6 +213,7 @@
             this.btn_Sua.Text = "SỬA";
             this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Xoa
             // 
@@ -227,6 +228,7 @@
             this.btn_Xoa.Text = "XOÁ";
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // cb_TenHang
             // 
@@ -291,6 +293,7 @@
             this.btn_Them.Text = "THÊM";
             this.btn_Them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // txt_GiaNhap
             // 
@@ -309,6 +312,7 @@
             this.txt_MaHD2.Name = "txt_MaHD2";
             this.txt_MaHD2.Size = new System.Drawing.Size(223, 27);
             this.txt_MaHD2.TabIndex = 12;
+            this.txt_MaHD2.TextChanged += new System.EventHandler(this.txt_MaHD2_TextChanged);
             // 
             // lb_GiaNhap
             // 
@@ -329,7 +333,7 @@
             this.grb_DSSP.ForeColor = System.Drawing.Color.SteelBlue;
             this.grb_DSSP.Location = new System.Drawing.Point(24, 448);
             this.grb_DSSP.Name = "grb_DSSP";
-            this.grb_DSSP.Size = new System.Drawing.Size(408, 258);
+            this.grb_DSSP.Size = new System.Drawing.Size(408, 287);
             this.grb_DSSP.TabIndex = 23;
             this.grb_DSSP.TabStop = false;
             this.grb_DSSP.Text = "DANH SÁCH SẢN PHẨM TỒN";
@@ -339,11 +343,12 @@
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Enabled = false;
             this.dataGridView.Location = new System.Drawing.Point(12, 31);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(378, 214);
+            this.dataGridView.Size = new System.Drawing.Size(378, 240);
             this.dataGridView.TabIndex = 31;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -356,21 +361,23 @@
             this.grb_DSSPDD.ForeColor = System.Drawing.Color.SteelBlue;
             this.grb_DSSPDD.Location = new System.Drawing.Point(677, 448);
             this.grb_DSSPDD.Name = "grb_DSSPDD";
-            this.grb_DSSPDD.Size = new System.Drawing.Size(408, 258);
+            this.grb_DSSPDD.Size = new System.Drawing.Size(408, 287);
             this.grb_DSSPDD.TabIndex = 24;
             this.grb_DSSPDD.TabStop = false;
             this.grb_DSSPDD.Text = "DANH SÁCH SẢN PHẨM ĐƠN ĐẶT";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(378, 214);
+            this.dataGridView1.Size = new System.Drawing.Size(378, 240);
             this.dataGridView1.TabIndex = 32;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // picb_SanPham
             // 
@@ -395,6 +402,7 @@
             this.btn_Luu.Text = "LƯU";
             this.btn_Luu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Luu.UseVisualStyleBackColor = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btn_In
             // 
@@ -402,9 +410,9 @@
             this.btn_In.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_In.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_In.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_In.Location = new System.Drawing.Point(481, 667);
+            this.btn_In.Location = new System.Drawing.Point(475, 667);
             this.btn_In.Name = "btn_In";
-            this.btn_In.Size = new System.Drawing.Size(148, 39);
+            this.btn_In.Size = new System.Drawing.Size(154, 39);
             this.btn_In.TabIndex = 32;
             this.btn_In.Text = "IN";
             this.btn_In.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -415,18 +423,18 @@
             this.lb_ThongTT2.AutoSize = true;
             this.lb_ThongTT2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ThongTT2.ForeColor = System.Drawing.Color.Red;
-            this.lb_ThongTT2.Location = new System.Drawing.Point(806, 743);
+            this.lb_ThongTT2.Location = new System.Drawing.Point(806, 756);
             this.lb_ThongTT2.Name = "lb_ThongTT2";
-            this.lb_ThongTT2.Size = new System.Drawing.Size(70, 25);
+            this.lb_ThongTT2.Size = new System.Drawing.Size(24, 25);
             this.lb_ThongTT2.TabIndex = 51;
-            this.lb_ThongTT2.Text = "label8";
+            this.lb_ThongTT2.Text = "0";
             // 
             // lb_TongSL1
             // 
             this.lb_TongSL1.AutoSize = true;
             this.lb_TongSL1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TongSL1.ForeColor = System.Drawing.Color.Red;
-            this.lb_TongSL1.Location = new System.Drawing.Point(29, 743);
+            this.lb_TongSL1.Location = new System.Drawing.Point(29, 756);
             this.lb_TongSL1.Name = "lb_TongSL1";
             this.lb_TongSL1.Size = new System.Drawing.Size(217, 25);
             this.lb_TongSL1.TabIndex = 49;
@@ -437,7 +445,7 @@
             this.lb_ThongTT1.AutoSize = true;
             this.lb_ThongTT1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ThongTT1.ForeColor = System.Drawing.Color.Red;
-            this.lb_ThongTT1.Location = new System.Drawing.Point(524, 743);
+            this.lb_ThongTT1.Location = new System.Drawing.Point(524, 756);
             this.lb_ThongTT1.Name = "lb_ThongTT1";
             this.lb_ThongTT1.Size = new System.Drawing.Size(241, 25);
             this.lb_ThongTT1.TabIndex = 48;
@@ -448,11 +456,11 @@
             this.lb_TongSL2.AutoSize = true;
             this.lb_TongSL2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TongSL2.ForeColor = System.Drawing.Color.Red;
-            this.lb_TongSL2.Location = new System.Drawing.Point(266, 743);
+            this.lb_TongSL2.Location = new System.Drawing.Point(266, 756);
             this.lb_TongSL2.Name = "lb_TongSL2";
-            this.lb_TongSL2.Size = new System.Drawing.Size(70, 25);
+            this.lb_TongSL2.Size = new System.Drawing.Size(24, 25);
             this.lb_TongSL2.TabIndex = 50;
-            this.lb_TongSL2.Text = "label7";
+            this.lb_TongSL2.Text = "0";
             // 
             // User_NhapHang
             // 

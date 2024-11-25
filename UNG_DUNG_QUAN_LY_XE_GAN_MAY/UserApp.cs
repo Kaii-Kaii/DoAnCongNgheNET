@@ -73,8 +73,8 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 sanPham.TenSP = readerHD["TEN_SP"].ToString();
                 sanPham.MoTa = readerHD["MOTA_SP"].ToString();
                 sanPham.SoLuong = int.Parse(readerHD["SOLUONG_SP"].ToString());
-                sanPham.GiaBan = decimal.Parse(readerHD["GIA_BAN"].ToString());
-                sanPham.GiaNhap = decimal.Parse(readerHD["GIA_NHAP"].ToString());
+                sanPham.GiaBan = decimal.Parse(readerHD["GIA_NHAP"].ToString());
+                sanPham.Gia = decimal.Parse(readerHD["GIA_BAN"].ToString());
                 sanPham.TgBaoHanh = int.Parse(readerHD["TGBAOHANH"].ToString());
                 sanPham.AnhSP = readerHD["ANH_SP"].ToString();
                 sanPham.MaLoai = readerHD["MA_LOAI"].ToString();

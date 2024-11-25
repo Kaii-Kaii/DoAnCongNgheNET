@@ -307,7 +307,7 @@
             this.grb_DSHDKH.ForeColor = System.Drawing.Color.SteelBlue;
             this.grb_DSHDKH.Location = new System.Drawing.Point(22, 519);
             this.grb_DSHDKH.Name = "grb_DSHDKH";
-            this.grb_DSHDKH.Size = new System.Drawing.Size(471, 258);
+            this.grb_DSHDKH.Size = new System.Drawing.Size(502, 258);
             this.grb_DSHDKH.TabIndex = 25;
             this.grb_DSHDKH.TabStop = false;
             this.grb_DSHDKH.Text = "DANH SÁCH HOÁ ĐƠN KHÁCH HÀNG";
@@ -322,7 +322,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(443, 205);
+            this.dataGridView1.Size = new System.Drawing.Size(474, 205);
             this.dataGridView1.TabIndex = 32;
             // 
             // grb_DSHDN
@@ -332,9 +332,9 @@
             this.grb_DSHDN.Controls.Add(this.dataGridView2);
             this.grb_DSHDN.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_DSHDN.ForeColor = System.Drawing.Color.SteelBlue;
-            this.grb_DSHDN.Location = new System.Drawing.Point(585, 519);
+            this.grb_DSHDN.Location = new System.Drawing.Point(554, 519);
             this.grb_DSHDN.Name = "grb_DSHDN";
-            this.grb_DSHDN.Size = new System.Drawing.Size(498, 258);
+            this.grb_DSHDN.Size = new System.Drawing.Size(529, 258);
             this.grb_DSHDN.TabIndex = 33;
             this.grb_DSHDN.TabStop = false;
             this.grb_DSHDN.Text = "DANH SÁCH HOÁ ĐƠN NHẬP";
@@ -348,7 +348,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(443, 205);
+            this.dataGridView2.Size = new System.Drawing.Size(481, 205);
             this.dataGridView2.TabIndex = 32;
             // 
             // User_ThongTinCaNhan
