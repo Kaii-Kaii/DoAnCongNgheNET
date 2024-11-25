@@ -20,7 +20,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private List<HoaDon> hoaDonNhaps = new List<HoaDon>();
         private List<SanPham> sanPhams = new List<SanPham>();
         private List<NhaCungCap> nhaCungCaps = new List<NhaCungCap>();
-        private HoaDon hoaDon = new HoaDon();
+        //private HoaDon hoaDon = new HoaDon();
         public User_NhapHang(NhanVien currentNhanVien, List<HoaDon> hoaDonNhap, List<SanPham> sanPham, List<NhaCungCap> nhaCungCap)
         {
             InitializeComponent();
@@ -51,15 +51,43 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             //}
             dataGridView.DataSource = null;
             dataGridView.DataSource = sp;
+
             dataGridView.Columns["TenSP"].HeaderText = "Tên SP";
-            dataGridView.Columns["SoLuong"].HeaderText = "SL";
+            //dataGridView.Columns["SoLuong"].HeaderText = "SL";
+            if (dataGridView.Columns["SoLuong"] != null)
+            {
+                dataGridView.Columns["SoLuong"].HeaderText = "SL";
+                dataGridView.Columns["SoLuong"].Width = 9; // Điều chỉnh lại chiều rộng phù hợp
+            }
+            // Ẩn các cột không cần thiết
             dataGridView.Columns["MaSP"].Visible = false;
             dataGridView.Columns["MoTa"].Visible = false;
-            dataGridView.Columns["GiaBan"].Visible = false;
-            dataGridView.Columns["GiaNhap"].Visible = false;
+            dataGridView.Columns["Gia"].Visible = false;
             dataGridView.Columns["TgBaoHanh"].Visible = false;
             dataGridView.Columns["AnhSP"].Visible = false;
             dataGridView.Columns["MaLoai"].Visible = false;
+
+            dataGridView.Columns["GiaBan"].Visible = false;
+            dataGridView.Columns["Tongtt"].Visible = false;
+        }
+        public void LoadSanPham1(List<SanPham> sp)
+        {
+            //LoadSP();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = sp;
+            dataGridView1.Columns["TenSP"].HeaderText = "Tên SP";
+            dataGridView1.Columns["SoLuong"].HeaderText = "SL";
+            dataGridView1.Columns["TenSP"].Width = 15;
+            dataGridView1.Columns["SoLuong"].Width = 7;
+
+            //dataGridView1.Columns["Tongtt"].Width = 100;
+            dataGridView1.Columns["MaSP"].Visible = false;
+            dataGridView1.Columns["MoTa"].Visible = false;
+            dataGridView1.Columns["Gia"].Visible = false;
+            dataGridView1.Columns["GiaBan"].Visible = false;
+            dataGridView1.Columns["TgBaoHanh"].Visible = false;
+            dataGridView1.Columns["AnhSP"].Visible = false;
+            dataGridView1.Columns["MaLoai"].Visible = false;
         }
         public void LoadNCC()
         {
@@ -79,8 +107,22 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
             cb_TenHang.SelectedIndex = 0;
         }
+        private HoaDon hoaDon = new HoaDon();
+        int slsp = 0, tong_sl = 0;
+        decimal tong_bill = 0;
+        List<SanPham> sp_dat = new List<SanPham>();
+        void LoadTong_Sl()
+        {
+            tong_bill = sp_dat.Sum(t => t.Tongtt);
+            tong_sl = sp_dat.Sum(t => t.SoLuong);
+
+            lb_ThongTT2.Text = tong_bill.ToString("N0");
+            lb_TongSL2.Text = tong_sl.ToString();
+        }
         private void User_NhapHang_Load(object sender, EventArgs e)
         {
+
+            LoadNCC();
             LoadCB_SP();
             LoadSanPham(sanPhams);
             
@@ -93,10 +135,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 string Mamoi = MaHDNew(hoaDonNhaps);
                 txt_MaHD1.Text = Mamoi;
                 btn_TaoPN.Text = "Tạo Hoá Đơn";
-                LoadNCC();
                 cb_NCC.Enabled = true;
                 btn_TaoPN.BackColor = Color.DarkBlue;
                 btn_TaoPN.ForeColor = Color.White;
+                //hoaDon.Ma_NV
+                hoaDon.Ma_NV = CurrentNhanVien.Login;
+                //hoaDon.Ngay
+                hoaDon.Ngay = dt_NgayNhap.Value.ToString("yyyy-MM-dd");
             }
             else
             {
@@ -112,7 +157,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 {
                     return;
                 }
-                
+                //hoaDon.MaHD
                 hoaDon.MaHD = txt_MaHD1.Text;
                 var selectedNCC = nhaCungCaps.FirstOrDefault(t => t.TenNCC == cb_NCC.Text);
                 if (selectedNCC != null)
@@ -130,9 +175,9 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 txt_MaHD1.Clear();
                 cb_NCC.Text = ""; 
                 cb_NCC.Enabled = false;
-                LoadCB_SP();
                 cb_TenHang.Enabled = true;
                 txt_SoLuong.Enabled= true;
+                txt_GiaNhap.Enabled = true;
             }
            
         }
@@ -140,13 +185,15 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private void cb_TenHang_SelectedIndexChanged(object sender, EventArgs e)
         {
             var sanPham = sanPhams.FirstOrDefault(t => t.TenSP == cb_TenHang.Text);
+
             if (sanPham != null)
             {
                 LoadSanPham(sanPhams.Where(t => t.TenSP == sanPham.TenSP).ToList());
+                txt_SoLuong.Clear();
+                txt_GiaNhap.Clear();
                 string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
                 string imagePath = Path.Combine(projectPath, "image_xe", sanPham.AnhSP);
 
-                // Kiểm tra file ảnh tồn tại
                 if (File.Exists(imagePath))
                 {
                     picb_SanPham.Image = Image.FromFile(imagePath);
@@ -159,11 +206,11 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             }
             else
             {
+                txt_GiaNhap.Text = "";
                 picb_SanPham.Image = null; // Reset ảnh nếu không tìm thấy sản phẩm
                 LoadSanPham(sanPhams);
             }
         }
-
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SanPham sanPham = new SanPham();
@@ -171,9 +218,291 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             i = dataGridView.CurrentCell.RowIndex;
             sanPham = sanPhams.FirstOrDefault(t => t.MaSP == dataGridView.Rows[i].Cells[0].Value.ToString());
             cb_TenHang.Text = sanPham.TenSP;
-            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-            string imagePath = Path.Combine(projectPath, "image_xe", sanPham.AnhSP);
-            picb_SanPham.Image = Image.FromFile(imagePath);
         }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SanPham sanPham = new SanPham();
+            int i = dataGridView1.CurrentCell.RowIndex;
+            var cellValue = dataGridView1.Rows[i].Cells["TenSP"].Value;
+            sanPham = sp_dat.FirstOrDefault(t => t.TenSP == cellValue.ToString());
+            cb_TenHang.Text = sanPham.TenSP;
+            txt_SoLuong.Text = sanPham.SoLuong.ToString();
+            txt_GiaNhap.Text = sanPham.Gia.ToString();
+        }
+        private bool TryParsePositiveInteger(string input, out int value, string fieldName)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                MessageBox.Show($"Vui lòng nhập {fieldName}!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                value = 0;
+                return false;
+            }
+
+            if (!int.TryParse(input, out value) || value <= 0)
+            {
+                MessageBox.Show($"{fieldName} phải là số nguyên dương!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                value = 0;
+                return false;
+            }
+
+            return true;
+        }
+        private void btn_Them_Click(object sender, EventArgs e)
+        {
+            string tenSP = cb_TenHang.Text;
+            if (string.IsNullOrEmpty(tenSP))
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra số lượng nhập vào
+            if (!TryParsePositiveInteger(txt_SoLuong.Text, out int soLuong, "số lượng"))
+            {
+                return;
+            }
+
+            // Kiểm tra giá nhập
+            if (!TryParsePositiveInteger(txt_GiaNhap.Text, out int giaNhap, "giá nhập"))
+            {
+                return;
+            }
+
+            // Kiểm tra sản phẩm có tồn tại trong danh sách gốc
+            SanPham sanPham1 = sanPhams.FirstOrDefault(t => t.TenSP == tenSP);
+            if (sanPham1 == null)
+            {
+                MessageBox.Show("Sản phẩm không tồn tại trong kho!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Hỏi xác nhận
+            DialogResult r = MessageBox.Show(
+                $"Bạn có muốn thêm SP: {tenSP} với SL: {soLuong} và giá thành: {giaNhap}?",
+                "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (r == DialogResult.No)
+            {
+                return;
+            }
+
+            // Kiểm tra và thêm/sửa sản phẩm trong danh sách đặt hàng
+            SanPham sanPham = sp_dat.FirstOrDefault(sp => sp.TenSP == tenSP);
+            if (sanPham != null)
+            {
+                sanPham.SoLuong += soLuong;
+            }
+            else
+            {
+                sanPham = new SanPham
+                {
+                    MaSP = sanPham1.MaSP,
+                    TenSP = sanPham1.TenSP,
+                    SoLuong = soLuong,
+                    Gia = giaNhap
+                };
+                sp_dat.Add(sanPham);
+            }
+
+            // Cập nhật giao diện
+            LoadSanPham1(sp_dat);
+            LoadSanPham(sanPhams);
+            LoadTong_Sl();
+
+            MessageBox.Show($"Thêm sản phẩm {tenSP} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            string tensp = cb_TenHang.Text;
+            if (tensp == "")
+                return;
+            DialogResult r;
+            r = MessageBox.Show($"Bạn có muốn xoá SP này: {tensp} ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (r == DialogResult.No)
+            {
+                return;
+            }
+
+            SanPham sanPhamToDelete = sp_dat.FirstOrDefault(sp => sp.TenSP == tensp);
+
+            if (sanPhamToDelete != null)
+            {
+                sp_dat.Remove(sanPhamToDelete);
+
+                LoadSanPham1(sp_dat);
+
+                MessageBox.Show($"Sản phẩm {tensp} đã được xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Sản phẩm không tồn tại trong danh sách!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            LoadTong_Sl();
+            LoadSanPham(sanPhams);
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+            string tensp = cb_TenHang.Text;
+
+            if (string.IsNullOrEmpty(tensp))
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm cần sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult r = MessageBox.Show($"Bạn có muốn sửa sản phẩm {tensp} với số lượng mới là: {txt_SoLuong.Text} và giá là: {txt_GiaNhap.Text} không?",
+                "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (r == DialogResult.No)
+            {
+                return;
+            }
+
+            if (!int.TryParse(txt_SoLuong.Text, out int sl) || sl < 0)
+            {
+                MessageBox.Show("Số lượng phải là số nguyên dương!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra giá nhập
+            if (!TryParsePositiveInteger(txt_GiaNhap.Text, out int giaNhap, "giá nhập"))
+            {
+                return;
+            }
+            SanPham sanPhamToUpdate = sp_dat.FirstOrDefault(sp => sp.TenSP == tensp);
+            if (sanPhamToUpdate == null)
+            {
+                MessageBox.Show("Sản phẩm không tồn tại trong danh sách đặt hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (sl == 0)
+            {
+                sp_dat.Remove(sanPhamToUpdate);
+                MessageBox.Show($"Sản phẩm {tensp} đã được xóa khỏi danh sách đặt hàng!",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LoadSanPham1(sp_dat); 
+                LoadTong_Sl(); 
+                return; 
+            }
+
+            sanPhamToUpdate.SoLuong = sl;
+            sanPhamToUpdate.Gia=giaNhap;
+            LoadSanPham1(sp_dat);
+            LoadSanPham(sanPhams);
+            LoadTong_Sl(); 
+
+            MessageBox.Show($"Sản phẩm {tensp} đã được cập nhật thành công!",
+                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txt_MaHD2_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_MaHD2 == null || txt_MaHD2.Text == "" || txt_MaHD2.Text == null)
+            {
+                btn_Them.Enabled = false;
+                btn_Sua.Enabled = false;
+                btn_Xoa.Enabled = false;
+            }
+            else
+            {
+                btn_Them.Enabled = true;
+                btn_Sua.Enabled = true;
+                btn_Xoa.Enabled = true;
+            }
+        }
+
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            DialogResult r;
+            r = MessageBox.Show($"Bạn có muốn lưu hoá đơn {txt_MaHD2.Text}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (r == DialogResult.No)
+            {
+                return;
+            }
+            conn.Open();
+            string checkQuery = "SELECT COUNT(*) FROM HD_NHAP WHERE MAHD_NHAP = @MaHD";
+            SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+            checkCmd.Parameters.AddWithValue("@MaHD", hoaDon.MaHD);
+            int count = (int)checkCmd.ExecuteScalar();
+
+            if (count > 0)
+            {
+                MessageBox.Show("Mã hóa đơn đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                conn.Close();
+                return;
+            }
+
+            hoaDonNhaps.Add(hoaDon);
+            //hoaDon.TongBill
+            hoaDon.TongBill = tong_bill;
+            string query = "INSERT INTO HD_NHAP " +
+               "VALUES (@MaHD, @MaNCC, @Ma_NV, @TongBill, @NgayNhap)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@MaHD", hoaDon.MaHD);
+            cmd.Parameters.AddWithValue("@MaNCC", hoaDon.MA_NCC);
+            cmd.Parameters.AddWithValue("@Ma_NV", hoaDon.Ma_NV);
+            cmd.Parameters.AddWithValue("@TongBill", hoaDon.TongBill);
+            cmd.Parameters.AddWithValue("@NgayNhap", hoaDon.Ngay);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            // Xử lý các sản phẩm trong hóa đơn xuất
+            slsp = sp_dat.Count();
+            if (slsp > 0)
+            {
+                foreach (var sp in sp_dat)
+                {
+                    conn.Open();
+                    string query1 = "INSERT INTO CTHD_NHAP " +
+                    "VALUES (@MaHD, @MaSP, @SoLuong, @GiaNhap)";
+                    SqlCommand cmd1 = new SqlCommand(query1, conn);
+                    cmd1.Parameters.AddWithValue("@MaHD", hoaDon.MaHD);
+                    cmd1.Parameters.AddWithValue("@MaSP", sp.MaSP);
+                    cmd1.Parameters.AddWithValue("@SoLuong", sp.SoLuong);
+                    cmd1.Parameters.AddWithValue("@GiaNhap", sp.Gia);
+                    cmd1.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            foreach (var sp in sanPhams)
+            {
+                foreach (var sp1 in sp_dat)
+                {
+                    if (sp.MaSP == sp1.MaSP)
+                    {
+                        sp.SoLuong = sp.SoLuong + sp1.SoLuong;
+                        conn.Open();
+                        string query2 = "UPDATE SANPHAM SET SOLUONG_SP = @SoLuong WHERE MA_SP = @MaSP";
+                        SqlCommand cmd2 = new SqlCommand(query2, conn);
+                        cmd2.Parameters.AddWithValue("@SoLuong", sp.SoLuong);
+                        cmd2.Parameters.AddWithValue("@MaSP", sp.MaSP);
+                        cmd2.ExecuteNonQuery();
+                        conn.Close();
+
+                    }
+                }
+            }
+            txt_MaHD2.Clear();
+            cb_TenHang.Text = "";
+            txt_GiaNhap.Clear();
+            txt_SoLuong.Clear();
+            picb_SanPham.Image = null;
+            dataGridView.Enabled = false;
+            cb_TenHang.Enabled = false;
+            txt_SoLuong.Enabled = false;
+            sp_dat.Clear();
+            MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadSanPham1(sp_dat);
+            LoadTong_Sl();
+        }
+
+        
     }
 }

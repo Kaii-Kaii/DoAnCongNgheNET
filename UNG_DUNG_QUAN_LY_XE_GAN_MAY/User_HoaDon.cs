@@ -88,12 +88,16 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             dataGridView.DataSource = sp;
 
             dataGridView.Columns["TenSP"].HeaderText = "Tên SP";
-            dataGridView.Columns["SoLuong"].HeaderText = "SL";
-
+            //dataGridView.Columns["SoLuong"].HeaderText = "SL";
+            if (dataGridView.Columns["SoLuong"] != null)
+            {
+                dataGridView.Columns["SoLuong"].HeaderText = "SL";
+                dataGridView.Columns["SoLuong"].Width = 9; // Điều chỉnh lại chiều rộng phù hợp
+            }
             // Ẩn các cột không cần thiết
             dataGridView.Columns["MaSP"].Visible = false;
             dataGridView.Columns["MoTa"].Visible = false;
-            dataGridView.Columns["GiaNhap"].Visible = false;
+            dataGridView.Columns["Gia"].Visible = false;
             dataGridView.Columns["TgBaoHanh"].Visible = false;
             dataGridView.Columns["AnhSP"].Visible = false;
             dataGridView.Columns["MaLoai"].Visible = false;
@@ -114,8 +118,8 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             //dataGridView1.Columns["Tongtt"].Width = 100;
             dataGridView1.Columns["MaSP"].Visible = false;
             dataGridView1.Columns["MoTa"].Visible = false;
+            dataGridView1.Columns["Gia"].Visible = false;
             dataGridView1.Columns["GiaBan"].Visible = false;
-            dataGridView1.Columns["GiaNhap"].Visible = false;
             dataGridView1.Columns["TgBaoHanh"].Visible = false;
             dataGridView1.Columns["AnhSP"].Visible = false;
             dataGridView1.Columns["MaLoai"].Visible = false;
@@ -249,7 +253,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             {
                 LoadSanPham(sanPhams.Where(t => t.TenSP == sanPham.TenSP).ToList());
                 txt_SoLuong.Clear();
-                txt_GiaBan.Text = sanPham.GiaBan.ToString().Split('.')[0];
+                txt_GiaBan.Text = sanPham.Gia.ToString().Split('.')[0];
                 string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
                 string imagePath = Path.Combine(projectPath, "image_xe", sanPham.AnhSP);
 
@@ -354,7 +358,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                     cmd1.Parameters.AddWithValue("@MaHD", hoaDon.MaHD);
                     cmd1.Parameters.AddWithValue("@MaSP", sp.MaSP);
                     cmd1.Parameters.AddWithValue("@SoLuong", sp.SoLuong);
-                    cmd1.Parameters.AddWithValue("@GiaBan", sp.GiaBan);
+                    cmd1.Parameters.AddWithValue("@GiaBan", sp.Gia);
                     cmd1.Parameters.AddWithValue("@Ngay", hoaDon.Ngay);
                     cmd1.Parameters.AddWithValue("@TgBaoHanh", sp.TgBaoHanh);
                     cmd1.ExecuteNonQuery();
@@ -545,7 +549,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                     MaSP=sanPham1.MaSP,
                     TenSP = sanPham1.TenSP,
                     SoLuong = soLuong,
-                    GiaBan = sanPham1.GiaBan,
+                    Gia = sanPham1.Gia,
                     TgBaoHanh=sanPham1.TgBaoHanh
                 };
                 sp_dat.Add(sanPham);
