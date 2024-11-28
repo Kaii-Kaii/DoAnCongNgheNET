@@ -178,6 +178,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 cb_TenHang.Enabled = true;
                 txt_SoLuong.Enabled= true;
                 txt_GiaNhap.Enabled = true;
+                dataGridView.Enabled = true;
             }
            
         }
@@ -497,6 +498,8 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             dataGridView.Enabled = false;
             cb_TenHang.Enabled = false;
             txt_SoLuong.Enabled = false;
+
+            dataGridView.Enabled = false;
             sp_dat.Clear();
             MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadSanPham1(sp_dat);
