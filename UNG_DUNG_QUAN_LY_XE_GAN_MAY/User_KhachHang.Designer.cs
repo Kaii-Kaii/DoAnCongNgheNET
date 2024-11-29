@@ -83,6 +83,7 @@
             this.btn_TimKiem.Text = "Tìm";
             this.btn_TimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_TimKiem.UseVisualStyleBackColor = true;
+            this.btn_TimKiem.Click += new System.EventHandler(this.btn_TimKiem_Click);
             // 
             // txt_ThongTin
             // 
@@ -145,6 +146,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(981, 322);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // grb_KH
             // 
@@ -214,6 +216,7 @@
             this.btn_Sua.TabIndex = 16;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Xoa
             // 
@@ -226,6 +229,7 @@
             this.btn_Xoa.TabIndex = 15;
             this.btn_Xoa.Text = "Xoá";
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Them
             // 
@@ -238,6 +242,7 @@
             this.btn_Them.TabIndex = 14;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // lb_SDT
             // 
@@ -325,6 +330,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "User_KhachHang";
             this.Size = new System.Drawing.Size(1106, 800);
+            this.Load += new System.EventHandler(this.User_KhachHang_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.grb_DSKH.ResumeLayout(false);
