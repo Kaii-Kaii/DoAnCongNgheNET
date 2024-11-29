@@ -229,5 +229,46 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 Load_HD_XUAT();
             }
         }
+
+        private void Xuat_Excel_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            app.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Exported from gridview";
+            worksheet = workbook.ActiveSheet;
+            for (int i = 1; i < dataGridView.Columns.Count + 1; i++)
+            {
+                worksheet.Cells[1, i] = dataGridView.Columns[i - 1].HeaderText;
+            }
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView.Columns.Count; j++)
+                {
+                    if(dataGridView.Rows[i].Cells[j].Value != null)
+                        worksheet.Cells[i + 2, j + 1] = "'" + dataGridView.Rows[i].Cells[j].Value.ToString();
+                    else
+                    {
+                        worksheet.Cells[i + 2, j + 1] = "";
+                    }
+                }
+            }
+        }
+
+        private void CLEAR()
+        {
+            txt_HoaDon.Text = "";
+            txt_MaNhanVien.Text = "";
+            txt_TongBill.Text = "";
+            dt_NgayHoaDon.Value = DateTime.Now;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CLEAR();
+        }
     }
 }
