@@ -19,6 +19,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             DiaChi = diaChiKH;
             Mail = mail;
         }
-
+        public KhachHang() { }
     }
 }

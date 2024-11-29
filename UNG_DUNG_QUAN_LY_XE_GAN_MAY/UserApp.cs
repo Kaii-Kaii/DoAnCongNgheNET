@@ -119,6 +119,25 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             InitializeComponent();
             CurrentNhanVien = nhanVien;
         }
+        public void LoadInfor()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT NHANVIEN.CHUCVU,NHANVIEN.SDT_NV,NHANVIEN.TENNV,NHANVIEN.GIOITINH,NHANVIEN.NGAYSINH,NHANVIEN.DIACHI_NV" +
+                                             " FROM NHANVIEN " +
+                                             "WHERE MA_NV='" + CurrentNhanVien.Login + "'", conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                CurrentNhanVien.MaNV = CurrentNhanVien.Login;
+                CurrentNhanVien.TenNV = reader["TENNV"].ToString();
+                CurrentNhanVien.SDT_NV = reader["SDT_NV"].ToString();
+                CurrentNhanVien.ChucVu = reader["CHUCVU"].ToString();
+                CurrentNhanVien.GioiTinh = reader["GIOITINH"].ToString();
+                CurrentNhanVien.NgaySinh = reader["NGAYSINH"].ToString();
+                CurrentNhanVien.DiaChi = reader["DIACHI_NV"].ToString();
+            }
+            conn.Close();
+        }
         private void btn_KhachHang_Click(object sender, EventArgs e)
         {
             User_KhachHang khachHang = new User_KhachHang();
@@ -186,6 +205,22 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
 
             this.Close(); // Đóng form UserApp
         }
+        public string GetMiddleAndLastName(string fullName)
+        {
+            var words = fullName.Trim().Split(' ');
+
+            if (words.Length == 1)
+            {
+                return fullName;
+            }
+
+            if (words.Length == 2)
+            {
+                return fullName;
+            }
+
+            return string.Join(" ", words.Skip(1));
+        }
 
         private void frm_UserApp_Load(object sender, EventArgs e)
         {
@@ -194,18 +229,17 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             LoadSP();
             LoadKH();
             LoadNCC();
+            LoadInfor();
+            lb_br3.Text = GetMiddleAndLastName(CurrentNhanVien.TenNV);
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
-            if (pn_bg2.Controls.Count > 1)
-            {
-                pn_bg2.Controls.Clear();
-            }
-            if (!picb_bgrUser.Visible)
-            {
-                picb_bgrUser.Show();
-            }
+
+            pn_bg2.Controls.Clear();
+            pn_bg2.Controls.Add(picb_bgrUser);
+
+
         }
     }
 }

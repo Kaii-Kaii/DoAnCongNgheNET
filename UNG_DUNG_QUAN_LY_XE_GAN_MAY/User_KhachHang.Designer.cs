@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_TimKiem = new System.Windows.Forms.Button();
             this.txt_ThongTin = new System.Windows.Forms.TextBox();
@@ -138,11 +139,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(20, 39);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(981, 322);
             this.dataGridView1.TabIndex = 0;
@@ -169,7 +173,6 @@
             // 
             // txt_Mail
             // 
-            this.txt_Mail.Enabled = false;
             this.txt_Mail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Mail.Location = new System.Drawing.Point(519, 116);
             this.txt_Mail.Name = "txt_Mail";
@@ -178,7 +181,6 @@
             // 
             // txt_DiaChi
             // 
-            this.txt_DiaChi.Enabled = false;
             this.txt_DiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_DiaChi.Location = new System.Drawing.Point(519, 57);
             this.txt_DiaChi.Name = "txt_DiaChi";
@@ -256,7 +258,6 @@
             // 
             // txt_TKH
             // 
-            this.txt_TKH.Enabled = false;
             this.txt_TKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TKH.Location = new System.Drawing.Point(185, 116);
             this.txt_TKH.Name = "txt_TKH";
@@ -265,7 +266,6 @@
             // 
             // txt_SDT
             // 
-            this.txt_SDT.Enabled = false;
             this.txt_SDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_SDT.Location = new System.Drawing.Point(185, 57);
             this.txt_SDT.Name = "txt_SDT";

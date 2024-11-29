@@ -31,25 +31,7 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
             cb_GioiTinh.Items.Add("Khác");
             cb_GioiTinh.SelectedIndex = 0;
         }
-        public void LoadInfor()
-        {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT NHANVIEN.CHUCVU,NHANVIEN.SDT_NV,NHANVIEN.TENNV,NHANVIEN.GIOITINH,NHANVIEN.NGAYSINH,NHANVIEN.DIACHI_NV" +
-                                             " FROM NHANVIEN " +
-                                             "WHERE MA_NV='" + CurrentNhanVien.Login + "'", conn);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                CurrentNhanVien.MaNV = CurrentNhanVien.Login;
-                CurrentNhanVien.TenNV = reader["TENNV"].ToString();
-                CurrentNhanVien.SDT_NV = reader["SDT_NV"].ToString();
-                CurrentNhanVien.ChucVu = reader["CHUCVU"].ToString();
-                CurrentNhanVien.GioiTinh = reader["GIOITINH"].ToString();
-                CurrentNhanVien.NgaySinh = reader["NGAYSINH"].ToString();
-                CurrentNhanVien.DiaChi = reader["DIACHI_NV"].ToString();
-            }
-            conn.Close(); 
-        }
+        
         public void LoadHDX()
         {
             conn.Open();
@@ -115,7 +97,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         private void User_ThongTinCaNhan_Load(object sender, EventArgs e)
         {
             LoadGioiTinh();
-            LoadInfor();
             LoadHoaDonXuat();
             LoadHoaDonNhap();
             txt_MaNV.Text = CurrentNhanVien.MaNV;
@@ -194,7 +175,6 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
                 SqlCommand cmd1 = new SqlCommand("UPDATE TAIKHOAN_NV SET PASS = '" + txt_Pass.Text + "'", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                LoadInfor();
                 MessageBox.Show("Sửa thông tin nhân viên thành công");
                 btn_ChinhSua.Text = "Chỉnh sửa";
                 btn_ChinhSua.BackColor = Color.AliceBlue;
