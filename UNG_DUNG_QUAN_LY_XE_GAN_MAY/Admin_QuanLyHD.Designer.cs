@@ -58,6 +58,7 @@
             this.cb_TNCC = new System.Windows.Forms.ComboBox();
             this.lb_TNCC = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.Xuat_Excel = new System.Windows.Forms.Button();
             this.grb_DSNCC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.grb_NCC.SuspendLayout();
@@ -256,6 +257,7 @@
             this.button1.TabIndex = 20;
             this.button1.Text = "Làm mới";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // grb_LocNCC
             // 
@@ -407,10 +409,24 @@
             this.button3.Text = "In ";
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // Xuat_Excel
+            // 
+            this.Xuat_Excel.BackColor = System.Drawing.Color.Azure;
+            this.Xuat_Excel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Xuat_Excel.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.Xuat_Excel.Location = new System.Drawing.Point(483, 164);
+            this.Xuat_Excel.Name = "Xuat_Excel";
+            this.Xuat_Excel.Size = new System.Drawing.Size(98, 37);
+            this.Xuat_Excel.TabIndex = 22;
+            this.Xuat_Excel.Text = "Xuất Exel";
+            this.Xuat_Excel.UseVisualStyleBackColor = false;
+            this.Xuat_Excel.Click += new System.EventHandler(this.Xuat_Excel_Click);
+            // 
             // Admin_QuanLyHD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Xuat_Excel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.grb_LocNCC);
             this.Controls.Add(this.grb_NCC);
@@ -461,5 +477,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.RadioButton radio_HD_Xuat;
         private System.Windows.Forms.RadioButton radio_HD_Nhap;
+        private System.Windows.Forms.Button Xuat_Excel;
     }
 }
