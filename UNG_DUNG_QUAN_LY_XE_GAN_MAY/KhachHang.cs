@@ -12,6 +12,13 @@ namespace UNG_DUNG_QUAN_LY_XE_GAN_MAY
         public string TenKH { get; set; }
         public string DiaChi { get; set; }
         public string Mail { get; set; }
-        
+        public KhachHang(string sdtKH, string tenKH, string diaChiKH, string mail)
+        {
+            SDTKH = sdtKH;
+            TenKH = tenKH;
+            DiaChi = diaChiKH;
+            Mail = mail;
+        }
+
     }
 }
